@@ -1,0 +1,134 @@
+## Decisiones
+
+### 2026-01-02 (hero — sin mención de marca)
+- Se retira *Generac* de la ficha lateral del `Hero` (evita anclar toda la landing a un proveedor; el catálogo y profundidad de marca vive en `/generadores`).
+- `heroTrust` deja de incluir “Atención en Monterrey” (la geografía queda en el kicker/SEO sin repetirla como píldora); la grilla pasa a 3 columnas en `sm+` para componer limpio.
+- En `/generadores`, el hero y el copy de contacto dejan de mencionar *Generac* explícitamente; el catálogo sigue siendo el espacio natural para la profundidad del fabricante.
+- Fondos de hero en rutas dedicadas: `/paneles-solares` y `/generadores` incorporan imágenes full-bleed bajo el titular, con doble capa (overlay + rejilla) para sostener contraste sin perder el look corporativo.
+- `GeneratorBenefits` se eleva a layout institucional premium: cabecera oscura con chips de criterio + tarjetas con acento vertical, iconos y hover; mantiene el texto de beneficios para no introducir claims nuevos.
+- `SolarBenefits` se eleva a layout institucional premium: cabecera oscura con chips de criterio + tarjetas con acento vertical, iconos y hover; mantiene el texto técnico de beneficios sin alterar el alcance funcional.
+- `BusinessLines` pasa a tarjetas con **foto de fondo** (activos en `public/`) y bloque de contenido en cristal claro, para reforzar escaneo visual por línea sin perder legibilidad.
+- Segunda iteración visual en `BusinessLines`: se elimina el “cristal” como contenedor principal y se adopta layout editorial corporativo (media top + contenido inferior sobre blanco + CTA sólido), logrando lectura más limpia y percepción más institucional.
+- Tercer ajuste UX: la tarjeta entera (imagen + copy + CTA) es un solo `Link` a la ruta de cada solución, evitando anidar `<a>` y preservando un foco accesible (ring `focus-visible`).
+- Cuarto ajuste de copy en `BusinessLines`: se elimina el párrafo bajo el título; el H2 sostiene el mensaje sin redundancia. Se recalibran los `data-stagger` de las tarjetas a `index + 2` (antes se compensaba un párrafo intermedio).
+- Rediseño de `InstitutionalValue`: de grilla simple a bloque institucional de alto contraste (panel superior + tarjetas inferiores con iconografía), priorizando jerarquía visual, claridad ejecutiva y ritmo vertical premium.
+- Ajuste de copy en “Continuidad y ahorro” para retirar repetición (“respaldo automático con generación de respaldo”) y reforzar lenguaje empresarial.
+- Rediseño de `HowWeWorkBrief` hacia lenguaje ejecutivo/creativo: cabecera estratégica con chips de control y timeline de 3 pasos en tarjetas con iconos, conectores y microinteracciones. Objetivo: más impacto visual sin perder legibilidad institucional.
+
+### 2026-04-25 (hero — acentuación y tono)
+- Ajuste de titular a ortografía completa: “Especialistas en generación de energía”, para sostener credibilidad institucional (acentos y consistencia) sin cambiar intención comercial de la oferta.
+
+### 2026-04-24 (arquitectura institucional multipágina)
+- **Problema**: la home concentraba todo (solar + catálogo Generac + contenido institucional), generando scroll largo y mezcla de objetivos narrativos.
+- **Decisión**: separar la experiencia en tres rutas:
+  - `/` institucional (mensaje de empresa, propuesta de valor, dos líneas de negocio y distribución de tráfico),
+  - `/paneles-solares` para profundidad solar,
+  - `/generadores` para profundidad de respaldo y catálogo técnico.
+- **Reutilización priorizada**: se conserva contenido técnico ya implementado (`Solar`, `GeneratorsCatalog`, data arrays, imágenes en `public/`) y se redistribuye con nuevos wrappers por dominio.
+- **Mantenibilidad**: se crean secciones compartidas (`ContactSection`, `BusinessLines`, `InstitutionalValue`, `HowWeWorkBrief`) y nuevos bloques específicos en `sections/solar/*` y `sections/generators/*`.
+- **Navegación**: `Header` y `Footer` pasan a rutas limpias con contacto consistente por `#contacto` en cada página.
+
+### 2026-04-22 (scroll reveal — legibilidad del movimiento)
+- El encabezado del catálogo ya disparaba bien el IO; el feedback era “casi no se nota”. Se sube **recorrido** (`40px` en `.reveal-t`), **duración** (`0.9s`) y **stagger** a **140ms** entre pasos (eyebrow → raya) para que la cascada se lea sin volverse teatral. Misma grilla de delay para `data-stagger` 4–10 y `.reveal-stagger-stack` para no desincronizar otras secciones. Fichas: un poco más de Y y de tiempo en texto/imagen, escala en foto **0.96** (sigue siendo sutil).
+
+### 2026-04-22 (catálogo Generac — reveal del encabezado “invisible”)
+- **Causa**: `RevealGroup` envolvía el `<section>` completo (intro + todas las fichas). El `IntersectionObserver` con `threshold: 0` marcaba `reveal-root--visible` en cuanto **cualquier** subrectángulo del section intersectaba el viewport (p. ej. solo la última ficha). El copy “Catálogo Generac / Respaldo…” podía pasar a visible **fuera de la zona visible** o el usuario llegaba al título ya con la transición terminada → sensación de “no hay animación”.
+- **Corrección**: `<section id="generadores">` fijo en el servidor; `RevealGroup` solo alrededor del bloque `max-w-3xl` del encabezado (`as="div"`). Las fichas siguen con `GeneratorArticleReveal` + CSS por `data-step`.
+
+### 2026-04-22 (catálogo Generac — reveal interno por tarjeta)
+- Las fichas necesitan **texto e imagen en secuencia** al activarse la tarjeta, no solo opacidad de la tarjeta entera vía `StaggeredFade`. **Un observer por `<article>`** (`GeneratorArticleReveal`) aplica `gen-article-reveal--in` una sola vez; el escalonado es **CSS** (`data-step` 0–7: bloques de copy, specs, criterio, CTAs y al final la columna visual con `.gen-reveal-media`). El orden de pasos es **siempre texto → imagen** en todos los anchos para que coincida con el flujo en móvil (texto arriba, imagen abajo); en desktop con imagen a la izquierda la animación sigue ese orden lógico de lectura del bloque. Borde entre columnas: `md:border-l` o `md:border-r` según la fila alterna.
+
+### 2026-04-22 (reveal en scroll)
+- Sistema en dos capas: **RevealGroup** (sección) con cascada de texto por `data-stagger`; **StaggeredFade** hijo con contexto (sin segundo observer) + retardo `activateAfterMs` para que las rejillas sigan a eyebrow/título. Imágenes: variante `withMedia` (scale 0.98 en `.stagger-fade__item`). Hero sigue con animación CSS on-load, sin IO.
+- **Corrección IO**: el `section` observado a veces es más alto que el viewport; con `threshold: 0.2` el ratio nunca se cumplía, textos invisibles. Se pasa a `threshold: 0` + `isIntersecting` (cualquier entrada al viewport basta una vez).
+
+### 2026-04-22 (Hero — oferta)
+- Dejar de sugerir un único "proyecto integrado" forzado: el h1 y el lead explicitan **dos líneas de negocio** (FV y respaldo con generador) y que la integración en una sola obra es **opcional** según el caso. OG actualizado en la misma línea.
+
+### 2026-04-22 (Solar — titular)
+- Sustitución de "fotovoltaico / dimensionado" por formulación coloquial y directa, sin perder intención técnica (consumo real).
+
+### 2026-04-22 (Proceso — presentación institucional)
+- Misma lenguaje visual que Cómo opera / catálogo: **un solo contenedor**, separación fina entre celdas (`gap-px`), sin “columnas flotantes”. Pictos laterales en cajetín **eliminados**; solo queda el badge 01–04 para lectura directa.
+- Copy: microtexto bajo el h2 (entregables) + nota al pie (CFE, obra, financiamiento) sin duplicar los cuatro `processSteps` en `content.ts`.
+
+### 2026-04-22 (Cómo opera + Beneficios — densidad)
+- Se sustituyen tres/four “cards flotantes” con **un recuadro** y `divide` interno (pasos) o **grid** compacto (beneficios) para quitar el doble margen: menos vacío visual sin bajar el tamaño de fuente.
+- Misma regla de acento bajo título que en catálogo Generac.
+
+### 2026-04-22 (catálogo Generac — presentación)
+- Ficha larga: tarjeta a dos columnas (texto + imagen) con costura `border` entre columnas; numeración fija a `N / total` para escaneo. Especificaciones en recuadros ligeros; bloque *liquid cooled* con división 3+2 en el modelo de datos existente (sin tocar `content`).
+
+### 2026-04-22 (catálogo Generac — centrado de fotos)
+- La columna de imagen ahora estira a la altura de la ficha y centra el `aspect-[4/3]`; `object-center` fijo en la imagen para alinear el encuadre con el recuadro (antes dependía de `objectPositionClass` y el bloque quedaba arriba si la ficha crecía).
+
+### 2026-04-22 (transiciones UI — sin API)
+- Entrada de bloques bajo el fold con `StaggeredFade` + `.stagger-fade__item` (cascada corta) para no competir con el hero; `ScrollReveal` afinado a misma sensación. Sin animaciones pesadas: solo opacity/transform y respeto a `prefers-reduced-motion`.
+
+### 2026-04-22 (Solar — asistente B0, sin API)
+- Panel «Contexto para tu consulta» con kWh bimestre, segmento y tarifa; mensaje `buildSolarInquiryMessage` + CTA y `WHATSAPP_SFV_QUICK` para ruta mínima. Cumple intención de “simulador” ligero sin cálculo engañoso: disclaimer recibos 12m. `Solar` ya no requiere `whatsappHref` desde `page`.
+
+### 2026-04-22 (Solar — imágenes por aplicación)
+- La columna «Aplicaciones» pasa a tarjetas con cabecera fotográfica por segmento. Datos en `solarApplicationBlocks` (imagen obligatoria por bloque); sistema FV en `solarSystemItems`. Mismas PNG que proyectos por coherencia (`residencia`, `comercio`, `industria`); sustituir en `content.ts` si se desean archivos exclusivos FV.
+- Reorden: bloque “Paneles solares” (texto + criterio + botones) primero, a ancho completo; debajo, sección Aplicaciones en rejilla horizontal (`lg:grid-cols-3`, `sm:2` cols) y pie de monitoreo.
+- Imágenes FV por segmento: `residencial.png` / `comercial.png` / `industrial.png` (sustituyen `residencia` / `comercio` / `industria` en `solarApplicationBlocks`).
+
+### 2026-04-22 (WhatsApp)
+- Número operativo: **81 1411 8767** (Monterrey) en E.164 `528114118767`, centralizado en `WHATSAPP_DEFAULT_E164` y misma lógica de override por `NEXT_PUBLIC_WHATSAPP_NUMBER` en `page.tsx`, `LeadForm` y `WhatsAppFab`.
+
+### 2026-04-22 (hogares.png — encuadre)
+- `hogares.png` usa `fit: "contain"` para que la composición entera quede visible dentro del `aspect-[4/3]`; el fondo `#0c2140` del contenedor rellena bandas si la proporción del PNG no coincide. Contenedor con `min-w-0` para evitar desbordes raros en grid. Resto de bloques: `cover` por omisión.
+
+### 2026-04-22 (imágenes catálogo y proyectos)
+- Se enlazan activos en `public/` vía `next/image` (`fill` + `object-cover`, `sizes` acorde a 50% / 33% de columna). Mapeo Generac: título de bloque → `hogares`, `liquid`, `industriales`, `moviles`, `complemetarios` (así está el nombre del PNG en repo). Proyectos: `residencia`, `comercio`, `industria` para Residencial / Comercial / Industria ligera.
+- Overlay inferior en el catálogo (gradiente corporativo) para título y tag legibles sobre fotos dispares. Proyectos: chip de segmento con fondo semitransparente y `backdrop-blur-sm`; se retira el badge «En construcción» y se ajusta el pie a fotos representativas.
+
+### 2026-04-22 (tarjeta hero «Qué incluye»)
+- Se sustituye el `backdrop-blur-[2px]` casi imperceptible por `backdrop-blur-xl` y un velo `slate-950` con opacidad media: el video queda difuminado detrás del panel sin volver al glass pesado del hero antiguo. Ajuste fino de opacidades del texto secundario para mantener jerarquía.
+
+### 2026-04-22 (noche — pulido)
+- **Auditoría y pasada de refinamiento**: sin reestructurar. Diagnóstico: redundancia entre `ValueProposition` + `Solutions` + `HowItWorks`, hero con columna estrecha y 3 CTAs (incluyendo FAB redundante), catálogo Generac con `tag`/`subtitle` solapados y tabla de specs rígida, benefits con ítems solapados (6 → 4), inconsistencias de ancho (`max-w-6xl`/`max-w-7xl`) y tamaño de botón (`h-11`/`h-12`).
+- **Decisión estructural (mínima)**: se elimina `ValueProposition`; su idea ya vive en el hero lateral y en `Solutions`. El flujo pasa de 12 a 11 secciones, quita una pantalla entera de redundancia sin perder mensaje.
+- **Hero**: se rescribe el headline para unificar los dos conceptos ("paneles solares y sistemas de respaldo, diseñados como un solo proyecto"). La tarjeta lateral ya no repite el discurso, ahora lista concretos técnicos (CFE, A.T.S., BESS) + nota de distribuidor/financiamiento, que es la única mención ligera a Mejoravit en el hero.
+- **Catálogo Generac**: se unifica el tratamiento de bloques con grid tipográfico de specs (label uppercase + valor semibold) en lugar de tabla con columna fija; más aire y más institucional. Tags reducidos a etiquetas de 2–3 palabras para jerarquía clara. Se elimina el texto "Imagen del equipo disponible bajo solicitud" porque transmitía debilidad comercial.
+- **Benefits**: 6 → 4. Se eliminan ítems que se solapaban ("Menor exposición a interrupciones" con "Continuidad operativa", "Mayor control energético" con "Monitoreo del sistema", "Soluciones a medida" por vaguedad).
+- **Financing**: la card dentro de card proyectaba "banner financiero". Se convierte en grid tipográfico con divisores; queda como apoyo, no como sección de anuncio.
+- **FinalCTA**: el CTA principal antes duplicaba el del formulario (que queda inmediatamente arriba). Se intercambia: WhatsApp como primario para ofrecer una salida diferente al usuario que ya vio/omitió el formulario.
+- **Consistencia**: se unifican anchos (`max-w-7xl` en CTA y Footer), tamaños h2 (`2.15rem`), tracking de kickers (`0.22em`) y formato de opacidades arbitrarias (`/[0.06]`).
+
+### 2026-04-22 (tarde)
+- **Refactor arquitectónico de la home**: se descompone `page.tsx` en 13 secciones independientes bajo `src/app/_components/sections/*` y se centraliza el contenido (`src/lib/content.ts`). Objetivo: mantenibilidad, escalabilidad y un discurso unificado “empresa técnica premium” (Tesla Energy-like) evitando glassmorphism pesado y copy de agencia.
+- **Header** recibe menú institucional nuevo (Soluciones / Cómo funciona / Generadores / Paneles solares / Proyectos / Contacto) con estado de scroll y menú móvil controlado.
+- **Catálogo Generac**: la base de datos está anclada al PDF del proveedor. No se inventan cifras comerciales; donde no hay foto se usa un visual geométrico con grid (placeholder explícito) para preservar jerarquía.
+- **Sección Proyectos** se entrega en modo “estructura lista” con badge “En construcción”: respeta la regla de no fabricar testimonios/casos.
+- **Mejoravit** baja a una sección discreta con checklist de aplicabilidad; no domina narrativa.
+- **Hero** se reconstruye a dos columnas (copy izquierda + tarjeta lateral con resumen del sistema), manteniendo el video y las animaciones `hero-anim-*`; se sustituye el overlay radial del hero previo por un overlay de dos gradientes planos para un look más industrial y menos “dramático”.
+
+### 2026-04-22
+- Se **equilibró el mensaje** frente a la percepción “solo generadores”: paneles (ahorro), Generac (continuidad), Mejoravit (vía de pago), dos secciones nuevas (duo + híbrido) y bloque de tres pilares con FV primero en el orden de oferta.
+- Se reescribió el **contenido visible** hacia lenguaje de proveedor: dimensionado por carga, transferencia, comisionado, y límites explícitos en Mejoravit/IMSS, manteniendo el contrato de formulario (Zod) y claves de mensaje a WhatsApp.
+- El HERO se modeló como **grid 1→2 columnas** (contenido siempre a la izquierda; en desktop la mitad derecha deja aire a la toma de video), con **un solo** `<video>` full-bleed, overlay direccional fijo y animaciones de entrada vía clases `hero-anim-*` reemplazando el bloque `hero-reveal` único.
+- Se reorientó la landing a un **lenguaje y layout corporativos** (Tesla/SunPower–like): mucho aire, tipografía clara, microinteracción en hover, sin cristal glass dominante en el hero.
+- Se priorizó **revelado al scroll** (IntersectionObserver) con transiciones de 500 ms y alternativa vía `setTimeout(0)` para `prefers-reduced-motion` para no violar reglas de lint por `setState` síncrono en `useEffect`.
+- **Composición del copy del HERO (UX)**: kicker, jerarquía oferta (extrabold, grande) vs beneficio (semibold, secundario), separador, tarjeta para párrafo+Mejoravit, píldoras de confianza y línea de cobertura alineada a la columna.
+- **Hero (iteración)**: oferta a tamaño h1 (Adquiere… con nosotros) y beneficio a tamaño secundario; kicker “Monterrey” sin “y AM”.
+- **Hero (ancho + industrial)**: se abandona la columna izquierda + hueco derecho: stack centrado en `max-w-6xl`, overlay con foco central (radial) para legibilidad, rótulo uppercase con tracking amplio, banda horizontal en el cuerpo en móvil, CTA de descenso a la primera sección de contenido.
+- **Copy (Enfoque / Sistema)**: lenguaje más institucional y lineal: una idea por frase, Mejoravit desligado del diseño técnico, tarjetas con rol claro (FV vs Generac) y bloque de integración con criterio documentado + viñetas de comprobación.
+- **Arquitectura de contenido (FV / respaldo)**: se abrieron dos deep dives en `#solar` y `#respaldo` para trasladar la propuesta de producto del tono institucional al tono informativo. El ahorro se explica vía CFE (tarifa doméstica, DAC, interconexión CIL, medidor bidireccional) y el respaldo vía contexto de apagones en el norte del país, A.T.S. y combustibles (GN/GLP). Se añadieron cifras de referencia honestas (rangos, no promesas cerradas) y cada sección cierra con dos CTAs — WhatsApp para cotizar y evaluación técnica para documentar.
+- **FAQ institucional**: se ampliaron preguntas a 11 entradas cubriendo CFE, DAC, interconexión, dimensionamiento, arranque del grupo, combustibles, mantenimiento y convivencia FV+respaldo. El objetivo es que el usuario responda objeciones comunes sin abandonar la landing.
+- El **header** dejó de ser solo “sobre video”: al hacer scroll pasa a **barra clara** con tipografía oscura para continuidad en secciones de fondo claro, manteniendo CTA a `#evaluacion`.
+
+### 2026-04-21
+- Se eligió **Next.js + Tailwind** para velocidad de implementación, SEO básico y performance.
+- En Bloque B0 no se implementa backend ni endpoints; los leads se capturan vía **redirección a WhatsApp** con mensaje precargado.
+- Se estandarizó la identidad visual con **paleta obligatoria azul/verde** como variables CSS y se removieron fondos oscuros para una estética premium, tecnológica y sustentable.
+- Se implementó **HERO con video de fondo** servido desde `public/video_hero.mp4` y un overlay claro + gradiente azul→verde para mantener legibilidad y consistencia con el logo.
+- Se ajustó el tratamiento visual del video (overlay más ligero + contraste base + fade) para un look más **profesional** sin perder legibilidad en CTAs.
+- Para evitar que el video “no se note”, se eliminó el **velo blanco** y la legibilidad se movió a un **card** (glass) sobre el video. También se removió el bloque visual “Casa protegida” del lado derecho del HERO.
+- Se agregó soporte para **logo en header** vía `public/logo.png` (con fallback si aún no existe).
+- (Histórico) En una iteración anterior, el **card** del hero también duplicaba el video de fondo.
+- Se simplificó el HERO para evitar duplicación: **un único `<video>`** como background **full-viewport** (100vw/100vh) con `object-cover`, overlay oscuro y contenido con z-index superior.
+- Se rediseñó el HERO a estética premium: overlay en gradiente (no sólido), texto blanco con contraste, CTAs institucionales y animación `hero-reveal`.
+- Se rediseñó el header para integrarse con el video: `position: fixed`, transparente, links en blanco y glass/blur ligero al hacer scroll.
+- Se enriquecieron las secciones posteriores al hero con patrones visuales consistentes (hover lift, rings suaves, blobs de gradiente), manteniendo la paleta ENERGRÜN.
+
