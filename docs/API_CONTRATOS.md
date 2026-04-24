@@ -21,3 +21,17 @@ Mensaje precargado en WhatsApp incluye:
 - Enlace “WhatsApp sin rellenar” usa el texto corto `WHATSAPP_SFV_QUICK` (no el mensaje largo de la home).
 - **No** sustituye evaluación técnica ni recibos reales: el copy lo indica; la cotización formal sigue según levantamiento.
 
+### Asistente de contacto (FAB WhatsApp, solo cliente, B0)
+- Sin endpoints nuevos: el botón flotante abre un mini-chat guiado y al finalizar redirige a `wa.me` con resumen estructurado.
+- Flujo guiado:
+  - `topic`: `"solar" | "generadores" | "integrado"`
+  - `faqId`: identificador de duda dentro del tema seleccionado
+  - Si `topic` es `"generadores"` o `"integrado"`:
+    - `generatorType`: `"residencial" | "comercial" | "industrial" | "movil" | "complementario" | "noSe"`
+    - `fuelType`: `"gasLp" | "gasNatural" | "diesel" | "noSe"`
+    - `backupPriority`: `"total" | "criticas" | "contingencia" | "noSe"`
+  - `segment`: `"residencial" | "comercial" | "industrial"`
+  - `cotizaEnIMSS`: `"si" | "no"`
+- Validación: `contactChatbotLeadSchema` (Zod) antes de construir mensaje final, incluyendo regla condicional para requerir perfilado de generador cuando aplique.
+- Fallback: opción “WhatsApp directo” conserva el mensaje general de contacto.
+

@@ -1,5 +1,28 @@
 ## Decisiones
 
+### 2026-04-24 (chatbot FAB: filtro más profundo en generadores)
+- Se amplía el flujo de chatbot para casos de `generadores` e `integrado` con tres preguntas nuevas: tipo de generador de interés, combustible disponible y prioridad de respaldo.
+- Objetivo: mejorar pre-calificación antes de pasar a WhatsApp y entregar al asesor un contexto inicial más accionable.
+- En Zod se aplica validación condicional: esos tres campos son obligatorios cuando el tema requiere perfilado de respaldo.
+
+### 2026-04-24 (contacto: mini-chat previo a WhatsApp)
+- El FAB de WhatsApp evoluciona de enlace directo a asistente guiado en cliente para reducir fricción de prediagnóstico: tema (solar/generadores/hibrido), duda principal, segmento e IMSS.
+- Se responde una FAQ breve dentro del panel y luego se construye un resumen técnico-comercial para `wa.me`, manteniendo el objetivo de conversión a chat humano.
+- Validación estricta con Zod (`contactChatbotLeadSchema`) antes de construir el mensaje final; no se agregan endpoints ni backend.
+- Se conserva fallback “WhatsApp directo” para usuarios que prefieren saltar el flujo guiado.
+
+### 2026-04-24 (responsive integral: mobile/tablet/desktop)
+- Se ejecuta barrido de responsividad en páginas `/`, `/paneles-solares` y `/generadores` con foco en: evitar overflow horizontal, mantener jerarquía tipográfica y asegurar CTAs usables en pantallas angostas.
+- `Header`: ajustes de escalado de logo y espaciados en móvil; navegación desktop activa desde `lg` (antes `xl`) para mejorar UX en laptops/tablets landscape; botón/hamburguesa alineados con el mismo breakpoint.
+- Heroes (`Hero`, `SolarHero`, `GeneratorsHero`) y `FinalCTA`: se fuerza `overflow-x-clip` en secciones full-bleed, se recalibra tipografía/espaciado en móvil y CTAs pasan a ancho completo en pequeños breakpoints.
+- `Solar` y `GeneratorsCatalog`: botones de acción por bloque pasan a `w-full` en móvil para evitar cortes y mejorar tap targets.
+- `WhatsAppFab`: se adapta a safe areas (`env(safe-area-inset-*)`), reduce padding en pantallas chicas y oculta etiqueta en anchos extremos para no invadir contenido.
+- `Footer`: centrado y composición móvil refinada para lectura limpia antes del split en desktop.
+
+### 2026-04-24 (estáticos: favicon y consola 404)
+- El 404 a `/favicon.ico` ocurría porque no existía el archivo bajo `public/` ni icono vía `app/`. Los navegadores lo solicitan por convención; se genera un ICO a partir de `logo1.png` (redimensionada) y se declara en `metadata.icons` (`icon` + `apple` apuntando a `logo1.png` para *touch icon*). El mensaje adicional en consola como **«(índice):1 Failed to load resource: 404»** suele ser el mismo tipo de fallo (recurso iniciado en el contexto del documento HTML) o deja de repetirse al existir el favicon; no se detectaron otras rutas rotas: todas las `*.png` / `*.mp4` referenciadas en código coinciden con archivos reales (mayúsculas incluidas).
+- Se añade prueba de regresión en `publicStaticAssets.test.ts` con la lista de nombres requeridos alineada a `content`, `pageHeroBackgrounds`, `Header` y `Hero`.
+
 ### 2026-01-02 (hero — sin mención de marca)
 - Se retira *Generac* de la ficha lateral del `Hero` (evita anclar toda la landing a un proveedor; el catálogo y profundidad de marca vive en `/generadores`).
 - `heroTrust` deja de incluir “Atención en Monterrey” (la geografía queda en el kicker/SEO sin repetirla como píldora); la grilla pasa a 3 columnas en `sm+` para componer limpio.

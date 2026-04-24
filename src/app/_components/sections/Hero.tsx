@@ -14,7 +14,7 @@ export function Hero(props: Props) {
     <section
       id="top"
       aria-label="ENERGRÜN"
-      className="relative left-1/2 right-1/2 -mx-[50vw] w-screen min-h-[100svh] overflow-hidden"
+      className="relative left-1/2 right-1/2 -mx-[50vw] w-screen min-h-[100svh] overflow-x-clip overflow-y-hidden"
     >
       <div className="absolute inset-0 z-0">
         <video
@@ -41,17 +41,17 @@ export function Hero(props: Props) {
         }}
       />
 
-      <div className="relative z-10 mx-auto grid min-h-[100svh] w-full max-w-7xl grid-cols-1 items-center gap-12 px-5 pb-20 pt-28 sm:px-8 sm:pb-24 sm:pt-32 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:px-8">
+      <div className="relative z-10 mx-auto grid min-h-[100svh] w-full max-w-7xl grid-cols-1 items-center gap-10 px-4 pb-24 pt-24 sm:px-8 sm:pb-24 sm:pt-32 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:px-8">
         <div className="max-w-[40rem]">
           <p className="hero-anim-1 text-[11px] font-semibold uppercase tracking-[0.32em] text-white/60 sm:text-xs">
             ENERGRÜN · Monterrey, N.L.
           </p>
 
-          <h1 className="hero-anim-1 mt-6 text-balance text-[2.1rem] font-extrabold leading-[1.06] tracking-[-0.02em] text-white sm:text-[2.6rem] md:text-5xl lg:text-[3.25rem] lg:leading-[1.04] [text-shadow:0_2px_40px_rgba(0,0,0,0.45)]">
+          <h1 className="hero-anim-1 mt-6 text-balance text-[1.9rem] font-extrabold leading-[1.08] tracking-[-0.02em] text-white sm:text-[2.6rem] md:text-5xl lg:text-[3.25rem] lg:leading-[1.04] [text-shadow:0_2px_40px_rgba(0,0,0,0.45)]">
             Especialistas en generación de energía
           </h1>
 
-          <p className="hero-anim-2 mt-6 max-w-[34rem] text-base leading-7 text-white/85 sm:text-lg sm:leading-8">
+          <p className="hero-anim-2 mt-6 max-w-[34rem] text-[15px] leading-7 text-white/85 sm:text-lg sm:leading-8">
             Vendemos e instalamos fotovoltaico y generadores de respaldo.
             Diseñamos un proyecto adecuado a tus necesidades: puede ser con
             paneles solares, generadores de respaldo o ambos en el mismo
@@ -61,13 +61,13 @@ export function Hero(props: Props) {
           <div className="hero-anim-3 mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
               href={evaluationHref}
-              className="inline-flex h-12 items-center justify-center rounded-lg bg-[#6CC04A] px-7 text-sm font-semibold text-white shadow-md shadow-[#6CC04A]/25 transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#3BAA3F]"
+              className="inline-flex h-12 w-full items-center justify-center rounded-lg bg-[#6CC04A] px-7 text-sm font-semibold text-white shadow-md shadow-[#6CC04A]/25 transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#3BAA3F] sm:w-auto"
             >
               Solicitar evaluación
             </a>
             <a
               href={solutionsHref}
-              className="inline-flex h-12 items-center justify-center rounded-lg border border-white/30 bg-white/[0.04] px-7 text-sm font-semibold text-white transition duration-300 ease-out hover:-translate-y-0.5 hover:border-white/60 hover:bg-white/10"
+              className="inline-flex h-12 w-full items-center justify-center rounded-lg border border-white/30 bg-white/[0.04] px-7 text-sm font-semibold text-white transition duration-300 ease-out hover:-translate-y-0.5 hover:border-white/60 hover:bg-white/10 sm:w-auto"
             >
               Ver soluciones
             </a>
@@ -128,7 +128,7 @@ export function Hero(props: Props) {
       <a
         href="#soluciones"
         aria-label="Ver soluciones"
-        className="hero-anim-6 group absolute inset-x-0 bottom-6 z-10 mx-auto flex w-max flex-col items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/55 transition hover:text-white/90 sm:bottom-8"
+        className="hero-anim-6 group absolute inset-x-0 bottom-6 z-10 mx-auto hidden w-max flex-col items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/55 transition hover:text-white/90 sm:bottom-8 sm:flex"
       >
         <span className="border-b border-white/20 pb-0.5 transition group-hover:border-white/60">
           Ver soluciones

@@ -5,7 +5,7 @@ export function SolarHero() {
   return (
     <section
       id="top"
-      className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden border-b border-slate-200/80 bg-[#0a1628] py-24 text-white md:py-32"
+      className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-x-clip overflow-y-hidden border-b border-slate-200/80 bg-[#0a1628] py-20 text-white md:py-32"
     >
       <div className="pointer-events-none absolute inset-0 z-0">
         <Image
@@ -40,7 +40,7 @@ export function SolarHero() {
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/60">
           Soluciones solares ENERGRÜN
         </p>
-        <h1 className="mt-4 max-w-3xl text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+        <h1 className="mt-4 max-w-3xl text-balance text-3xl font-semibold tracking-tight sm:text-5xl">
           Paneles solares para reducir consumo con ingeniería de sitio
         </h1>
         <p className="mt-5 max-w-2xl text-[15px] leading-7 text-white/80">

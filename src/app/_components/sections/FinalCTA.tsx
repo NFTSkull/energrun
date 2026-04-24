@@ -6,7 +6,7 @@ export function FinalCTA(props: { whatsappHref: string; evaluationHref?: string 
     <RevealGroup
       as="section"
       id="cta-final"
-      className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden border-y border-slate-200/80 bg-[#0f2744] py-20 text-white md:py-28"
+      className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-x-clip overflow-y-hidden border-y border-slate-200/80 bg-[#0f2744] py-20 text-white md:py-28"
     >
         <div
           aria-hidden
@@ -45,18 +45,18 @@ export function FinalCTA(props: { whatsappHref: string; evaluationHref?: string 
             className="reveal-t flex flex-col items-start gap-4 lg:items-end"
             data-stagger="3"
           >
-            <div className="flex flex-col gap-3 sm:flex-row">
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <a
                 href={props.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-12 items-center justify-center rounded-lg bg-[#6CC04A] px-7 text-sm font-semibold text-white shadow-md shadow-[#6CC04A]/25 transition hover:-translate-y-0.5 hover:bg-[#3BAA3F]"
+                className="inline-flex h-12 w-full items-center justify-center rounded-lg bg-[#6CC04A] px-7 text-sm font-semibold text-white shadow-md shadow-[#6CC04A]/25 transition hover:-translate-y-0.5 hover:bg-[#3BAA3F] sm:w-auto"
               >
                 Hablar por WhatsApp
               </a>
               <a
                 href={evaluationHref}
-                className="inline-flex h-12 items-center justify-center rounded-lg border border-white/25 bg-white/[0.04] px-7 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-white/50 hover:bg-white/10"
+                className="inline-flex h-12 w-full items-center justify-center rounded-lg border border-white/25 bg-white/[0.04] px-7 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-white/50 hover:bg-white/10 sm:w-auto"
               >
                 Solicitar evaluación
               </a>

@@ -195,13 +195,13 @@ export function GeneratorsCatalog(props: { whatsappHref: string; evaluationHref?
                   href={props.whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-11 flex-none items-center justify-center rounded-lg bg-[#1E4D8C] px-5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#17407a]"
+                  className="inline-flex h-11 w-full items-center justify-center rounded-lg bg-[#1E4D8C] px-5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#17407a] sm:w-auto sm:flex-none"
                 >
                   Cotizar este equipo
                 </a>
                 <a
                   href={evaluationHref}
-                  className="inline-flex h-11 flex-none items-center justify-center rounded-lg border border-slate-300/90 bg-slate-50/80 px-5 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-[#1E4D8C]/35 hover:text-[#1E4D8C]"
+                  className="inline-flex h-11 w-full items-center justify-center rounded-lg border border-slate-300/90 bg-slate-50/80 px-5 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-[#1E4D8C]/35 hover:text-[#1E4D8C] sm:w-auto sm:flex-none"
                 >
                   Solicitar dimensionamiento
                 </a>

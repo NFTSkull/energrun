@@ -30,6 +30,10 @@ export const metadata: Metadata = {
       "Venta e instalación de fotovoltaico y de sistemas con generadores Generac, por separado o coordinados. Monterrey y área metropolitana.",
     type: "website",
   },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/logo1.png",
+  },
 };
 
 export default function RootLayout({

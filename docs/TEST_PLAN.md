@@ -4,6 +4,7 @@
 - **Unit tests**:
   - Construcción del link de WhatsApp (encoding + mensaje).
   - Validación de formulario (campos requeridos).
+  - Construcción/validación del mensaje del mini-chat de contacto (`contactChatbotLeadSchema` + resumen para `wa.me`), incluyendo validaciones condicionales de perfilado para `generadores`/`integrado`.
 - **Component tests** (React):
   - Render del formulario y comportamiento de submit (genera URL esperada).
 

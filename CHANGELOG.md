@@ -1,5 +1,9 @@
 ## Unreleased
 
+- **Contacto (FAB WhatsApp) — perfilado extendido para generadores**: se añaden preguntas de tipo de generador, combustible y prioridad de respaldo (obligatorias cuando el tema es generadores o híbrido) para enviar a WhatsApp un resumen más filtrado.
+- **Contacto (FAB WhatsApp) — mini-chat guiado**: el botón flotante ahora abre un asistente de preguntas (tema, duda, segmento e IMSS), muestra respuesta corta y genera un resumen estructurado para redirigir a WhatsApp.
+- **Responsive cross-device**: ajustes mobile-first en `Header`, `Hero`, `SolarHero`, `GeneratorsHero`, `FinalCTA`, `Solar`, `GeneratorsCatalog`, `Footer` y `WhatsAppFab` para mejorar legibilidad, evitar overflow horizontal y consolidar CTAs full-width en pantallas pequeñas.
+- **Estáticos / deploy**: se añade `public/favicon.ico` (generado desde `logo1.png`) y `metadata.icons` en el layout; prueba Jest que verifica la existencia en disco de imágenes, vídeos e icono referenciados. Evita 404 de `/favicon.ico` y refuerza coherencia de assets.
 - **Home (`BusinessLines`) — copy**: se elimina el párrafo guía bajo el título; se ajusta el stagger de revelado de tarjetas.
 - **Página `/paneles-solares` (`SolarBenefits`) — diseño premium**: sección recompuesta con cabecera corporativa, chips de criterio y tarjetas con acento visual, iconografía y microinteracciones; el contenido técnico se conserva.
 - **Página `/generadores` (`GeneratorBenefits`) — diseño premium**: sección recompuesta con cabecera corporativa, chips de criterio y tarjetas con acento gráfico, iconografía y microinteracciones; el copy de beneficios se mantiene.

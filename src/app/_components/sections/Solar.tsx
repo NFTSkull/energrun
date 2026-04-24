@@ -73,7 +73,7 @@ export function Solar(props: { evaluationHref?: string }) {
           >
             <a
               href={evaluationHref}
-              className="inline-flex h-11 items-center justify-center rounded-lg border border-slate-300/90 bg-white px-5 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-[#1E4D8C]/35 hover:text-[#1E4D8C]"
+              className="inline-flex h-11 w-full items-center justify-center rounded-lg border border-slate-300/90 bg-white px-5 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-[#1E4D8C]/35 hover:text-[#1E4D8C] sm:w-auto"
             >
               Solicitar evaluación técnica
             </a>
