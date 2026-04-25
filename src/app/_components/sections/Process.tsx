@@ -26,8 +26,9 @@ export function Process() {
           className="reveal-t mt-4 max-w-xl text-sm leading-7 text-slate-600"
           data-stagger="2"
         >
-          Informes, planos, bitácoras y actas de entrega bajo un solo criterio
-          técnico, con trazabilidad entre etapas.
+          Te entregamos reportes, planos y actas en cada etapa, con un mismo
+          estándar técnico. Así todo queda claro y consistente de principio a
+          fin.
         </p>
         <div
           className="reveal-t mt-4 h-px w-16 bg-gradient-to-r from-[#1E4D8C]/30 to-transparent"

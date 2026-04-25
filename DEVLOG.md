@@ -1,5 +1,37 @@
 ## Decisiones
 
+### 2026-04-25 (home: prueba social visual)
+- Se añade sección `HomeProof` en `Inicio` con dos capas de credibilidad: proyectos destacados (residencial/comercial/industrial) y testimonios breves.
+- Se usan explícitamente los activos `residencia.png`, `comercial.png` e `industrial.png` para alinear narrativa con evidencia visual solicitada.
+- Los textos de testimonio se mantienen institucionales y neutrales (sin claims numéricos no verificados), priorizando claridad y confianza.
+
+### 2026-04-25 (home: integración de narrativa de respaldo)
+- Se integra en `Inicio` una mención breve y amigable de continuidad operativa sin romper estructura: microcopy en `BusinessLines` y ajuste de descriptor en la ficha del hero.
+- Se evita repetir el texto largo de la página de generadores; se conserva el enfoque de “portada institucional” y se deriva profundidad técnica a la ruta dedicada.
+
+### 2026-04-25 (home: `BusinessLines` — copy más coherente)
+- Se ajusta el copy final a lenguaje directo y neutral: “Solar o generadores”, con una frase breve de alto impacto (“Reduce consumo… / protege tu operación…”).
+
+### 2026-04-25 (footer: neutralidad de marca)
+- Se retira la mención explícita de “Generac” en el texto del `Footer` para mantener lenguaje institucional neutro; el detalle de marca permanece donde corresponde (catálogo / profundidad).
+
+### 2026-04-25 (hero: precisión de copy)
+- En el hero de home se ajusta la frase a “Vendemos e instalamos **sistemas** fotovoltaicos…” para mayor precisión y claridad (sin cambiar el alcance de oferta).
+
+### 2026-04-25 (paneles-solares hero: tono más amigable)
+- Se reescribe el hero de `/paneles-solares` para eliminar el tono de “anotación” (“página dedicada”) y dejar un mensaje claro, rápido y entendible para cualquier usuario: beneficio + criterio de diseño + qué encontrará en la sección.
+- Ajuste final: se acorta el lead para evitar una enumeración larga (“Aquí verás…”), dejando una sola frase clara.
+- En la sección `Solar` se reescribe el párrafo sobre DAC a lenguaje simple: qué pasa (sube el costo por kWh) y cómo ayuda un dimensionamiento correcto (mantener un rango más conveniente).
+- En la sección `Proceso` se reescribe el texto de documentación (reportes/planos/actas) para sonar más humano, manteniendo el mensaje de consistencia técnica de principio a fin.
+
+### 2026-04-25 (generadores hero: tono más amigable)
+- Se reescribe el hero de `/generadores` para eliminar “página dedicada” y comunicar en lenguaje directo: propósito (no detener operación), criterios base (cargas críticas + combustible + continuidad) y qué incluye la sección (criterios + catálogo).
+- Ajuste final: se acorta el lead eliminando la frase “Aquí verás…”, dejando una descripción más limpia.
+
+### 2026-04-25 (generadores: copy más amigable)
+- Se reescribe el beneficio de “Continuidad automática” para explicar el cambio automático a cargas críticas en lenguaje simple (sin jerga ATS).
+- En “Selección de combustible y plataforma” se retira la mención de marca: “se elige la línea del generador…”.
+
 ### 2026-04-24 (chatbot FAB: filtro más profundo en generadores)
 - Se amplía el flujo de chatbot para casos de `generadores` e `integrado` con tres preguntas nuevas: tipo de generador de interés, combustible disponible y prioridad de respaldo.
 - Objetivo: mejorar pre-calificación antes de pasar a WhatsApp y entregar al asesor un contexto inicial más accionable.

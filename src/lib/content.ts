@@ -144,6 +144,81 @@ export const homeHowWeWorkSteps = [
   },
 ] as const;
 
+export type HomeTestimonial = {
+  id: string;
+  quote: string;
+  name: string;
+  role: string;
+};
+
+export const homeTestimonials: HomeTestimonial[] = [
+  {
+    id: "t-01",
+    quote:
+      "Nos explicaron todo con claridad, instalaron en tiempo y hoy tenemos mejor control del consumo.",
+    name: "Cliente residencial",
+    role: "Zona sur de Monterrey",
+  },
+  {
+    id: "t-02",
+    quote:
+      "Definimos cargas críticas y el respaldo quedó bien dimensionado. La operación no se detuvo en el último corte.",
+    name: "Administrador de negocio",
+    role: "Comercio local",
+  },
+  {
+    id: "t-03",
+    quote:
+      "El proyecto se entregó ordenado y documentado. Tuvimos visibilidad de avance desde el diagnóstico hasta la puesta en marcha.",
+    name: "Responsable de planta",
+    role: "Industria ligera",
+  },
+];
+
+export type HomeFeaturedProject = {
+  id: string;
+  title: string;
+  segment: "Residencial" | "Comercial" | "Industria ligera";
+  summary: string;
+  image: { src: `/${string}`; alt: string };
+};
+
+export const homeFeaturedProjects: HomeFeaturedProject[] = [
+  {
+    id: "hp-residencial",
+    title: "Residencia con sistema fotovoltaico",
+    segment: "Residencial",
+    summary:
+      "Diseño orientado a reducir consumo y mantener confort diario con una implementación limpia y ordenada.",
+    image: {
+      src: "/residencia.png",
+      alt: "Proyecto residencial con sistema fotovoltaico",
+    },
+  },
+  {
+    id: "hp-comercial",
+    title: "Comercio con continuidad operativa",
+    segment: "Comercial",
+    summary:
+      "Arquitectura de energía para proteger operación y servicio al cliente ante variaciones o cortes de red.",
+    image: {
+      src: "/comercial.png",
+      alt: "Proyecto comercial con solución energética integral",
+    },
+  },
+  {
+    id: "hp-industrial",
+    title: "Industria ligera con solución a medida",
+    segment: "Industria ligera",
+    summary:
+      "Integración por etapas con criterio técnico para sostener cargas relevantes y mejorar desempeño operativo.",
+    image: {
+      src: "/industrial.png",
+      alt: "Proyecto industrial con solución energética de continuidad",
+    },
+  },
+];
+
 /* ----------------- Catálogo Generac (según PDF del proveedor) ----------------- */
 
 export type GeneratorBlock = {
@@ -496,7 +571,7 @@ export const benefits = [
 export const generatorBenefits = [
   {
     t: "Continuidad automática",
-    d: "El ATS conmuta cargas críticas sin intervención manual cuando falla la red.",
+    d: "Cuando se va la luz, el sistema cambia automáticamente a las cargas críticas y mantiene el servicio sin que tengas que hacer nada.",
   },
   {
     t: "Protección operativa",
@@ -521,7 +596,7 @@ export const generatorSelectionSteps = [
   {
     n: "02",
     t: "Selección de combustible y plataforma",
-    d: "Se elige línea Generac y combustible según autonomía, infraestructura y operación.",
+    d: "Se elige la línea del generador y el combustible según autonomía, infraestructura y operación.",
   },
   {
     n: "03",

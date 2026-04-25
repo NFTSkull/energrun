@@ -52,7 +52,7 @@ export function Hero(props: Props) {
           </h1>
 
           <p className="hero-anim-2 mt-6 max-w-[34rem] text-[15px] leading-7 text-white/85 sm:text-lg sm:leading-8">
-            Vendemos e instalamos fotovoltaico y generadores de respaldo.
+            Vendemos e instalamos sistemas fotovoltaicos y generadores de respaldo.
             Diseñamos un proyecto adecuado a tus necesidades: puede ser con
             paneles solares, generadores de respaldo o ambos en el mismo
             proyecto.
@@ -98,7 +98,10 @@ export function Hero(props: Props) {
             <div className="mt-4 space-y-3.5">
               {[
                 { t: "Paneles solares", s: "Interconexión CFE · tarifa regulada" },
-                { t: "Generadores de respaldo", s: "A.T.S. y arranque automático" },
+                {
+                  t: "Generadores de respaldo",
+                  s: "Continuidad operativa · selección por aplicación",
+                },
               ].map((it) => (
                 <div key={it.t} className="flex items-start gap-3">
                   <span

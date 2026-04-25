@@ -21,8 +21,15 @@ export function BusinessLines() {
           className="reveal-t mt-3 text-balance text-3xl font-semibold tracking-tight text-slate-900 sm:text-[2.15rem]"
           data-stagger="1"
         >
-          Dos rutas para decidir con claridad: solar o respaldo
+          Solar o generadores: elige tu camino
         </h2>
+        <p
+          className="reveal-t mt-4 text-[15px] leading-7 text-slate-600"
+          data-stagger="2"
+        >
+          Reduce consumo con solar o protege tu operación con generadores. Entra
+          y recibe una cotización.
+        </p>
       </div>
 
       <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -32,7 +39,7 @@ export function BusinessLines() {
             href={line.href}
             className="reveal-t group block overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition duration-300 ease-out hover:-translate-y-0.5 hover:border-[#1E4D8C]/25 hover:shadow-[0_20px_40px_rgba(15,39,68,0.1)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3FA9F5]/45 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
             aria-label={`${line.kicker} · ${line.title} · abrir detalle de ${line.title}`}
-            data-stagger={String(index + 2)}
+            data-stagger={String(index + 3)}
           >
             <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
               <Image

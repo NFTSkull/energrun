@@ -41,11 +41,11 @@ export function GeneratorsHero() {
           Generadores y respaldo ENERGRÜN
         </p>
         <h1 className="mt-4 max-w-3xl text-balance text-3xl font-semibold tracking-tight sm:text-5xl">
-          Respaldo energético para continuidad operativa real
+          Generadores de respaldo para no detener tu operación
         </h1>
         <p className="mt-5 max-w-2xl text-[15px] leading-7 text-white/80">
-          Página dedicada a soluciones de respaldo: catálogo completo, tipos de
-          equipos por aplicación y criterios de selección para cada proyecto.
+          Te ayudamos a dimensionar el respaldo correcto según tus cargas
+          críticas, combustible disponible y nivel de continuidad que necesitas.
         </p>
       </div>
     </section>

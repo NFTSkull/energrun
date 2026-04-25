@@ -1,6 +1,8 @@
 import {
   businessLines,
   generatorBlocks,
+  homeFeaturedProjects,
+  homeTestimonials,
   solarApplicationBlocks,
 } from "@/lib/content";
 
@@ -34,5 +36,17 @@ describe("content architecture", () => {
       "Comercial",
       "Industria ligera",
     ]);
+  });
+
+  it("exposes home highlights with requested image assets", () => {
+    expect(homeFeaturedProjects.map((p) => p.image.src)).toEqual([
+      "/residencia.png",
+      "/comercial.png",
+      "/industrial.png",
+    ]);
+  });
+
+  it("exposes three testimonials for social proof", () => {
+    expect(homeTestimonials).toHaveLength(3);
   });
 });

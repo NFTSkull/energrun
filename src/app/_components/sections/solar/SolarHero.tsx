@@ -41,12 +41,11 @@ export function SolarHero() {
           Soluciones solares ENERGRÜN
         </p>
         <h1 className="mt-4 max-w-3xl text-balance text-3xl font-semibold tracking-tight sm:text-5xl">
-          Paneles solares para reducir consumo con ingeniería de sitio
+          Paneles solares para bajar tu recibo con un diseño a la medida
         </h1>
         <p className="mt-5 max-w-2xl text-[15px] leading-7 text-white/80">
-          Página dedicada para entender la oferta fotovoltaica de ENERGRÜN:
-          segmentación por tipo de inmueble, beneficios, funcionamiento, proceso
-          e integración con monitoreo de consumo.
+          Te ayudamos a elegir el sistema correcto según tu consumo, tu tipo de
+          inmueble y tus objetivos.
         </p>
       </div>
     </section>

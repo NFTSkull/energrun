@@ -15,7 +15,7 @@ export function Footer() {
           </p>
           <p className="mt-2 max-w-sm text-sm leading-6 text-slate-500">
             Soluciones energéticas para casas, negocios e industria ligera:
-            paneles solares, generadores Generac y sistemas integrados.
+            paneles solares, generadores de respaldo y sistemas integrados.
           </p>
         </div>
 

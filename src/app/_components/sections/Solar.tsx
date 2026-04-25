@@ -42,9 +42,10 @@ export function Solar(props: { evaluationHref?: string }) {
             className="reveal-t mt-3 max-w-3xl text-[15px] leading-7 text-slate-600"
             data-stagger="3"
           >
-            Superar el umbral de alto consumo reclasifica la tarifa a DAC,
-            sin subsidio y con kWh varias veces más caro. El diseño del
-            arreglo busca sostener el consumo bajo ese umbral.
+          Cuando el consumo sube demasiado, CFE puede pasar tu recibo a una
+          tarifa de alto consumo (DAC), y el costo por kWh aumenta. Un sistema
+          bien dimensionado ayuda a mantener el consumo en un rango más
+          conveniente.
           </p>
 
           <div className="reveal-t mt-6" data-stagger="4">

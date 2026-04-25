@@ -5,6 +5,7 @@ import { Footer } from "@/app/_components/sections/Footer";
 import { Hero } from "@/app/_components/sections/Hero";
 import { BusinessLines } from "@/app/_components/sections/shared/BusinessLines";
 import { ContactSection } from "@/app/_components/sections/shared/ContactSection";
+import { HomeProof } from "@/app/_components/sections/shared/HomeProof";
 import { HowWeWorkBrief } from "@/app/_components/sections/shared/HowWeWorkBrief";
 import { InstitutionalValue } from "@/app/_components/sections/shared/InstitutionalValue";
 import {
@@ -39,6 +40,7 @@ export default function Home() {
         <InstitutionalValue />
         <BusinessLines />
         <HowWeWorkBrief />
+        <HomeProof />
         <ContactSection
           whatsappHref={whatsappHref}
           title="Datos mínimos para una evaluación inicial"
