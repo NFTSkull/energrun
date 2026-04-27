@@ -1,5 +1,10 @@
 ## Decisiones
 
+### 2026-04-27 (generadores: copy en beneficios de respaldo)
+- Se reestructura el lead de `GeneratorBenefits` (cabecera “Continuidad diseñada para cargas críticas”) en dos párrafos breves: primero el qué (cargas, orden, reglas), luego el por qué del dimensionamiento frente a cifras genéricas.
+- Iteración: se prioriza un tono aún más directo (“empezar por lo concreto”, “corto o sobrado”) y se cierra con dimensionamiento aterrizado frente a kW o “potencia de sobra” genérica.
+- Ajuste final: se reduce a un solo párrafo corto (prioridad + cálculo del equipo) para lectura veloz.
+
 ### 2026-04-25 (UI: header más alto)
 - Se incrementan padding vertical, tamaño de logo, jerarquía de marca, enlaces y CTA en `Header` para lectura y proporción en pantalla.
 - Se sube el padding top de héroes fijos bajo el header (home, paneles, generadores) para mantener el mismo criterio de aire bajo el encabezado fijo.

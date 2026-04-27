@@ -1,5 +1,6 @@
 ## Unreleased
 
+- **Página `/generadores` (`GeneratorBenefits`) — copy**: el lead de “Beneficios del respaldo automático” se acorta: prioridad de cargas y dimensionamiento a la operación, sin cifras de potencia sueltas o genéricas.
 - **Header + héroes (espaciado)**: el `Header` gana presencia (más padding, logo y tipografía) y se aumenta el padding superior de los héroes (`Hero`, `SolarHero`, `GeneratorsHero`) para que el contenido no quede bajo la barra fija.
 - **Contacto (FAB WhatsApp) — auto-scroll**: en el mini-chat guiado, cada selección hace scroll suave al siguiente paso para mantener el flujo visible sin que el usuario tenga que “bajar” manualmente.
 - **Home (`HowWeWorkBrief`) — copy**: se simplifica el texto de metodología para que sea más directo y fácil de entender sin perder tono profesional.

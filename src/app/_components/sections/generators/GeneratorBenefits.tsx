@@ -44,9 +44,13 @@ export function GeneratorBenefits() {
               >
                 Continuidad diseñada para cargas críticas
               </h2>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/75" data-stagger="2">
-                El respaldo se dimensiona a lista de cargas, prioridad de circuitos y
-                criterio operativo, no a promesas genéricas de potencia.
+              <p
+                className="mt-4 max-w-2xl text-sm leading-7 text-white/75"
+                data-stagger="2"
+              >
+                Primero acordamos qué debe seguir encendido y con qué
+                prioridad. Con eso se calcula el equipo: a tu operación, no a
+                cifras de potencia sueltas o genéricas.
               </p>
             </div>
             <div className="grid gap-2.5 sm:grid-cols-3 lg:grid-cols-1">
