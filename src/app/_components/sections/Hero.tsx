@@ -13,7 +13,7 @@ export function Hero(props: Props) {
   return (
     <section
       id="top"
-      aria-label="ENERGRÜN"
+      aria-label="ENERGRUN"
       className="relative left-1/2 right-1/2 -mx-[50vw] w-screen min-h-[100svh] overflow-x-clip overflow-y-hidden"
     >
       <div className="absolute inset-0 z-0">
@@ -41,10 +41,10 @@ export function Hero(props: Props) {
         }}
       />
 
-      <div className="relative z-10 mx-auto grid min-h-[100svh] w-full max-w-7xl grid-cols-1 items-center gap-10 px-4 pb-24 pt-28 sm:px-8 sm:pb-24 sm:pt-40 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:px-8">
+      <div className="app-container relative z-10 grid min-h-[100svh] grid-cols-1 items-center gap-10 pb-24 pt-28 sm:pb-24 sm:pt-40 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
         <div className="max-w-[40rem]">
           <p className="hero-anim-1 text-[11px] font-semibold uppercase tracking-[0.32em] text-white/60 sm:text-xs">
-            ENERGRÜN · Monterrey, N.L.
+            ENERGRUN · Monterrey, N.L.
           </p>
 
           <h1 className="hero-anim-1 mt-6 text-balance text-[1.9rem] font-extrabold leading-[1.08] tracking-[-0.02em] text-white sm:text-[2.6rem] md:text-5xl lg:text-[3.25rem] lg:leading-[1.04] [text-shadow:0_2px_40px_rgba(0,0,0,0.45)]">

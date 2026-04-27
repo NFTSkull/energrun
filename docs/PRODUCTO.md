@@ -1,4 +1,4 @@
-## ENERGRÜN — Sitio web (landing + sitio)
+## ENERGRUN — Sitio web (landing + sitio)
 
 ### Objetivo
 - **Generar leads** hacia WhatsApp y formulario para venta de **generadores Generac** y **soluciones solares**.

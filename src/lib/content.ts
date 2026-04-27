@@ -1,5 +1,5 @@
 /**
- * Contenido centralizado de la home (ENERGRÜN).
+ * Contenido centralizado de la home (ENERGRUN).
  * Los datos técnicos de Generac provienen del PDF oficial del proveedor.
  * Cualquier métrica comercial sin fuente queda como placeholder o TODO explícito.
  */

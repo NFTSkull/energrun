@@ -36,9 +36,9 @@ export function SolarHero() {
           backgroundSize: "48px 48px",
         }}
       />
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="app-container relative z-10">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/60">
-          Soluciones solares ENERGRÜN
+          Soluciones solares ENERGRUN
         </p>
         <h1 className="mt-4 max-w-3xl text-balance text-3xl font-semibold tracking-tight sm:text-5xl">
           Paneles solares para bajar tu recibo con un diseño a la medida

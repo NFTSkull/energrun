@@ -29,7 +29,7 @@ export default function GeneradoresPage() {
     >
       <Header contactHref="#contacto" />
       <GeneratorsHero />
-      <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <main className="app-container">
         <GeneratorsCatalog whatsappHref={whatsappHref} evaluationHref="#contacto" />
         <GeneratorBenefits />
         <GeneratorSelection />

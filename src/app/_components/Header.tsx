@@ -47,7 +47,7 @@ export function Header(props: { contactHref?: string }) {
           : "border-b border-transparent bg-transparent",
       ].join(" ")}
     >
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-4 py-4 sm:gap-3 sm:px-6 sm:py-5 lg:px-8">
+      <div className="app-container flex items-center justify-between gap-2 py-4 sm:gap-3 sm:py-5">
         <Link
           href="/"
           className="group flex min-w-0 items-center gap-2.5 sm:gap-5"
@@ -55,7 +55,7 @@ export function Header(props: { contactHref?: string }) {
         >
           <Image
             src="/logo1.png"
-            alt="ENERGRÜN"
+            alt="ENERGRUN"
             width={236}
             height={86}
             priority
@@ -71,7 +71,7 @@ export function Header(props: { contactHref?: string }) {
                 scrolled || open ? "text-[#1E4D8C]" : "text-white",
               ].join(" ")}
             >
-              ENERGRÜN
+              ENERGRUN
             </div>
             <div
               className={[
@@ -148,7 +148,7 @@ export function Header(props: { contactHref?: string }) {
       {/* Menú mobile/tablet */}
       {open ? (
         <div className="border-t border-slate-200/90 bg-white/98 backdrop-blur-sm lg:hidden">
-          <nav className="mx-auto flex w-full max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6">
+          <nav className="app-container flex flex-col gap-1 py-4">
             {NAV_ITEMS.map((it) => (
               <Link
                 key={it.href}

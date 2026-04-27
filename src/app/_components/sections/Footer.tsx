@@ -8,10 +8,10 @@ const NAV = [
 export function Footer() {
   return (
     <footer className="border-t border-slate-200/90 bg-white py-12 text-sm text-slate-600">
-      <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-[1.2fr_1fr_1fr] lg:px-8">
+      <div className="app-container grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
         <div className="text-center md:text-left">
           <p className="text-sm font-semibold tracking-tight text-[#1E4D8C]">
-            ENERGRÜN
+            ENERGRUN
           </p>
           <p className="mt-2 max-w-sm text-sm leading-6 text-slate-500">
             Soluciones energéticas para casas, negocios e industria ligera:
@@ -50,9 +50,9 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-10 flex w-full max-w-7xl flex-col items-center justify-between gap-2 px-4 text-center text-xs text-slate-500 sm:flex-row sm:items-center sm:px-6 sm:text-left lg:px-8">
+      <div className="app-container mt-10 flex flex-col items-center justify-between gap-2 text-center text-xs text-slate-500 sm:flex-row sm:items-center sm:text-left">
         <p>
-          © {new Date().getFullYear()} ENERGRÜN. Todos los derechos reservados.
+          © {new Date().getFullYear()} ENERGRUN. Todos los derechos reservados.
         </p>
         <p>Solicita evaluación en la sección de contacto.</p>
       </div>

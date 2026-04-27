@@ -1,5 +1,7 @@
 ## Unreleased
 
+- **Responsive / monitores**: `viewport` explícito (`device-width`, `viewport-fit: cover`), tipografía base fluida en `html`, contenedor unificado `app-container` (márgenes extra en `2xl` y `≥1920px`, `min-w-0`) en `main`, `Header`, `Footer`, héroes y CTA final; `body` con `min-h-svh` y control de overflow horizontal.
+- **Marca (UI y mensajes)**: se unifica el nombre mostrado como **ENERGRUN** (sin diéresis) en `Header`, `Footer`, héroes, metadata, WhatsApp y documentación asociada.
 - **Página `/generadores` (`GeneratorBenefits`) — copy**: el lead de “Beneficios del respaldo automático” se acorta: prioridad de cargas y dimensionamiento a la operación, sin cifras de potencia sueltas o genéricas.
 - **Header + héroes (espaciado)**: el `Header` gana presencia (más padding, logo y tipografía) y se aumenta el padding superior de los héroes (`Hero`, `SolarHero`, `GeneratorsHero`) para que el contenido no quede bajo la barra fija.
 - **Contacto (FAB WhatsApp) — auto-scroll**: en el mini-chat guiado, cada selección hace scroll suave al siguiente paso para mantener el flujo visible sin que el usuario tenga que “bajar” manualmente.
@@ -84,7 +86,7 @@
 
 - **Auditoría de pulido (home)**: pasada quirúrgica de refinamiento sin reestructurar.
   - Eliminada sección `ValueProposition` (redundante con `Solutions` y `HowItWorks`); la home gana ritmo sin perder mensaje.
-  - `Hero`: columna principal ampliada (`max-w-[40rem]`), headline reescrito ("Paneles solares y sistemas de respaldo, diseñados como un solo proyecto"), eliminado CTA terciario "o escribir por WhatsApp" (redundante con FAB), microcopy técnico en tarjeta lateral (Interconexión CFE, A.T.S., BESS) reemplaza al eco del propuesto, kicker "ENERGRÜN · Monterrey, N.L.", scroll inferior "Ver soluciones".
+  - `Hero`: columna principal ampliada (`max-w-[40rem]`), headline reescrito ("Paneles solares y sistemas de respaldo, diseñados como un solo proyecto"), eliminado CTA terciario "o escribir por WhatsApp" (redundante con FAB), microcopy técnico en tarjeta lateral (Interconexión CFE, A.T.S., BESS) reemplaza al eco del propuesto, kicker "ENERGRUN · Monterrey, N.L.", scroll inferior "Ver soluciones".
   - `Solutions`: título más directo ("Tres líneas con un mismo criterio técnico").
   - `GeneratorsCatalog`: tags acortados a categorías limpias (Residencial · Comercial ligero, Comercial · Alta demanda, Industrial · Operación crítica, Móvil · Proyectos temporales, Automatización · Almacenamiento); tabla de specs rediseñada a grid flexible 2-col con label/valor tipográfico (sin columna rígida de 11rem); visual institucional del generador reescrito con layout inferior + tag, sin la frase "Imagen disponible bajo solicitud".
   - `Solar`: párrafo DAC condensado; cards internas sustituidas por grid tipográfico 2-col con border-top, más institucional.
@@ -113,9 +115,9 @@
 - **Enfoque energía integral**: hero y beneficio bajo 3 vías (ahorro FV, respaldo Generac, pago Mejoravit), nuevas secciones «Dos soluciones, un solo sistema energético» (dos columnas) e «Integración solar + respaldo»; tercera malla «Tres vías, un criterio»; Mejoravit posicionado como facilitador de compra; metadatos, FAQ, formulario, header y copy de cierre ajustados.
 - **Copy institucional**: reescritura de secciones (hero, soluciones, criterios, proceso, Mejoravit, formulario, CTA, FAQ, footer, metadata y mensaje base de WhatsApp) con tono técnico, Generac, automatización, continuidad y criterio IMSS, evitando frases de marketing genérico.
 - **HERO (premium, 2 columnas)**: copy alineado a la izquierda, headline con acentos en verde de marca, párrafo y CTAs (WhatsApp sólido + evaluación outline `rounded-full`), fila de 4 beneficios con iconos stroke, video full-bleed con `object-position` hacia el área visual derecha, overlay `linear-gradient(to right, 0.7 → 0.1)` y entradas escalonadas (`.hero-anim-1`…`5`).
-- **Rediseño institucional (2026)**: estructura en claro (hero sin bloques con blur pesado, soluciones, “Por qué ENERGRÜN”, proceso con separadores, Mejoravit destacado, evaluación con formulario, CTA final, FAQ mínima). Reveal al scroll (fade + translate) con respeto a `prefers-reduced-motion`, utilidades de botón/tarjeta en CSS y header que pasa a barra clara bajo scroll.
-- Inicialización del sitio ENERGRÜN (landing enfocada a leads y Mejoravit).
-- Adaptación completa de UI a identidad ENERGRÜN (paleta azul/verde, fondo claro, CTAs).
+- **Rediseño institucional (2026)**: estructura en claro (hero sin bloques con blur pesado, soluciones, “Por qué ENERGRUN”, proceso con separadores, Mejoravit destacado, evaluación con formulario, CTA final, FAQ mínima). Reveal al scroll (fade + translate) con respeto a `prefers-reduced-motion`, utilidades de botón/tarjeta en CSS y header que pasa a barra clara bajo scroll.
+- Inicialización del sitio ENERGRUN (landing enfocada a leads y Mejoravit).
+- Adaptación completa de UI a identidad ENERGRUN (paleta azul/verde, fondo claro, CTAs).
 - HERO con video de fondo (`/video_hero.mp4`) con overlay azul→verde sutil para conversión.
 - Ajuste del HERO para que el video sea protagonista (overlay más ligero, fade inferior, glassmorphism).
 - Ajuste del HERO para máxima visibilidad del video (sin velo blanco) y eliminación del bloque “Casa protegida”.

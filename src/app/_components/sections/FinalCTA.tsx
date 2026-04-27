@@ -17,7 +17,7 @@ export function FinalCTA(props: { whatsappHref: string; evaluationHref?: string 
             backgroundSize: "48px 48px",
           }}
         />
-        <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.25fr_1fr] lg:items-end lg:gap-16 lg:px-8">
+        <div className="app-container relative grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:items-end lg:gap-16">
           <div>
             <p
               className="reveal-t text-xs font-semibold uppercase tracking-[0.22em] text-white/55"

@@ -36,7 +36,7 @@ export default function Home() {
         evaluationHref="#contacto"
       />
 
-      <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <main className="app-container">
         <InstitutionalValue />
         <BusinessLines />
         <HowWeWorkBrief />

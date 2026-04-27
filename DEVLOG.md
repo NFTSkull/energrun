@@ -1,5 +1,13 @@
 ## Decisiones
 
+### 2026-04-27 (UI: base responsive multi-monitor)
+- Se exporta `viewport` en `layout` para comportamiento consistente en móvil, notch (`viewport-fit: cover`) y escalado inicial.
+- Se añade `font-size` fluido en `html` (límites 15–18px) para legibilidad sin saltos bruscos entre resoluciones.
+- Se define `@utility app-container` con `min-w-0` y más padding horizontal en `2xl` y pantallas anchas, y se aplica a columnas de página, header, footer y héroes/CTA full-bleed para márgenes homogéneos en 4K/ultrawide.
+
+### 2026-04-27 (marca: ENERGRUN sin diéresis)
+- Se reemplaza la grafía con **Ü** por **U** en textos de interfaz, SEO (`layout`), `whatsapp` y comentarios/docs donde aún figuraba, para alinear con un nombre ASCII simple y evitar variaciones (coincide con `ENERGRUN` ya usado en el chatbot de contacto).
+
 ### 2026-04-27 (generadores: copy en beneficios de respaldo)
 - Se reestructura el lead de `GeneratorBenefits` (cabecera “Continuidad diseñada para cargas críticas”) en dos párrafos breves: primero el qué (cargas, orden, reglas), luego el por qué del dimensionamiento frente a cifras genéricas.
 - Iteración: se prioriza un tono aún más directo (“empezar por lo concreto”, “corto o sobrado”) y se cierra con dimensionamiento aterrizado frente a kW o “potencia de sobra” genérica.
@@ -202,5 +210,5 @@
 - Se simplificó el HERO para evitar duplicación: **un único `<video>`** como background **full-viewport** (100vw/100vh) con `object-cover`, overlay oscuro y contenido con z-index superior.
 - Se rediseñó el HERO a estética premium: overlay en gradiente (no sólido), texto blanco con contraste, CTAs institucionales y animación `hero-reveal`.
 - Se rediseñó el header para integrarse con el video: `position: fixed`, transparente, links en blanco y glass/blur ligero al hacer scroll.
-- Se enriquecieron las secciones posteriores al hero con patrones visuales consistentes (hover lift, rings suaves, blobs de gradiente), manteniendo la paleta ENERGRÜN.
+- Se enriquecieron las secciones posteriores al hero con patrones visuales consistentes (hover lift, rings suaves, blobs de gradiente), manteniendo la paleta ENERGRUN.
 

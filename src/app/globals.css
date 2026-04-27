@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* Paleta ENERGRÜN (OBLIGATORIA) */
+  /* Paleta ENERGRUN (OBLIGATORIA) */
   --primary-blue: #1e4d8c;
   --secondary-blue: #3fa9f5;
   --primary-green: #6cc04a;
@@ -22,12 +22,23 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Base responsive: evita zoom raro en móviles y escala de lectura en pantallas grandes */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  font-size: clamp(15px, 0.22vw + 14.2px, 18px);
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, -apple-system, Segoe UI, Roboto,
     Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  overflow-x: clip;
+}
+
+/* Ancho de contenido alineado en móvil → 4K; más aire en monitores anchos y min-w-0 para flex/grid */
+@utility app-container {
+  @apply mx-auto w-full min-w-0 max-w-7xl px-4 sm:px-8 lg:px-8 2xl:px-10 min-[1920px]:px-12;
 }
 
 @utility btn-primary {

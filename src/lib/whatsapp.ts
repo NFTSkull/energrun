@@ -9,7 +9,7 @@ function normalizeWhatsAppNumber(raw: string) {
 
 export function buildWhatsAppMessage(lead?: Partial<Lead>) {
   const lines: string[] = [
-    "ENERGRÜN — Contacto vía web. Tema: fotovoltaico (ahorro) y/o respaldo (Generac), más vía de pago (Mejoravit) si aplica.",
+    "ENERGRUN — Contacto vía web. Tema: fotovoltaico (ahorro) y/o respaldo (Generac), más vía de pago (Mejoravit) si aplica.",
   ];
 
   if (lead?.nombre) lines.push(`Nombre: ${lead.nombre}`);
@@ -63,7 +63,7 @@ const SOL_TAR: Record<SolarInquiry["contextoTarifa"], string> = {
 
 /** Enlace “rápido” FV (sin rellenar asistente). Misma capa B0, solo texto más corto. */
 export const WHATSAPP_SFV_QUICK = [
-  "ENERGRÜN — Me interesa cotizar fotovoltaico (sin llenar el asistente).",
+  "ENERGRUN — Me interesa cotizar fotovoltaico (sin llenar el asistente).",
   "Zona: Monterrey y área metropolitana.",
 ].join("\n");
 
@@ -72,7 +72,7 @@ export const WHATSAPP_SFV_QUICK = [
  */
 export function buildSolarInquiryMessage(inquiry: SolarInquiry): string {
   return [
-    "ENERGRÜN — Interés en fotovoltaico (asistente en web).",
+    "ENERGRUN — Interés en fotovoltaico (asistente en web).",
     `Consumo aprox. bimestral (kWh, estimado): ${KWH_BIM[inquiry.kwhBimestral]}.`,
     `Tipo de inmueble: ${SOL_SEG[inquiry.segmento]}.`,
     `Contexto tarifario: ${SOL_TAR[inquiry.contextoTarifa]}.`,
