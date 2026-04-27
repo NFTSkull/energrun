@@ -12,7 +12,7 @@ export function InstitutionalValue() {
     <RevealGroup
       as="section"
       id="propuesta-valor"
-      className="border-b border-slate-200/80 bg-gradient-to-b from-white to-slate-50/40 py-20 md:py-28"
+      className="border-b border-slate-200/80 bg-gradient-to-b from-white to-slate-50/40 py-12 md:py-16"
     >
       <div className="reveal-t relative overflow-hidden rounded-2xl border border-slate-200/80 bg-[#0f2744] p-7 text-white shadow-[0_24px_60px_rgba(15,39,68,0.24)] sm:p-9">
         <div
@@ -40,7 +40,8 @@ export function InstitutionalValue() {
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-white/78" data-stagger="2">
               Integramos ingeniería, ejecución y continuidad en un modelo de
-              entrega único, diseñado para decisiones de negocio y operación.
+              entrega único, diseñado para disminución de costos y cuidar el
+              planeta.
             </p>
           </div>
           <div className="grid gap-3 rounded-xl border border-white/15 bg-white/[0.06] p-4 backdrop-blur-sm sm:grid-cols-3 lg:grid-cols-1">
@@ -66,7 +67,7 @@ export function InstitutionalValue() {
         </div>
       </div>
 
-      <div className="-mt-6 grid gap-4 md:-mt-8 md:grid-cols-3">
+      <div className="-mt-4 grid gap-3 md:-mt-6 md:grid-cols-3">
         {institutionalValuePoints.map((point, index) => (
           <article
             key={point.title}

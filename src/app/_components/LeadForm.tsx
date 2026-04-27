@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { leadSchema, type LeadInput } from "@/lib/lead";
 import {
   buildWhatsAppMessage,
@@ -13,21 +13,15 @@ const DEFAULT_WHATSAPP =
 
 type FieldErrors = Partial<Record<keyof LeadInput, string>>;
 
-export function LeadForm(props: { variant?: "compact" | "full" }) {
-  const variant = props.variant ?? "full";
-
+export function LeadForm() {
   const [values, setValues] = useState<LeadInput>({
     nombre: "",
     telefono: "",
-    cotizaEnIMSS: true,
+    cotizaEnIMSS: false,
+    numeroImss: "",
   });
   const [errors, setErrors] = useState<FieldErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const title = useMemo(() => {
-    if (variant === "compact") return "Canal de contacto";
-    return "Canal de contacto";
-  }, [variant]);
 
   function update<K extends keyof LeadInput>(key: K, value: LeadInput[K]) {
     setValues((v) => ({ ...v, [key]: value }));
@@ -72,20 +66,6 @@ export function LeadForm(props: { variant?: "compact" | "full" }) {
       className="rounded-2xl border border-[#1E4D8C]/10 bg-white p-6 shadow-sm"
       aria-label="Formulario de lead"
     >
-      <div className="mb-4">
-        <h3
-          className="text-base font-semibold tracking-tight"
-          style={{ color: "var(--text-dark)" }}
-        >
-          {title}
-        </h3>
-        <p className="mt-1 text-sm" style={{ color: "var(--text-light)" }}>
-          Indique en el hilo: interés en fotovoltaico, en respaldo (Generac) o
-          integración, y vía de pago (Mejoravit) si aplica. El envío abre WhatsApp
-          con el mensaje estructurado.
-        </p>
-      </div>
-
       <form onSubmit={onSubmit} className="grid gap-3">
         <label className="grid gap-1">
           <span
@@ -132,11 +112,7 @@ export function LeadForm(props: { variant?: "compact" | "full" }) {
           />
           {errors.telefono ? (
             <span className="text-xs text-rose-600">{errors.telefono}</span>
-          ) : (
-            <span className="text-xs" style={{ color: "var(--text-light)" }}>
-              Se unirá a la plantilla: alcance, IMSS, zona (MTY/AM).
-            </span>
-          )}
+          ) : null}
         </label>
 
         <fieldset
@@ -158,7 +134,9 @@ export function LeadForm(props: { variant?: "compact" | "full" }) {
                 type="radio"
                 name="imss"
                 checked={values.cotizaEnIMSS === true}
-                onChange={() => update("cotizaEnIMSS", true)}
+                onChange={() => {
+                  update("cotizaEnIMSS", true);
+                }}
               />
               Sí
             </label>
@@ -170,12 +148,45 @@ export function LeadForm(props: { variant?: "compact" | "full" }) {
                 type="radio"
                 name="imss"
                 checked={values.cotizaEnIMSS === false}
-                onChange={() => update("cotizaEnIMSS", false)}
+                onChange={() => {
+                  update("cotizaEnIMSS", false);
+                  update("numeroImss", "");
+                }}
               />
               No
             </label>
           </div>
         </fieldset>
+
+        {values.cotizaEnIMSS ? (
+          <label className="grid gap-1">
+            <span
+              className="text-sm font-medium"
+              style={{ color: "var(--text-dark)" }}
+            >
+              Número de afiliación IMSS
+            </span>
+            <input
+              value={values.numeroImss ?? ""}
+              onChange={(e) => update("numeroImss", e.target.value)}
+              placeholder="Ej. 12 dígitos"
+              className="h-11 rounded-xl border bg-white px-4 text-sm outline-none transition focus:ring-4 focus:ring-[#3FA9F5]/25"
+              style={{
+                borderColor: "rgba(30,77,140,0.18)",
+                color: "var(--text-dark)",
+              }}
+              inputMode="numeric"
+              autoComplete="off"
+            />
+            {errors.numeroImss ? (
+              <span className="text-xs text-rose-600">{errors.numeroImss}</span>
+            ) : (
+              <span className="text-xs" style={{ color: "var(--text-light)" }}>
+                Solo números; lo usamos para contexto Mejoravit.
+              </span>
+            )}
+          </label>
+        ) : null}
 
         <button
           type="submit"
@@ -186,8 +197,8 @@ export function LeadForm(props: { variant?: "compact" | "full" }) {
         </button>
 
         <p className="text-xs" style={{ color: "var(--text-light)" }}>
-          Tras enviar, se abre el cliente con el mensaje; no reemplaza la visita
-          técnica.
+          Al enviar, esta información será canalizada a uno de nuestros
+          expertos, respetando los parámetros de información y seguridad.
         </p>
       </form>
     </section>

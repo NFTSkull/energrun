@@ -6,7 +6,7 @@ export function FinalCTA(props: { whatsappHref: string; evaluationHref?: string 
     <RevealGroup
       as="section"
       id="cta-final"
-      className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-x-clip overflow-y-hidden border-y border-slate-200/80 bg-[#0f2744] py-20 text-white md:py-28"
+      className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-x-clip overflow-y-hidden border-y border-slate-200/80 bg-[#0f2744] py-14 text-white md:py-20"
     >
         <div
           aria-hidden

@@ -8,7 +8,7 @@ export function HomeProof() {
     <RevealGroup
       as="section"
       id="proyectos-testimonios"
-      className="border-b border-slate-200/80 py-16 md:py-24"
+      className="border-b border-slate-200/80 py-12 md:py-16"
     >
       <div className="max-w-2xl">
         <p
@@ -21,7 +21,7 @@ export function HomeProof() {
           className="reveal-t mt-3 text-balance text-3xl font-semibold tracking-tight text-slate-900 sm:text-[2.15rem]"
           data-stagger="1"
         >
-          Experiencia real en residencial, comercial e industria ligera
+          Experiencia real en residencial, comercial e industria
         </h2>
         <p
           className="reveal-t mt-4 text-[15px] leading-7 text-slate-600"

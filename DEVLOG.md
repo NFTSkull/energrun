@@ -1,5 +1,33 @@
 ## Decisiones
 
+### 2026-04-27 (home: menos aire entre secciones)
+- Se baja un tramo de escala de `py` (y márgenes negativos/gaps en `InstitutionalValue`) en los bloques de la home y en el CTA final compartido, sin tocar el sistema de bordes ni el ritmo de tipografía, solo la huella vertical.
+
+### 2026-04-27 (HomeProof: “industria” sin “ligera”)
+- Ajuste de copy: encabezado de sección e insignia de segmento en la tarjeta industrial alinean a *industria*; el tipo de `HomeFeaturedProject` usa literal `Industria` para ese badge.
+
+### 2026-04-27 (home: sin sección “Cómo trabajamos”)
+- Se retira el bloque completo de metodología (cabecera, chips y pasos) de la home; se elimina el componente y `homeHowWeWorkSteps` en `content`. El CTA de la tercera solución (`Sistema energético integrado`) pasa a `/#lineas` para no dejar ancla rota.
+
+### 2026-04-27 (propuesta de valor: costos y planeta)
+- En `InstitutionalValue`, el lead institucional enfatiza disminución de costos y cuidado del planeta frente a la fórmula previa (decisiones de negocio y operación), manteniendo el marco *end-to-end*.
+
+### 2026-04-27 (BusinessLines: copy generadores)
+- La descripción de la línea de generadores pasa a *Sistemas de generación de energía eléctrica…* para alinear el mensaje con la categoría de equipo sin perder el detalle de transferencia y carga crítica.
+
+### 2026-04-27 (solar: garantía 25 años en módulos)
+- Se integra en copy y UI (chip discreto, lista técnica y tarjeta de *líneas principales*) la garantía de producto de **25 años** en módulos, con redacción que remite a fabricante e instalación para alinear expectativas y cumplir buenas prácticas de información comercial.
+
+### 2026-04-27 (footer: sin columna Cobertura)
+- Se retira la tercera columna del `Footer` para no repetir geografía y línea de oferta; el layout pasa a dos columnas en `md+`.
+
+### 2026-04-27 (home: píldora `heroTrust`)
+- Se renombra el tercer ítem de confianza del hero a *Paneles, Generadores o Híbrido* (antes *Integración a medida*) para alinearlo con la oferta explícita en la home.
+
+### 2026-04-27 (home: copy hero, contacto y lead IMSS)
+- Se simplifica el claim lateral del `Hero` a distribución de marcas y se renombra el CTA a *Solicita Cotización*; en contacto se elimina el encabezado/lead que duplicaba explicación del formulario.
+- `leadSchema` exige `numeroImss` (mín. 8 dígitos) solo si el usuario indica que cotiza en IMSS; el mensaje a WhatsApp incluye la línea de afiliación cuando aplica, y el pie del formulario comunica que la información se canaliza a expertos con criterio de privacidad.
+
 ### 2026-04-27 (performance: animación más ligera)
 - Se optimiza la percepción de fluidez reduciendo tiempos y desplazamientos de animación en `globals.css` (hero/reveal/stagger/catálogo), y removiendo `will-change` continuo para evitar presión extra de GPU.
 - Se ajusta `Header` para evitar `backdrop-blur` en estado fijo y menú móvil, y en `Hero` se baja `preload` de video a `metadata` junto con blur/sombra más ligeros en la tarjeta institucional.

@@ -6,7 +6,6 @@ import { Hero } from "@/app/_components/sections/Hero";
 import { BusinessLines } from "@/app/_components/sections/shared/BusinessLines";
 import { ContactSection } from "@/app/_components/sections/shared/ContactSection";
 import { HomeProof } from "@/app/_components/sections/shared/HomeProof";
-import { HowWeWorkBrief } from "@/app/_components/sections/shared/HowWeWorkBrief";
 import { InstitutionalValue } from "@/app/_components/sections/shared/InstitutionalValue";
 import {
   buildWhatsAppMessage,
@@ -39,13 +38,8 @@ export default function Home() {
       <main className="app-container">
         <InstitutionalValue />
         <BusinessLines />
-        <HowWeWorkBrief />
         <HomeProof />
-        <ContactSection
-          whatsappHref={whatsappHref}
-          title="Datos mínimos para una evaluación inicial"
-          description="Nombre, teléfono y si cotizas en IMSS (criterio Mejoravit). Al enviar, abrimos WhatsApp con mensaje estructurado para iniciar diagnóstico."
-        />
+        <ContactSection whatsappHref={whatsappHref} />
       </main>
 
       <FinalCTA whatsappHref={whatsappHref} evaluationHref="#contacto" />

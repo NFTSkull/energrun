@@ -31,8 +31,22 @@ export function Solar(props: { evaluationHref?: string }) {
             Paneles solares a la medida de lo que realmente consumes
           </h2>
           <p
-            className="reveal-t mt-4 max-w-3xl text-[15px] leading-7 text-slate-600"
+            className="reveal-t mt-4 max-w-3xl"
             data-stagger="2"
+          >
+            <span className="inline-flex max-w-full flex-wrap items-baseline gap-x-2 gap-y-1 rounded-2xl border border-[#1E4D8C]/18 bg-gradient-to-br from-[#1E4D8C]/[0.06] to-[#3FA9F5]/[0.05] px-4 py-3 text-[15px] leading-snug text-slate-700 shadow-sm">
+              <span className="font-semibold tabular-nums text-[#1E4D8C]">
+                25 años
+              </span>
+              <span>
+                de garantía de producto en módulos, según fabricante y términos
+                de instalación.
+              </span>
+            </span>
+          </p>
+          <p
+            className="reveal-t mt-4 max-w-3xl text-[15px] leading-7 text-slate-600"
+            data-stagger="3"
           >
             Reduce el kWh importado de CFE sin comprometer confort ni
             operación. El sistema se dimensiona al recibo real del inmueble y
@@ -40,7 +54,7 @@ export function Solar(props: { evaluationHref?: string }) {
           </p>
           <p
             className="reveal-t mt-3 max-w-3xl text-[15px] leading-7 text-slate-600"
-            data-stagger="3"
+            data-stagger="4"
           >
           Cuando el consumo sube demasiado, CFE puede pasar tu recibo a una
           tarifa de alto consumo (DAC), y el costo por kWh aumenta. Un sistema
@@ -48,13 +62,13 @@ export function Solar(props: { evaluationHref?: string }) {
           conveniente.
           </p>
 
-          <div className="reveal-t mt-6" data-stagger="4">
+          <div className="reveal-t mt-6" data-stagger="5">
             <SolarInquiryPanel />
           </div>
 
           <dl
             className="reveal-t mt-8 grid max-w-4xl gap-x-8 gap-y-5 border-t border-slate-200/80 pt-6 sm:grid-cols-2"
-            data-stagger="5"
+            data-stagger="6"
           >
               {solarSystemItems.map((it) => (
                 <div key={it.t} className="min-w-0">
@@ -70,7 +84,7 @@ export function Solar(props: { evaluationHref?: string }) {
 
           <div
             className="reveal-t mt-8 flex flex-wrap items-center gap-3"
-            data-stagger="6"
+            data-stagger="7"
           >
             <a
               href={evaluationHref}
@@ -85,19 +99,19 @@ export function Solar(props: { evaluationHref?: string }) {
         <div className="mt-14 border-t border-slate-200/80 pt-12 md:mt-16 md:pt-14 lg:mt-20 lg:pt-16">
           <p
             className="reveal-t text-xs font-semibold uppercase tracking-[0.22em] text-slate-500"
-            data-stagger="7"
+            data-stagger="8"
           >
             Aplicaciones
           </p>
           <h3
             className="reveal-t mt-3 text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl"
-            data-stagger="8"
+            data-stagger="9"
           >
             Residencial, comercial e industria ligera
           </h3>
           <p
             className="reveal-t mt-2 max-w-2xl text-sm leading-6 text-slate-600"
-            data-stagger="9"
+            data-stagger="10"
           >
             Tres enfoques con criterio de ingeniería. Cada bloque incluye
             referencia visual del tipo de inmueble o sector.
@@ -152,7 +166,7 @@ export function Solar(props: { evaluationHref?: string }) {
 
           <p
             className="reveal-t mt-8 text-xs leading-6 text-slate-500"
-            data-stagger="10"
+            data-stagger="11"
           >
             El monitoreo de producción y alertas se entrega con aplicación y
             bitácora mensual para auditar el desempeño del sistema.

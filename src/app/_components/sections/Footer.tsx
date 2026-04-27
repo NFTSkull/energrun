@@ -8,7 +8,7 @@ const NAV = [
 export function Footer() {
   return (
     <footer className="border-t border-slate-200/90 bg-white py-12 text-sm text-slate-600">
-      <div className="app-container grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
+      <div className="app-container grid gap-10 md:grid-cols-[1.2fr_1fr]">
         <div className="text-center md:text-left">
           <p className="text-sm font-semibold tracking-tight text-[#1E4D8C]">
             ENERGRUN
@@ -35,18 +35,6 @@ export function Footer() {
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="text-center md:text-left">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
-            Cobertura
-          </p>
-          <p className="mt-3 text-sm leading-6 text-slate-700">
-            Monterrey, N.L. y área metropolitana
-          </p>
-          <p className="mt-2 text-xs leading-6 text-slate-500">
-            Distribución Generac · Paneles solares · Sistemas integrados
-          </p>
         </div>
       </div>
 

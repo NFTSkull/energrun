@@ -54,7 +54,7 @@ export const solutions: Solution[] = [
       "Integración a medida",
       "Enfoque técnico y operativo",
     ],
-    href: "/#como-trabajamos",
+    href: "/#lineas",
   },
 ];
 
@@ -78,6 +78,7 @@ export const businessLines: BusinessLine[] = [
       "Sistemas fotovoltaicos para reducir consumo de CFE en residencial, comercio e industria ligera.",
     bullets: [
       "Diseño con consumo real",
+      "Garantía de producto de 25 años en módulos (según fabricante)",
       "Interconexión CFE y puesta en marcha",
       "Monitoreo de producción y desempeño",
     ],
@@ -93,7 +94,7 @@ export const businessLines: BusinessLine[] = [
     kicker: "Línea 02",
     title: "Generadores de respaldo",
     description:
-      "Sistemas de respaldo para continuidad operativa con transferencia automática y selección por carga crítica.",
+      "Sistemas de generación de energía eléctrica con transferencia automática y selección por carga crítica.",
     bullets: [
       "Residencial, comercial e industrial",
       "Gas LP, gas natural y diésel",
@@ -123,24 +124,6 @@ export const institutionalValuePoints = [
     title: "Continuidad y ahorro",
     description:
       "Portafolio dual para eficiencia energética (solar) y continuidad operativa con respaldo automático.",
-  },
-] as const;
-
-export const homeHowWeWorkSteps = [
-  {
-    n: "01",
-    t: "Diagnóstico del sitio",
-    d: "Revisamos consumo, cargas críticas, acometida y contexto tarifario del inmueble.",
-  },
-  {
-    n: "02",
-    t: "Propuesta ejecutiva",
-    d: "Presentamos alcance técnico por línea: solar, respaldo o arquitectura híbrida.",
-  },
-  {
-    n: "03",
-    t: "Implementación y puesta en marcha",
-    d: "Instalamos, probamos y dejamos operación documentada para seguimiento.",
   },
 ] as const;
 
@@ -178,7 +161,7 @@ export const homeTestimonials: HomeTestimonial[] = [
 export type HomeFeaturedProject = {
   id: string;
   title: string;
-  segment: "Residencial" | "Comercial" | "Industria ligera";
+  segment: "Residencial" | "Comercial" | "Industria";
   summary: string;
   image: { src: `/${string}`; alt: string };
 };
@@ -209,7 +192,7 @@ export const homeFeaturedProjects: HomeFeaturedProject[] = [
   {
     id: "hp-industrial",
     title: "Industria ligera con solución a medida",
-    segment: "Industria ligera",
+    segment: "Industria",
     summary:
       "Integración por etapas con criterio técnico para sostener cargas relevantes y mejorar desempeño operativo.",
     image: {
@@ -400,6 +383,10 @@ export const solarSystemItems: { t: string; d: string }[] = [
   {
     t: "Integración con infraestructura",
     d: "Tablero, transferencia y, si aplica, respaldo.",
+  },
+  {
+    t: "Garantía de módulos",
+    d: "Garantía de producto de 25 años en módulos, conforme a especificaciones del fabricante y términos de la instalación.",
   },
 ];
 
@@ -640,7 +627,7 @@ export const processSteps = [
 export const heroTrust = [
   { t: "Energía solar" },
   { t: "Respaldo automático" },
-  { t: "Integración a medida" },
+  { t: "Paneles, Generadores o Híbrido" },
 ] as const;
 
 /* ----------------- Proyectos (placeholder) ----------------- */

@@ -63,7 +63,7 @@ export function Hero(props: Props) {
               href={evaluationHref}
               className="inline-flex h-12 w-full items-center justify-center rounded-lg bg-[#6CC04A] px-7 text-sm font-semibold text-white shadow-md shadow-[#6CC04A]/25 transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#3BAA3F] sm:w-auto"
             >
-              Solicitar evaluación
+              Solicita Cotización
             </a>
             <a
               href={solutionsHref}
@@ -119,9 +119,7 @@ export function Hero(props: Props) {
             </div>
             <div className="mt-6 border-t border-white/10 pt-4">
               <p className="text-[11px] leading-5 text-white/65">
-                Distribuidor y proveedor de equipos de respaldo · Diseño e
-                instalación bajo normativa · Financiamiento disponible para
-                proyectos elegibles.
+                Distribuidor de las principales marcas en el mundo.
               </p>
             </div>
           </div>

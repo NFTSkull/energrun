@@ -7,13 +7,15 @@
 ### Contrato de lead (cliente → WhatsApp)
 Campos del formulario:
 - `nombre`: string (requerido)
-- `telefono`: string (requerido)
+- `telefono`: string (requerido, normalizado a dígitos/+, mín. 10 dígitos)
 - `cotizaEnIMSS`: boolean (requerido)
+- `numeroImss`: string (opcional en el esquema; **obligatorio** si `cotizaEnIMSS` es `true`, mínimo 8 dígitos numéricos en la validación `leadSchema`)
 
 Mensaje precargado en WhatsApp incluye:
 - Nombre
 - Teléfono
 - Cotiza en IMSS (Sí/No)
+- Número IMSS / afiliación (solo si cotiza en IMSS y se capturó)
 - Interés (Generador / Solar / Híbrido; opcional en iteraciones futuras)
 
 ### Asistente FV (sección Solar, solo cliente, B0)

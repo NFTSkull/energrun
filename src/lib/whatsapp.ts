@@ -17,6 +17,10 @@ export function buildWhatsAppMessage(lead?: Partial<Lead>) {
   if (typeof lead?.cotizaEnIMSS === "boolean") {
     lines.push(`¿Cotiza en IMSS?: ${lead.cotizaEnIMSS ? "Sí" : "No"}`);
   }
+  if (lead?.cotizaEnIMSS && lead.numeroImss) {
+    const imss = lead.numeroImss.replace(/\D/g, "");
+    if (imss) lines.push(`Número IMSS / afiliación: ${imss}`);
+  }
 
   lines.push("Zona: Monterrey y área metropolitana");
   lines.push("Solicito revisión de requisitos Mejoravit (si aplica).");

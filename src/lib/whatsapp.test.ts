@@ -28,6 +28,17 @@ describe("whatsapp", () => {
     expect(msg).toContain("¿Cotiza en IMSS?: Sí");
   });
 
+  it("includes IMSS number when cotiza en IMSS and numeroImss is set", () => {
+    const msg = buildWhatsAppMessage({
+      nombre: "Gaby",
+      telefono: "8112345678",
+      cotizaEnIMSS: true,
+      numeroImss: "12 34 56 78 90 12",
+    });
+
+    expect(msg).toContain("Número IMSS / afiliación: 123456789012");
+  });
+
   it("builds solar inquiry message with bimestral/segmento/tarifa", () => {
     const m = buildSolarInquiryMessage({
       kwhBimestral: "300-800",
