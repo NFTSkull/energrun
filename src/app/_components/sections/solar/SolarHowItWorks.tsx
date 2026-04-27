@@ -6,7 +6,7 @@ export function SolarHowItWorks() {
     <RevealGroup
       as="section"
       id="como-funciona-solar"
-      className="border-b border-slate-200/80 py-16 md:py-24"
+      className="border-b border-slate-200/80 py-12 md:py-16"
     >
       <div className="max-w-2xl">
         <p

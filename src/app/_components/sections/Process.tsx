@@ -7,7 +7,7 @@ export function Process() {
     <RevealGroup
       as="section"
       id="proceso"
-      className="border-b border-slate-200/80 bg-gradient-to-b from-slate-50/40 to-white py-16 md:py-24"
+      className="border-b border-slate-200/80 bg-gradient-to-b from-slate-50/40 to-white py-12 md:py-16"
     >
       <div className="max-w-2xl">
         <p

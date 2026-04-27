@@ -6,7 +6,7 @@ export function SolarMonitoring() {
     <RevealGroup
       as="section"
       id="monitoreo-solar"
-      className="border-b border-slate-200/80 bg-gradient-to-b from-white to-slate-50/40 py-16 md:py-24"
+      className="border-b border-slate-200/80 bg-gradient-to-b from-white to-slate-50/40 py-12 md:py-16"
     >
       <div className="grid gap-8 md:grid-cols-[1fr_1fr] md:gap-12">
         <div>

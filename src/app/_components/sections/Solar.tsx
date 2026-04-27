@@ -13,7 +13,7 @@ export function Solar(props: { evaluationHref?: string }) {
     <RevealGroup
       as="section"
       id="solar"
-      className="border-b border-slate-200/80 py-20 md:py-28"
+      className="border-b border-slate-200/80 py-12 md:py-16"
     >
       <div>
         {/* 1 · Bloque principal: copy, criterio de sistema, CTAs */}

@@ -1,5 +1,8 @@
 ## Decisiones
 
+### 2026-04-27 (espaciado: paneles y generadores)
+- Se replica el ritmo vertical compacto de la home en las secciones exclusivas de `/paneles-solares` y `/generadores` (incl. `Process` solo solar); los héroes de esas rutas bajan solo el padding inferior para reducir la franja entre hero y primer bloque sin tocar el `pt` respecto al header fijo.
+
 ### 2026-04-27 (Header: más tamaño, sin tocar el Hero)
 - Se incrementa la escala visual del `Header` únicamente; no se ajustan márgenes del `Hero` para cumplir la petición de no “bajar” el héroe; el padding superior del hero se mantiene y el encabezado fijo no debería invadir el título a los anchos de breakpoint actuales.
 

@@ -1,5 +1,6 @@
 ## Unreleased
 
+- **Páginas `/paneles-solares` y `/generadores`**: mismo criterio de aire vertical que la home (`py-12 md:py-16` en bloques de contenido; héroes con `pb` inferior algo menor para acercar el primer `<main>`).
 - **Header**: mayor presencia (padding vertical, logo, bloque de marca, navegación, CTA y botón hamburguesa) **sin** modificar el `Hero` ni otras secciones.
 - **Monitores anchos (2K/4K/ultrawide)**: el utilitario `app-container` abre el ancho máximo por escalones (`2xl` → 90rem, ≥1920px → 100rem, ≥2560px → `min(110rem, 94vw)` + más padding) para no dejar el contenido demasiado estrecho; el `Hero` amplía ligeramente el bloque de lectura en esos cortes. `GeneratorBenefits` y `SolarBenefits` dejan de fijar un `max-w-7xl` interno para alinearse con el `main` ya limitado.
 - **Espaciado entre secciones (home)**: se reduce el padding vertical (`py-*`) de `InstitutionalValue`, `BusinessLines`, `HomeProof`, `ContactSection` y `FinalCTA` para acortar la banda en blanco entre bloques; en *Propuesta de valor* se ajusta también el solape (`-mt`) y el `gap` de la grilla de tarjetas.

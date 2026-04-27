@@ -75,7 +75,7 @@ export function GeneratorsCatalog(props: { whatsappHref: string; evaluationHref?
   return (
     <section
       id="generadores"
-      className="border-b border-slate-200/80 bg-gradient-to-b from-slate-50/40 to-white py-20 md:py-28"
+      className="border-b border-slate-200/80 bg-gradient-to-b from-slate-50/40 to-white py-12 md:py-16"
     >
       <RevealGroup as="div" className="max-w-3xl">
         <p
