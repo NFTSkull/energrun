@@ -1,5 +1,8 @@
 ## Decisiones
 
+### 2026-04-27 (favicon: logo del header)
+- El favicon y el icono de acceso rápido usan `public/logo1.png`, alineado con el `Image` del `Header`, para que la pestaña y marcadores muestren la misma marca.
+
 ### 2026-04-27 (UI: base responsive multi-monitor)
 - Se exporta `viewport` en `layout` para comportamiento consistente en móvil, notch (`viewport-fit: cover`) y escalado inicial.
 - Se añade `font-size` fluido en `html` (límites 15–18px) para legibilidad sin saltos bruscos entre resoluciones.

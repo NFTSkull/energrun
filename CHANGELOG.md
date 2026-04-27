@@ -1,5 +1,6 @@
 ## Unreleased
 
+- **Favicon / icono de pestaña**: `metadata.icons` en `layout` apunta a `/logo1.png` (mismo que el logo del `Header`); se unifican `icon`, `apple` y `shortcut` en ese activo.
 - **Responsive / monitores**: `viewport` explícito (`device-width`, `viewport-fit: cover`), tipografía base fluida en `html`, contenedor unificado `app-container` (márgenes extra en `2xl` y `≥1920px`, `min-w-0`) en `main`, `Header`, `Footer`, héroes y CTA final; `body` con `min-h-svh` y control de overflow horizontal.
 - **Marca (UI y mensajes)**: se unifica el nombre mostrado como **ENERGRUN** (sin diéresis) en `Header`, `Footer`, héroes, metadata, WhatsApp y documentación asociada.
 - **Página `/generadores` (`GeneratorBenefits`) — copy**: el lead de “Beneficios del respaldo automático” se acorta: prioridad de cargas y dimensionamiento a la operación, sin cifras de potencia sueltas o genéricas.
