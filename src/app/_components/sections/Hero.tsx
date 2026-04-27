@@ -42,7 +42,7 @@ export function Hero(props: Props) {
       />
 
       <div className="app-container relative z-10 grid min-h-[100svh] grid-cols-1 items-center gap-10 pb-24 pt-28 sm:pb-24 sm:pt-40 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
-        <div className="max-w-[40rem]">
+        <div className="max-w-[40rem] 2xl:max-w-[46rem] min-[1920px]:max-w-[48rem]">
           <p className="hero-anim-1 text-[11px] font-semibold uppercase tracking-[0.32em] text-white/60 sm:text-xs">
             ENERGRUN · Monterrey, N.L.
           </p>
@@ -51,7 +51,7 @@ export function Hero(props: Props) {
             Especialistas en generación de energía
           </h1>
 
-          <p className="hero-anim-2 mt-6 max-w-[34rem] text-[15px] leading-7 text-white/85 sm:text-lg sm:leading-8">
+          <p className="hero-anim-2 mt-6 max-w-[34rem] text-[15px] leading-7 text-white/85 sm:text-lg sm:leading-8 2xl:max-w-[38rem] min-[1920px]:max-w-[40rem]">
             Vendemos e instalamos sistemas fotovoltaicos y generadores de respaldo.
             Diseñamos un proyecto adecuado a tus necesidades: puede ser con
             paneles solares, generadores de respaldo o ambos en el mismo

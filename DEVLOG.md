@@ -1,5 +1,8 @@
 ## Decisiones
 
+### 2026-04-27 (layout: viewports de monitor ancho)
+- Se amplía progresivamente `app-container` por encima de `2xl` y Full HD, con tope en ultrawide vía `94vw`, y se afloja el `max-w` fijo de los paneles *Benefits* en páginas de solución para que no queden a 80rem cuando el contenedor global ya es más ancho. El `Hero` en home aumenta un poco el ancho de columna de titular/lead en cortes 2xl+.
+
 ### 2026-04-27 (home: menos aire entre secciones)
 - Se baja un tramo de escala de `py` (y márgenes negativos/gaps en `InstitutionalValue`) en los bloques de la home y en el CTA final compartido, sin tocar el sistema de bordes ni el ritmo de tipografía, solo la huella vertical.
 

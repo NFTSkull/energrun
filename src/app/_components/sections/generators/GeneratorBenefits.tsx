@@ -15,7 +15,7 @@ export function GeneratorBenefits() {
       id="beneficios-generadores"
       className="border-b border-slate-200/80 bg-gradient-to-b from-slate-50/50 to-white py-20 md:py-28"
     >
-      <div className="mx-auto w-full max-w-7xl">
+      <div className="w-full">
         <div className="reveal-t relative overflow-hidden rounded-2xl border border-slate-200/80 bg-[#0f2744] p-7 text-white shadow-[0_22px_50px_rgba(15,39,68,0.2)] sm:p-8">
           <div
             aria-hidden

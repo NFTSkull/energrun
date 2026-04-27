@@ -1,5 +1,6 @@
 ## Unreleased
 
+- **Monitores anchos (2K/4K/ultrawide)**: el utilitario `app-container` abre el ancho máximo por escalones (`2xl` → 90rem, ≥1920px → 100rem, ≥2560px → `min(110rem, 94vw)` + más padding) para no dejar el contenido demasiado estrecho; el `Hero` amplía ligeramente el bloque de lectura en esos cortes. `GeneratorBenefits` y `SolarBenefits` dejan de fijar un `max-w-7xl` interno para alinearse con el `main` ya limitado.
 - **Espaciado entre secciones (home)**: se reduce el padding vertical (`py-*`) de `InstitutionalValue`, `BusinessLines`, `HomeProof`, `ContactSection` y `FinalCTA` para acortar la banda en blanco entre bloques; en *Propuesta de valor* se ajusta también el solape (`-mt`) y el `gap` de la grilla de tarjetas.
 - **Home (`HomeProof`)**: el título pasa a *residencial, comercial e industria* (sin “ligera”); en la tercera tarjeta, la etiqueta sobre la imagen muestra *Industria* (segmento en datos) manteniendo el resto del bloque.
 - **Home**: se elimina la sección *Cómo trabajamos* (`HowWeWorkBrief`: metodología, fases, pasos 01–03). La tarjeta *Sistema energético integrado* en `solutions` enlaza a `/#lineas` en lugar de `/#como-trabajamos` (ancla retirada).

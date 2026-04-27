@@ -36,9 +36,13 @@ body {
     Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-/* Ancho de contenido alineado en móvil → 4K; más aire en monitores anchos y min-w-0 para flex/grid */
+/*
+ * Ancho de contenido: móvil → portátil con max-w-7xl; en monitores grandes
+ * (2xl+ y Full HD) se abre progresivamente para no dejar el layout “angosto”
+ * en el centro; 94vw a partir de 2560px evita rozar bordes en ultrawide.
+ */
 @utility app-container {
-  @apply mx-auto w-full min-w-0 max-w-7xl px-4 sm:px-8 lg:px-8 2xl:px-10 min-[1920px]:px-12;
+  @apply mx-auto w-full min-w-0 max-w-7xl px-4 sm:px-8 lg:px-8 2xl:px-10 2xl:max-w-[min(90rem,100%)] min-[1920px]:px-12 min-[1920px]:max-w-[min(100rem,100%)] min-[2560px]:px-14 min-[2560px]:max-w-[min(110rem,94vw)];
 }
 
 @utility btn-primary {
