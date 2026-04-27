@@ -47,10 +47,10 @@ export function Header(props: { contactHref?: string }) {
           : "border-b border-transparent bg-transparent",
       ].join(" ")}
     >
-      <div className="app-container flex items-center justify-between gap-2 py-4 sm:gap-3 sm:py-5">
+      <div className="app-container flex items-center justify-between gap-2 py-4 sm:gap-4 sm:py-6 md:py-6 lg:py-6">
         <Link
           href="/"
-          className="group flex min-w-0 items-center gap-2.5 sm:gap-5"
+          className="group flex min-w-0 items-center gap-2.5 sm:gap-5 md:gap-6"
           onClick={() => setOpen(false)}
         >
           <Image
@@ -60,14 +60,14 @@ export function Header(props: { contactHref?: string }) {
             height={86}
             priority
             className={[
-              "h-[3.15rem] w-auto object-contain sm:h-16 md:h-[4.1rem] lg:h-[4.4rem]",
+              "h-[3.45rem] w-auto object-contain sm:h-[4.1rem] md:h-[4.5rem] lg:h-[4.9rem] xl:h-[5.1rem]",
               scrolled || open ? "" : "drop-shadow-[0_8px_20px_rgba(0,0,0,0.35)]",
             ].join(" ")}
           />
           <div className="hidden min-w-0 leading-tight sm:block">
             <div
               className={[
-                "text-xl font-semibold tracking-tight sm:text-2xl",
+                "text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl",
                 scrolled || open ? "text-[#1E4D8C]" : "text-white",
               ].join(" ")}
             >
@@ -75,7 +75,7 @@ export function Header(props: { contactHref?: string }) {
             </div>
             <div
               className={[
-                "text-base",
+                "text-[15px] sm:text-base md:text-lg",
                 scrolled || open ? "text-slate-500" : "text-white/70",
               ].join(" ")}
             >
@@ -86,7 +86,7 @@ export function Header(props: { contactHref?: string }) {
 
         <nav
           className={[
-            "hidden items-center gap-7 text-[15px] font-medium sm:text-base lg:gap-8 lg:flex",
+            "hidden items-center gap-7 text-[16px] font-medium sm:gap-8 sm:text-[17px] md:text-lg lg:gap-9 lg:flex",
             scrolled ? "text-slate-600" : "text-white/90",
           ].join(" ")}
         >
@@ -110,7 +110,7 @@ export function Header(props: { contactHref?: string }) {
 
         <div className="flex items-center gap-2">
           <a
-            className="hidden shrink-0 items-center justify-center rounded-lg bg-[#1E4D8C] px-5 py-3 text-sm font-semibold text-white shadow-sm transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#17407a] md:inline-flex"
+            className="hidden shrink-0 items-center justify-center rounded-lg bg-[#1E4D8C] px-6 py-3.5 text-base font-semibold text-white shadow-sm transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#17407a] md:inline-flex"
             href={contactHref}
           >
             Contacto
@@ -121,7 +121,7 @@ export function Header(props: { contactHref?: string }) {
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
             className={[
-              "inline-flex h-11 w-11 items-center justify-center rounded-lg border lg:hidden",
+              "inline-flex h-12 w-12 items-center justify-center rounded-lg border md:h-[3.25rem] md:w-[3.25rem] lg:hidden",
               scrolled || open
                 ? "border-slate-200 text-slate-700 hover:bg-slate-100"
                 : "border-white/30 text-white hover:bg-white/10",

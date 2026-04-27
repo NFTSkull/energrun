@@ -1,5 +1,8 @@
 ## Decisiones
 
+### 2026-04-27 (Header: más tamaño, sin tocar el Hero)
+- Se incrementa la escala visual del `Header` únicamente; no se ajustan márgenes del `Hero` para cumplir la petición de no “bajar” el héroe; el padding superior del hero se mantiene y el encabezado fijo no debería invadir el título a los anchos de breakpoint actuales.
+
 ### 2026-04-27 (layout: viewports de monitor ancho)
 - Se amplía progresivamente `app-container` por encima de `2xl` y Full HD, con tope en ultrawide vía `94vw`, y se afloja el `max-w` fijo de los paneles *Benefits* en páginas de solución para que no queden a 80rem cuando el contenedor global ya es más ancho. El `Hero` en home aumenta un poco el ancho de columna de titular/lead en cortes 2xl+.
 
