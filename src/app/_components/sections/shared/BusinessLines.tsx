@@ -27,8 +27,8 @@ export function BusinessLines() {
           className="reveal-t mt-4 text-[15px] leading-7 text-slate-600"
           data-stagger="2"
         >
-          Reduce consumo con solar o protege tu operación con generadores. Entra
-          y recibe una cotización.
+          Reduce consumo con paneles solares o protege tu operación con
+          generadores. Entra y recibe una cotización.
         </p>
       </div>
 

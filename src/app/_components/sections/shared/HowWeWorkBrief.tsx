@@ -39,8 +39,8 @@ export function HowWeWorkBrief() {
               Metodología clara de principio a fin
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600" data-stagger="2">
-              Estructuramos cada proyecto en fases ejecutivas, con trazabilidad
-              técnica y entregables definidos en cada etapa.
+              Lo llevamos paso a paso, con entregables claros en cada etapa y
+              seguimiento técnico de principio a fin.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">

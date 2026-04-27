@@ -41,7 +41,7 @@ export function Hero(props: Props) {
         }}
       />
 
-      <div className="relative z-10 mx-auto grid min-h-[100svh] w-full max-w-7xl grid-cols-1 items-center gap-10 px-4 pb-24 pt-24 sm:px-8 sm:pb-24 sm:pt-32 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:px-8">
+      <div className="relative z-10 mx-auto grid min-h-[100svh] w-full max-w-7xl grid-cols-1 items-center gap-10 px-4 pb-24 pt-28 sm:px-8 sm:pb-24 sm:pt-40 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:px-8">
         <div className="max-w-[40rem]">
           <p className="hero-anim-1 text-[11px] font-semibold uppercase tracking-[0.32em] text-white/60 sm:text-xs">
             ENERGRÜN · Monterrey, N.L.

@@ -5,7 +5,7 @@ export function SolarHero() {
   return (
     <section
       id="top"
-      className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-x-clip overflow-y-hidden border-b border-slate-200/80 bg-[#0a1628] py-20 text-white md:py-32"
+      className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-x-clip overflow-y-hidden border-b border-slate-200/80 bg-[#0a1628] pt-28 pb-20 text-white md:pt-40 md:pb-32"
     >
       <div className="pointer-events-none absolute inset-0 z-0">
         <Image

@@ -47,7 +47,7 @@ export function Header(props: { contactHref?: string }) {
           : "border-b border-transparent bg-transparent",
       ].join(" ")}
     >
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-3 py-3 sm:gap-3 sm:px-6 lg:px-8">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-4 py-4 sm:gap-3 sm:px-6 sm:py-5 lg:px-8">
         <Link
           href="/"
           className="group flex min-w-0 items-center gap-2.5 sm:gap-5"
@@ -60,14 +60,14 @@ export function Header(props: { contactHref?: string }) {
             height={86}
             priority
             className={[
-              "h-11 w-auto object-contain sm:h-[3.4rem] lg:h-16",
+              "h-[3.15rem] w-auto object-contain sm:h-16 md:h-[4.1rem] lg:h-[4.4rem]",
               scrolled || open ? "" : "drop-shadow-[0_8px_20px_rgba(0,0,0,0.35)]",
             ].join(" ")}
           />
           <div className="hidden min-w-0 leading-tight sm:block">
             <div
               className={[
-                "text-lg font-semibold tracking-tight",
+                "text-xl font-semibold tracking-tight sm:text-2xl",
                 scrolled || open ? "text-[#1E4D8C]" : "text-white",
               ].join(" ")}
             >
@@ -75,7 +75,7 @@ export function Header(props: { contactHref?: string }) {
             </div>
             <div
               className={[
-                "text-[15px]",
+                "text-base",
                 scrolled || open ? "text-slate-500" : "text-white/70",
               ].join(" ")}
             >
@@ -86,7 +86,7 @@ export function Header(props: { contactHref?: string }) {
 
         <nav
           className={[
-            "hidden items-center gap-6 text-sm font-medium lg:flex",
+            "hidden items-center gap-7 text-[15px] font-medium sm:text-base lg:gap-8 lg:flex",
             scrolled ? "text-slate-600" : "text-white/90",
           ].join(" ")}
         >
@@ -110,7 +110,7 @@ export function Header(props: { contactHref?: string }) {
 
         <div className="flex items-center gap-2">
           <a
-            className="hidden shrink-0 items-center justify-center rounded-lg bg-[#1E4D8C] px-4 py-2.5 text-xs font-semibold text-white shadow-sm transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#17407a] md:inline-flex md:text-sm"
+            className="hidden shrink-0 items-center justify-center rounded-lg bg-[#1E4D8C] px-5 py-3 text-sm font-semibold text-white shadow-sm transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#17407a] md:inline-flex"
             href={contactHref}
           >
             Contacto
@@ -121,7 +121,7 @@ export function Header(props: { contactHref?: string }) {
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
             className={[
-              "inline-flex h-10 w-10 items-center justify-center rounded-lg border lg:hidden",
+              "inline-flex h-11 w-11 items-center justify-center rounded-lg border lg:hidden",
               scrolled || open
                 ? "border-slate-200 text-slate-700 hover:bg-slate-100"
                 : "border-white/30 text-white hover:bg-white/10",
@@ -132,7 +132,7 @@ export function Header(props: { contactHref?: string }) {
               fill="none"
               stroke="currentColor"
               strokeWidth="1.7"
-              className="h-5 w-5"
+              className="h-6 w-6"
               aria-hidden
             >
               {open ? (
@@ -148,13 +148,13 @@ export function Header(props: { contactHref?: string }) {
       {/* Menú mobile/tablet */}
       {open ? (
         <div className="border-t border-slate-200/90 bg-white/98 backdrop-blur-sm lg:hidden">
-          <nav className="mx-auto flex w-full max-w-7xl flex-col gap-1 px-4 py-3 sm:px-6">
+          <nav className="mx-auto flex w-full max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6">
             {NAV_ITEMS.map((it) => (
               <Link
                 key={it.href}
                 href={it.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-[#1E4D8C]"
+                className="rounded-lg px-3 py-3.5 text-base font-medium text-slate-700 transition hover:bg-slate-100 hover:text-[#1E4D8C]"
               >
                 {it.label}
               </Link>
@@ -162,7 +162,7 @@ export function Header(props: { contactHref?: string }) {
             <a
               href={contactHref}
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex h-11 items-center justify-center rounded-lg bg-[#1E4D8C] px-5 text-sm font-semibold text-white transition hover:bg-[#17407a]"
+              className="mt-2 inline-flex h-12 items-center justify-center rounded-lg bg-[#1E4D8C] px-5 text-base font-semibold text-white transition hover:bg-[#17407a]"
             >
               Contacto
             </a>

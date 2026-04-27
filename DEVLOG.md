@@ -1,5 +1,16 @@
 ## Decisiones
 
+### 2026-04-25 (UI: header más alto)
+- Se incrementan padding vertical, tamaño de logo, jerarquía de marca, enlaces y CTA en `Header` para lectura y proporción en pantalla.
+- Se sube el padding top de héroes fijos bajo el header (home, paneles, generadores) para mantener el mismo criterio de aire bajo el encabezado fijo.
+
+### 2026-04-25 (contacto: mini-chat con auto-scroll por paso)
+- Se agrega auto-scroll suave en `WhatsAppFab` para llevar al usuario al siguiente bloque (FAQ → respuesta → siguiente pregunta) al seleccionar opciones.
+- Objetivo: evitar que en pantallas pequeñas el usuario pierda el hilo del flujo y tenga que desplazar manualmente.
+
+### 2026-04-27 (home: “Cómo trabajamos” más directo)
+- Se reescribe el texto de metodología para priorizar claridad (“paso a paso”, “entregables claros”) sin jerga y manteniendo tono profesional; se usa “seguimiento técnico” en lugar de “trazabilidad”.
+
 ### 2026-04-25 (home: prueba social visual)
 - Se añade sección `HomeProof` en `Inicio` con dos capas de credibilidad: proyectos destacados (residencial/comercial/industrial) y testimonios breves.
 - Se usan explícitamente los activos `residencia.png`, `comercial.png` e `industrial.png` para alinear narrativa con evidencia visual solicitada.
@@ -11,6 +22,7 @@
 
 ### 2026-04-25 (home: `BusinessLines` — copy más coherente)
 - Se ajusta el copy final a lenguaje directo y neutral: “Solar o generadores”, con una frase breve de alto impacto (“Reduce consumo… / protege tu operación…”).
+- Ajuste menor: se cambia “solar” por “paneles solares” en el texto guía para mayor claridad comercial.
 
 ### 2026-04-25 (footer: neutralidad de marca)
 - Se retira la mención explícita de “Generac” en el texto del `Footer` para mantener lenguaje institucional neutro; el detalle de marca permanece donde corresponde (catálogo / profundidad).

@@ -1,5 +1,8 @@
 ## Unreleased
 
+- **Header + héroes (espaciado)**: el `Header` gana presencia (más padding, logo y tipografía) y se aumenta el padding superior de los héroes (`Hero`, `SolarHero`, `GeneratorsHero`) para que el contenido no quede bajo la barra fija.
+- **Contacto (FAB WhatsApp) — auto-scroll**: en el mini-chat guiado, cada selección hace scroll suave al siguiente paso para mantener el flujo visible sin que el usuario tenga que “bajar” manualmente.
+- **Home (`HowWeWorkBrief`) — copy**: se simplifica el texto de metodología para que sea más directo y fácil de entender sin perder tono profesional.
 - **Home (`HomeProof`) — testimonios + proyectos**: se integra una nueva sección en inicio con tres proyectos (usando `residencia.png`, `comercial.png`, `industrial.png`) y tres testimonios breves para reforzar confianza.
 - **Generadores (copy)**: se elimina “Generac” de selección de plataforma (“se elige la línea del generador…”).
 - **Generadores (copy)**: se simplifica el beneficio de continuidad automática (ATS) a lenguaje más amigable y entendible.
@@ -7,7 +10,7 @@
 - **Sección Proceso (copy)**: se reescribe la línea de documentación/bitácoras a un mensaje más claro y amigable, manteniendo rigor técnico.
 - **Sección Solar (copy)**: se reescribe la explicación de tarifa DAC a lenguaje sencillo y estructurado.
 - **Hero `/paneles-solares` (copy)**: se simplifica el lead eliminando la enumeración final (“Aquí verás…”).
-- **Home (`BusinessLines`) — coherencia de copy**: se pule el texto guía (“Reduce consumo con solar o protege tu operación con generadores…”) para un cierre más profesional y claro.
+- **Home (`BusinessLines`) — coherencia de copy**: se pule el texto guía (“Reduce consumo con paneles solares o protege tu operación con generadores…”) para un cierre más profesional y claro.
 - **Footer (copy)**: se elimina “Generac” del texto descriptivo (queda “generadores de respaldo”).
 - **Home (`BusinessLines` + `Hero`) — integración de mensaje de respaldo**: se incorpora copy breve sobre continuidad operativa, selección por aplicación y catálogo de respaldo en la home, manteniendo tono profesional y estructura existente.
 - **Hero `/generadores` (copy)**: se reescribe el titular y el lead para sonar más directo y profesional (sin “página dedicada”).

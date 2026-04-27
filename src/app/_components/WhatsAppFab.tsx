@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   buildContactChatbotMessage,
   CHATBOT_FAQS,
@@ -42,6 +42,16 @@ export function WhatsAppFab() {
   const [backupPriority, setBackupPriority] = useState<
     ContactChatbotLead["backupPriority"] | null
   >(null);
+
+  const scrollAreaRef = useRef<HTMLDivElement | null>(null);
+  const stepFaqRef = useRef<HTMLDivElement | null>(null);
+  const stepAnswerRef = useRef<HTMLDivElement | null>(null);
+  const stepGeneratorTypeRef = useRef<HTMLDivElement | null>(null);
+  const stepFuelRef = useRef<HTMLDivElement | null>(null);
+  const stepPriorityRef = useRef<HTMLDivElement | null>(null);
+  const stepSegmentRef = useRef<HTMLDivElement | null>(null);
+  const stepImssRef = useRef<HTMLDivElement | null>(null);
+  const stepFinishRef = useRef<HTMLDivElement | null>(null);
 
   const quickHref = buildWhatsAppUrl({
     phoneNumber: DEFAULT_WHATSAPP,
@@ -96,6 +106,14 @@ export function WhatsAppFab() {
     backupPriority,
   ]);
 
+  const scrollToStep = useCallback((el: HTMLElement | null) => {
+    if (!el) return;
+    if (!scrollAreaRef.current) return;
+    requestAnimationFrame(() => {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, []);
+
   function restartChat() {
     setTopic(null);
     setFaqId(null);
@@ -105,6 +123,59 @@ export function WhatsAppFab() {
     setFuelType(null);
     setBackupPriority(null);
   }
+
+  useEffect(() => {
+    if (!open) return;
+    // Al abrir: mantener el inicio visible.
+    if (!topic) return;
+    scrollToStep(stepFaqRef.current);
+  }, [open, scrollToStep, topic]);
+
+  useEffect(() => {
+    if (!open) return;
+    if (!faqId) return;
+    scrollToStep(stepAnswerRef.current);
+  }, [faqId, open, scrollToStep]);
+
+  useEffect(() => {
+    if (!open) return;
+    if (!topic || !selectedFaq) return;
+    if (!needsGeneratorProfiling(topic)) {
+      scrollToStep(stepSegmentRef.current);
+      return;
+    }
+    scrollToStep(stepGeneratorTypeRef.current);
+  }, [open, scrollToStep, selectedFaq, topic]);
+
+  useEffect(() => {
+    if (!open) return;
+    if (!generatorType) return;
+    scrollToStep(stepFuelRef.current);
+  }, [generatorType, open, scrollToStep]);
+
+  useEffect(() => {
+    if (!open) return;
+    if (!fuelType) return;
+    scrollToStep(stepPriorityRef.current);
+  }, [fuelType, open, scrollToStep]);
+
+  useEffect(() => {
+    if (!open) return;
+    if (!backupPriority) return;
+    scrollToStep(stepSegmentRef.current);
+  }, [backupPriority, open, scrollToStep]);
+
+  useEffect(() => {
+    if (!open) return;
+    if (!segment) return;
+    scrollToStep(stepImssRef.current);
+  }, [open, scrollToStep, segment]);
+
+  useEffect(() => {
+    if (!open) return;
+    if (!cotizaEnIMSS) return;
+    scrollToStep(stepFinishRef.current);
+  }, [cotizaEnIMSS, open, scrollToStep]);
 
   return (
     <>
@@ -129,7 +200,10 @@ export function WhatsAppFab() {
             </button>
           </div>
 
-          <div className="max-h-[65vh] space-y-3 overflow-y-auto px-4 py-4 text-sm">
+          <div
+            ref={scrollAreaRef}
+            className="max-h-[65vh] space-y-3 overflow-y-auto px-4 py-4 text-sm"
+          >
             <div className="rounded-xl bg-slate-50 px-3 py-2.5 text-slate-700">
               Hola, soy tu asistente rapido. Resolvemos dudas de paneles o
               generadores y te mando directo a WhatsApp con un resumen.
@@ -169,7 +243,7 @@ export function WhatsAppFab() {
             </div>
 
             {topic ? (
-              <div>
+              <div ref={stepFaqRef} data-testid="chat-step-faq">
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
                   2) Cual es tu duda principal?
                 </p>
@@ -194,7 +268,11 @@ export function WhatsAppFab() {
             ) : null}
 
             {selectedFaq ? (
-              <div className="rounded-xl border border-[#1E4D8C]/15 bg-[#1E4D8C]/[0.05] px-3 py-2.5 text-slate-700">
+              <div
+                ref={stepAnswerRef}
+                data-testid="chat-step-answer"
+                className="rounded-xl border border-[#1E4D8C]/15 bg-[#1E4D8C]/[0.05] px-3 py-2.5 text-slate-700"
+              >
                 <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#1E4D8C]">
                   Respuesta rapida
                 </p>
@@ -203,7 +281,7 @@ export function WhatsAppFab() {
             ) : null}
 
             {selectedFaq && topic && needsGeneratorProfiling(topic) ? (
-              <div>
+              <div ref={stepGeneratorTypeRef} data-testid="chat-step-generator">
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
                   3) Tipo de generador que te interesa
                 </p>
@@ -232,7 +310,7 @@ export function WhatsAppFab() {
             ) : null}
 
             {generatorType && topic && needsGeneratorProfiling(topic) ? (
-              <div>
+              <div ref={stepFuelRef} data-testid="chat-step-fuel">
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
                   4) Combustible disponible o preferido
                 </p>
@@ -259,7 +337,7 @@ export function WhatsAppFab() {
             ) : null}
 
             {fuelType && topic && needsGeneratorProfiling(topic) ? (
-              <div>
+              <div ref={stepPriorityRef} data-testid="chat-step-priority">
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
                   5) Prioridad del respaldo
                 </p>
@@ -289,7 +367,7 @@ export function WhatsAppFab() {
 
             {selectedFaq &&
             (!topic || !needsGeneratorProfiling(topic) || backupPriority) ? (
-              <div>
+              <div ref={stepSegmentRef} data-testid="chat-step-segment">
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
                   {topic && needsGeneratorProfiling(topic)
                     ? "6) Tipo de inmueble"
@@ -318,7 +396,7 @@ export function WhatsAppFab() {
             ) : null}
 
             {segment ? (
-              <div>
+              <div ref={stepImssRef} data-testid="chat-step-imss">
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
                   {topic && needsGeneratorProfiling(topic)
                     ? "7) Cotizas en IMSS?"
@@ -347,7 +425,11 @@ export function WhatsAppFab() {
             ) : null}
           </div>
 
-          <div className="space-y-2 border-t border-slate-200 px-4 py-3">
+          <div
+            ref={stepFinishRef}
+            data-testid="chat-step-finish"
+            className="space-y-2 border-t border-slate-200 px-4 py-3"
+          >
             {isReadyToFinish ? (
               <a
                 href={chatbotHref}
