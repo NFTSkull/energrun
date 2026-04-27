@@ -41,9 +41,9 @@ export function Header(props: { contactHref?: string }) {
     <header
       className={[
         "fixed inset-x-0 top-0 z-50",
-        "transition-all duration-300 ease-out",
+        "transition-all duration-200 ease-out",
         scrolled || open
-          ? "border-b border-slate-200/90 bg-white/95 shadow-sm backdrop-blur-sm"
+          ? "border-b border-slate-200/90 bg-white/95 shadow-sm"
           : "border-b border-transparent bg-transparent",
       ].join(" ")}
     >
@@ -147,7 +147,7 @@ export function Header(props: { contactHref?: string }) {
 
       {/* Menú mobile/tablet */}
       {open ? (
-        <div className="border-t border-slate-200/90 bg-white/98 backdrop-blur-sm lg:hidden">
+        <div className="border-t border-slate-200/90 bg-white/98 lg:hidden">
           <nav className="app-container flex flex-col gap-1 py-4">
             {NAV_ITEMS.map((it) => (
               <Link

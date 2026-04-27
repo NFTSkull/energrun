@@ -1,5 +1,9 @@
 ## Decisiones
 
+### 2026-04-27 (performance: animación más ligera)
+- Se optimiza la percepción de fluidez reduciendo tiempos y desplazamientos de animación en `globals.css` (hero/reveal/stagger/catálogo), y removiendo `will-change` continuo para evitar presión extra de GPU.
+- Se ajusta `Header` para evitar `backdrop-blur` en estado fijo y menú móvil, y en `Hero` se baja `preload` de video a `metadata` junto con blur/sombra más ligeros en la tarjeta institucional.
+
 ### 2026-04-27 (favicon: logo del header)
 - El favicon y el icono de acceso rápido usan `public/logo1.png`, alineado con el `Image` del `Header`, para que la pestaña y marcadores muestren la misma marca.
 - Ajuste: `metadata.icons` en `layout` se retira en favor de archivos bajo `src/app/` (`favicon.ico`, `icon.png`, `apple-icon.png`), porque el archivo estático `public/favicon.ico` (icono de plantilla / Vercel) seguía atendiendo muchas peticiones a `/favicon.ico` aun con metadata; además se regenera ese `favicon.ico` desde el logo (multi-tamaño 16/32/48) y se documenta el script `build:favicon`.

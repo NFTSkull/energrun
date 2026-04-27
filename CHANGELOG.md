@@ -1,5 +1,6 @@
 ## Unreleased
 
+- **Performance / fluidez**: se reducen distancias, duración y delays de animaciones globales (`hero`, `reveal`, `stagger`, `gen-article`), se elimina `will-change` persistente y se añade fallback `@media (update: slow)` para desactivar motion en dispositivos lentos. También se baja costo visual del header fijo (sin blur) y del panel institucional del hero; el video del hero pasa a `preload="metadata"`.
 - **Favicon / icono de pestaña**: se adopta la convención de archivos en `app/` de Next.js (`favicon.ico`, `icon.png`, `apple-icon.png`) a partir de `public/logo1.png`; se regenera `public/favicon.ico` (sustituye el de plantilla) para peticiones directas a `/favicon.ico`. Script `npm run build:favicon` (sharp + png-to-ico) para volver a generar desde el logo.
 - **Responsive / monitores**: `viewport` explícito (`device-width`, `viewport-fit: cover`), tipografía base fluida en `html`, contenedor unificado `app-container` (márgenes extra en `2xl` y `≥1920px`, `min-w-0`) en `main`, `Header`, `Footer`, héroes y CTA final; `body` con `min-h-svh` y control de overflow horizontal.
 - **Marca (UI y mensajes)**: se unifica el nombre mostrado como **ENERGRUN** (sin diéresis) en `Header`, `Footer`, héroes, metadata, WhatsApp y documentación asociada.

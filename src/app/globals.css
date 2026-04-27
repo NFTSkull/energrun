@@ -61,7 +61,7 @@ body {
 @keyframes hero-fade-y {
   from {
     opacity: 0;
-    transform: translate3d(0, 20px, 0);
+    transform: translate3d(0, 10px, 0);
   }
   to {
     opacity: 1;
@@ -76,25 +76,25 @@ body {
 .hero-anim-5,
 .hero-anim-6 {
   opacity: 0;
-  animation: hero-fade-y 0.5s ease-out both;
+  animation: hero-fade-y 0.3s ease-out both;
 }
 .hero-anim-1 {
-  animation-delay: 0.05s;
+  animation-delay: 0.02s;
 }
 .hero-anim-2 {
-  animation-delay: 0.12s;
+  animation-delay: 0.06s;
 }
 .hero-anim-3 {
-  animation-delay: 0.2s;
+  animation-delay: 0.1s;
 }
 .hero-anim-4 {
-  animation-delay: 0.28s;
+  animation-delay: 0.14s;
 }
 .hero-anim-5 {
-  animation-delay: 0.36s;
+  animation-delay: 0.18s;
 }
 .hero-anim-6 {
-  animation-delay: 0.44s;
+  animation-delay: 0.22s;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -113,48 +113,46 @@ body {
 /* Reveal en bloques hijos (usar con StaggeredFade + .stagger-fade__item) */
 .stagger-fade__item {
   opacity: 0;
-  transform: translate3d(0, 10px, 0);
+  transform: translate3d(0, 6px, 0);
   transition:
-    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
+    opacity 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .stagger-fade--visible .stagger-fade__item {
   opacity: 1;
   transform: translate3d(0, 0, 0);
-  will-change: auto;
 }
 
 .stagger-fade--visible .stagger-fade__item:nth-child(1) {
-  transition-delay: 0.04s;
+  transition-delay: 0.02s;
 }
 .stagger-fade--visible .stagger-fade__item:nth-child(2) {
-  transition-delay: 0.1s;
+  transition-delay: 0.05s;
 }
 .stagger-fade--visible .stagger-fade__item:nth-child(3) {
-  transition-delay: 0.16s;
+  transition-delay: 0.08s;
 }
 .stagger-fade--visible .stagger-fade__item:nth-child(4) {
-  transition-delay: 0.22s;
+  transition-delay: 0.11s;
 }
 .stagger-fade--visible .stagger-fade__item:nth-child(5) {
-  transition-delay: 0.28s;
+  transition-delay: 0.14s;
 }
 .stagger-fade--visible .stagger-fade__item:nth-child(6) {
-  transition-delay: 0.34s;
+  transition-delay: 0.17s;
 }
 .stagger-fade--visible .stagger-fade__item:nth-child(7) {
-  transition-delay: 0.4s;
+  transition-delay: 0.2s;
 }
 .stagger-fade--visible .stagger-fade__item:nth-child(8) {
-  transition-delay: 0.46s;
+  transition-delay: 0.23s;
 }
 .stagger-fade--visible .stagger-fade__item:nth-child(9) {
-  transition-delay: 0.52s;
+  transition-delay: 0.26s;
 }
 .stagger-fade--visible .stagger-fade__item:nth-child(10) {
-  transition-delay: 0.58s;
+  transition-delay: 0.29s;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -168,18 +166,18 @@ body {
 /* --- Scroll reveal premium (RevealGroup + .reveal-t / .reveal-m) --- */
 .reveal-t {
   opacity: 0;
-  transform: translate3d(0, 40px, 0);
+  transform: translate3d(0, 14px, 0);
   transition:
-    opacity 0.9s ease-out,
-    transform 0.9s ease-out;
+    opacity 0.42s ease-out,
+    transform 0.42s ease-out;
 }
 
 .reveal-m {
   opacity: 0;
-  transform: translate3d(0, 32px, 0) scale(0.98);
+  transform: translate3d(0, 12px, 0) scale(0.99);
   transition:
-    opacity 0.78s ease-out,
-    transform 0.78s ease-out;
+    opacity 0.38s ease-out,
+    transform 0.38s ease-out;
 }
 
 .reveal-root--visible .reveal-t,
@@ -195,43 +193,43 @@ body {
 }
 .reveal-root--visible .reveal-t[data-stagger="1"],
 .reveal-root--visible .reveal-m[data-stagger="1"] {
-  transition-delay: 140ms;
+  transition-delay: 70ms;
 }
 .reveal-root--visible .reveal-t[data-stagger="2"],
 .reveal-root--visible .reveal-m[data-stagger="2"] {
-  transition-delay: 280ms;
+  transition-delay: 140ms;
 }
 .reveal-root--visible .reveal-t[data-stagger="3"],
 .reveal-root--visible .reveal-m[data-stagger="3"] {
-  transition-delay: 420ms;
+  transition-delay: 210ms;
 }
 .reveal-root--visible .reveal-t[data-stagger="4"],
 .reveal-root--visible .reveal-m[data-stagger="4"] {
-  transition-delay: 560ms;
+  transition-delay: 280ms;
 }
 .reveal-root--visible .reveal-t[data-stagger="5"],
 .reveal-root--visible .reveal-m[data-stagger="5"] {
-  transition-delay: 700ms;
+  transition-delay: 350ms;
 }
 .reveal-root--visible .reveal-t[data-stagger="6"],
 .reveal-root--visible .reveal-m[data-stagger="6"] {
-  transition-delay: 840ms;
+  transition-delay: 420ms;
 }
 .reveal-root--visible .reveal-t[data-stagger="7"],
 .reveal-root--visible .reveal-m[data-stagger="7"] {
-  transition-delay: 980ms;
+  transition-delay: 490ms;
 }
 .reveal-root--visible .reveal-t[data-stagger="8"],
 .reveal-root--visible .reveal-m[data-stagger="8"] {
-  transition-delay: 1120ms;
+  transition-delay: 560ms;
 }
 .reveal-root--visible .reveal-t[data-stagger="9"],
 .reveal-root--visible .reveal-m[data-stagger="9"] {
-  transition-delay: 1260ms;
+  transition-delay: 630ms;
 }
 .reveal-root--visible .reveal-t[data-stagger="10"],
 .reveal-root--visible .reveal-m[data-stagger="10"] {
-  transition-delay: 1400ms;
+  transition-delay: 700ms;
 }
 
 /* Sin data-stagger: hermanos directos 1..n bajo un contenedor común (fallback) */
@@ -241,23 +239,23 @@ body {
 }
 .reveal-stagger-stack > .reveal-t:nth-child(2),
 .reveal-stagger-stack > .reveal-m:nth-child(2) {
-  transition-delay: 140ms;
+  transition-delay: 70ms;
 }
 .reveal-stagger-stack > .reveal-t:nth-child(3),
 .reveal-stagger-stack > .reveal-m:nth-child(3) {
-  transition-delay: 280ms;
+  transition-delay: 140ms;
 }
 .reveal-stagger-stack > .reveal-t:nth-child(4),
 .reveal-stagger-stack > .reveal-m:nth-child(4) {
-  transition-delay: 420ms;
+  transition-delay: 210ms;
 }
 .reveal-stagger-stack > .reveal-t:nth-child(5),
 .reveal-stagger-stack > .reveal-m:nth-child(5) {
-  transition-delay: 560ms;
+  transition-delay: 280ms;
 }
 .reveal-stagger-stack > .reveal-t:nth-child(6),
 .reveal-stagger-stack > .reveal-m:nth-child(6) {
-  transition-delay: 700ms;
+  transition-delay: 350ms;
 }
 
 /* Grids con fotos: escala sutil al revelar */
@@ -280,18 +278,18 @@ body {
 /* --- Catálogo Generac: revelado por ficha al scroll (GeneratorArticleReveal) --- */
 .gen-article-reveal .gen-reveal-stagger {
   opacity: 0;
-  transform: translate3d(0, 28px, 0);
+  transform: translate3d(0, 12px, 0);
   transition:
-    opacity 0.8s ease-out,
-    transform 0.8s ease-out;
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
 }
 
 .gen-article-reveal .gen-reveal-media {
   opacity: 0;
-  transform: translate3d(0, 36px, 0) scale(0.96);
+  transform: translate3d(0, 16px, 0) scale(0.98);
   transition:
-    opacity 0.9s ease-out,
-    transform 0.9s ease-out;
+    opacity 0.42s ease-out,
+    transform 0.42s ease-out;
 }
 
 .gen-article-reveal--in .gen-reveal-stagger,
@@ -306,40 +304,60 @@ body {
 }
 .gen-article-reveal--in .gen-reveal-stagger[data-step="1"],
 .gen-article-reveal--in .gen-reveal-media[data-step="1"] {
-  transition-delay: 75ms;
+  transition-delay: 40ms;
 }
 .gen-article-reveal--in .gen-reveal-stagger[data-step="2"],
 .gen-article-reveal--in .gen-reveal-media[data-step="2"] {
-  transition-delay: 150ms;
+  transition-delay: 80ms;
 }
 .gen-article-reveal--in .gen-reveal-stagger[data-step="3"],
 .gen-article-reveal--in .gen-reveal-media[data-step="3"] {
-  transition-delay: 225ms;
+  transition-delay: 120ms;
 }
 .gen-article-reveal--in .gen-reveal-stagger[data-step="4"],
 .gen-article-reveal--in .gen-reveal-media[data-step="4"] {
-  transition-delay: 300ms;
+  transition-delay: 160ms;
 }
 .gen-article-reveal--in .gen-reveal-stagger[data-step="5"],
 .gen-article-reveal--in .gen-reveal-media[data-step="5"] {
-  transition-delay: 375ms;
+  transition-delay: 200ms;
 }
 .gen-article-reveal--in .gen-reveal-stagger[data-step="6"],
 .gen-article-reveal--in .gen-reveal-media[data-step="6"] {
-  transition-delay: 450ms;
+  transition-delay: 240ms;
 }
 .gen-article-reveal--in .gen-reveal-stagger[data-step="7"],
 .gen-article-reveal--in .gen-reveal-media[data-step="7"] {
-  transition-delay: 525ms;
+  transition-delay: 280ms;
 }
 .gen-article-reveal--in .gen-reveal-stagger[data-step="8"],
 .gen-article-reveal--in .gen-reveal-media[data-step="8"] {
-  transition-delay: 600ms;
+  transition-delay: 320ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .gen-article-reveal .gen-reveal-stagger,
   .gen-article-reveal .gen-reveal-media {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Equipos con render lento: elimina animaciones para priorizar fluidez */
+@media (update: slow) {
+  .hero-anim-1,
+  .hero-anim-2,
+  .hero-anim-3,
+  .hero-anim-4,
+  .hero-anim-5,
+  .hero-anim-6,
+  .stagger-fade__item,
+  .reveal-t,
+  .reveal-m,
+  .gen-article-reveal .gen-reveal-stagger,
+  .gen-article-reveal .gen-reveal-media {
+    animation: none !important;
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;

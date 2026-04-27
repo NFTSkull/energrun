@@ -24,7 +24,7 @@ export function Hero(props: Props) {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           disablePictureInPicture
           aria-hidden
         >
@@ -91,7 +91,7 @@ export function Hero(props: Props) {
 
         {/* Columna derecha: ficha institucional seca (no repite el hero) */}
         <div className="hero-anim-5 hidden lg:flex lg:justify-end">
-          <div className="w-full max-w-sm rounded-2xl border border-white/18 bg-gradient-to-b from-slate-950/60 via-slate-950/48 to-slate-950/52 p-6 shadow-[0_24px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl backdrop-saturate-125">
+          <div className="w-full max-w-sm rounded-2xl border border-white/18 bg-gradient-to-b from-slate-950/60 via-slate-950/48 to-slate-950/52 p-6 shadow-[0_16px_34px_rgba(0,0,0,0.32)] backdrop-blur-sm">
             <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-white/70">
               Ofrecemos:
             </p>
