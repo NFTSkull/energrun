@@ -5,7 +5,7 @@ import {
 
 describe("pageHeroBackgrounds", () => {
   it("apunta a los PNG de hero en public/", () => {
-    expect(PANELES_SOLARES_HERO_IMAGE.src).toBe("/recibo.png");
+    expect(PANELES_SOLARES_HERO_IMAGE.src).toBe("/energia.png");
     expect(GENERADORES_HERO_IMAGE.src).toBe("/generadores.png");
   });
 });

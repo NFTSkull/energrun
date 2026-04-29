@@ -1,5 +1,6 @@
 ## Unreleased
 
+- **Solar (presentación)**: se centra el bloque principal (título/garantía/panel de contexto/lista técnica/CTA) y se retira el texto final de monitoreo/bitácora. El hero de `/paneles-solares` actualiza el copy del titular y cambia el fondo a `energia.png` con encuadre ajustado.
 - **SolarHero (visual)**: se reduce ligeramente la rejilla/“cuadrados” sobre la imagen (menos opacidad y patrón más amplio) para mejorar lectura del fondo.
 - **SolarInquiryPanel (interactivo por costo)**: el asistente de contexto FV sustituye kWh por una línea/slider de **pago bimestral de luz** (MXN), mantiene segmento + tarifa y envía ese dato en el mensaje estructurado de WhatsApp.
 - **Solar (sección paneles)**: se eliminan los párrafos explicativos de CFE/DAC; se conserva el asistente y el bloque de garantía/producción.

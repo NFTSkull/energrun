@@ -6,6 +6,10 @@
 ### 2026-04-29 (SolarHero: rejilla más sutil)
 - Se baja la opacidad y se amplía el `backgroundSize` de la rejilla para que los “cuadrados” no dominen la foto del hero de paneles.
 
+### 2026-04-29 (solar: ajustes finales de presentación)
+- Se centra el bloque principal de la sección `Solar` (cabecera, garantía, panel de contexto y lista técnica) y se elimina el texto final de monitoreo/bitácora.
+- En `/paneles-solares`, el hero actualiza el titular a una versión con exclamación y cambia el fondo a `energia.png`, ajustando el encuadre vertical con `object-position`.
+
 ### 2026-04-27 (espaciado: paneles y generadores)
 - Se replica el ritmo vertical compacto de la home en las secciones exclusivas de `/paneles-solares` y `/generadores` (incl. `Process` solo solar); los héroes de esas rutas bajan solo el padding inferior para reducir la franja entre hero y primer bloque sin tocar el `pt` respecto al header fijo.
 

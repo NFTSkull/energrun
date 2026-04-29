@@ -53,7 +53,7 @@ export function SolarInquiryPanel() {
   });
 
   return (
-    <div className="mt-8 max-w-2xl rounded-2xl border border-[#1E4D8C]/20 bg-gradient-to-b from-[#1E4D8C]/[0.04] to-slate-50/60 p-5 shadow-sm sm:p-6">
+    <div className="rounded-2xl border border-[#1E4D8C]/20 bg-gradient-to-b from-[#1E4D8C]/[0.04] to-slate-50/60 p-5 shadow-sm sm:p-6">
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1E4D8C]">
         Contexto para tu consulta
       </p>

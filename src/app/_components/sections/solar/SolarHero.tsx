@@ -14,7 +14,7 @@ export function SolarHero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[50%_58%] opacity-100"
+          className="object-cover object-[50%_66%] opacity-100"
         />
         <div
           aria-hidden
@@ -41,7 +41,7 @@ export function SolarHero() {
           Soluciones solares ENERGRUN
         </p>
         <h1 className="mt-4 max-w-3xl text-balance text-3xl font-semibold tracking-tight sm:text-5xl">
-          No pagues más: genera tu propia energía
+          ¡No pagues más! Genera tu propia energía
         </h1>
         <p className="mt-5 max-w-2xl text-[15px] leading-7 text-white/80">
           Convierte tu pago de luz en una inversión para tu patrimonio.

@@ -2,7 +2,7 @@
  * Fondos fotográficos de hero en rutas dedicadas (activos en `public/`).
  */
 export const PANELES_SOLARES_HERO_IMAGE = {
-  src: "/recibo.png" as const,
+  src: "/energia.png" as const,
   alt: "",
 } as const;
 
