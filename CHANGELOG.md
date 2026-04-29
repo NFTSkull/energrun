@@ -1,5 +1,7 @@
 ## Unreleased
 
+- **Proceso (numeración de etapas)**: los badges 01–04 cambian a estilo verde más moderno (volumen suave, borde/ring y mayor legibilidad) para reforzar jerarquía visual.
+- **Proceso (UX/UI)**: rediseño visual completo con cabecera centrada, chips de control (fases/control/resultado), tarjetas de etapa con iconografía y línea de continuidad en desktop; se mantiene el contenido técnico y se mejora escaneabilidad.
 - **Solar (presentación)**: se centra el bloque principal (título/garantía/panel de contexto/lista técnica/CTA) y se retira el texto final de monitoreo/bitácora. El hero de `/paneles-solares` actualiza el copy del titular y cambia el fondo a `energia.png` con encuadre ajustado.
 - **SolarHero (visual)**: se reduce ligeramente la rejilla/“cuadrados” sobre la imagen (menos opacidad y patrón más amplio) para mejorar lectura del fondo.
 - **SolarInquiryPanel (interactivo por costo)**: el asistente de contexto FV sustituye kWh por una línea/slider de **pago bimestral de luz** (MXN), mantiene segmento + tarifa y envía ese dato en el mensaje estructurado de WhatsApp.

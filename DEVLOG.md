@@ -1,5 +1,11 @@
 ## Decisiones
 
+### 2026-04-29 (Proceso: badges 01–04 en verde)
+- Se actualiza la cápsula numérica de cada etapa a una versión verde y más contemporánea (borde/ring + sombra suave + tipografía más fuerte) para mejorar foco y lectura del flujo.
+
+### 2026-04-29 (Proceso: rediseño UX/UI de alto contraste)
+- Se remaqueta `Process` como bloque premium: cabecera centrada, microchips de estado (fases/control/resultado), tarjetas por etapa con iconografía y marcador de continuidad entre pasos en escritorio. Se conserva copy técnico y se prioriza claridad de lectura por jerarquía visual.
+
 ### 2026-04-29 (SolarInquiryPanel: de kWh a costo bimestral)
 - El contexto FV pasa de selector por kWh a control interactivo (slider) por monto de recibo bimestral (MXN), porque el usuario final reconoce mejor su gasto que su consumo. Se actualiza `SolarInquiry`/`buildSolarInquiryMessage`, prueba unitaria y contrato en `docs/API_CONTRATOS.md`.
 
