@@ -39,13 +39,13 @@ describe("whatsapp", () => {
     expect(msg).toContain("Número IMSS / afiliación: 123456789012");
   });
 
-  it("builds solar inquiry message with bimestral/segmento/tarifa", () => {
+  it("builds solar inquiry message with pago/segmento/tarifa", () => {
     const m = buildSolarInquiryMessage({
-      kwhBimestral: "300-800",
+      costoBimestralMxn: 2350,
       segmento: "comercial",
       contextoTarifa: "gdm",
     });
-    expect(m).toContain("300 a 800");
+    expect(m).toContain("$2,350");
     expect(m).toContain("comercial");
     expect(m).toContain("GDM");
     expect(m).toContain("12m");

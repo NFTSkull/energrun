@@ -19,7 +19,7 @@ Mensaje precargado en WhatsApp incluye:
 - Interés (Generador / Solar / Híbrido; opcional en iteraciones futuras)
 
 ### Asistente FV (sección Solar, solo cliente, B0)
-- Sin endpoints nuevos: el usuario elige rango aprox. de kWh bimestral, segmento (residencial / comercial / industrial) y contexto de tarifa CFE; se arma texto con `buildSolarInquiryMessage` y se abre `wa.me` con el mismo criterio que el formulario.
+- Sin endpoints nuevos: el usuario elige rango aprox. de **pago de luz bimestral** (MXN), segmento (residencial / comercial / industrial) y contexto de tarifa CFE; se arma texto con `buildSolarInquiryMessage` y se abre `wa.me` con el mismo criterio que el formulario.
 - Enlace “WhatsApp sin rellenar” usa el texto corto `WHATSAPP_SFV_QUICK` (no el mensaje largo de la home).
 - **No** sustituye evaluación técnica ni recibos reales: el copy lo indica; la cotización formal sigue según levantamiento.
 

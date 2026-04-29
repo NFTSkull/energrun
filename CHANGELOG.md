@@ -1,5 +1,8 @@
 ## Unreleased
 
+- **SolarHero (visual)**: se reduce ligeramente la rejilla/“cuadrados” sobre la imagen (menos opacidad y patrón más amplio) para mejorar lectura del fondo.
+- **SolarInquiryPanel (interactivo por costo)**: el asistente de contexto FV sustituye kWh por una línea/slider de **pago bimestral de luz** (MXN), mantiene segmento + tarifa y envía ese dato en el mensaje estructurado de WhatsApp.
+- **Solar (sección paneles)**: se eliminan los párrafos explicativos de CFE/DAC; se conserva el asistente y el bloque de garantía/producción.
 - **Páginas `/paneles-solares` y `/generadores`**: mismo criterio de aire vertical que la home (`py-12 md:py-16` en bloques de contenido; héroes con `pb` inferior algo menor para acercar el primer `<main>`).
 - **Header**: mayor presencia (padding vertical, logo, bloque de marca, navegación, CTA y botón hamburguesa) **sin** modificar el `Hero` ni otras secciones.
 - **Monitores anchos (2K/4K/ultrawide)**: el utilitario `app-container` abre el ancho máximo por escalones (`2xl` → 90rem, ≥1920px → 100rem, ≥2560px → `min(110rem, 94vw)` + más padding) para no dejar el contenido demasiado estrecho; el `Hero` amplía ligeramente el bloque de lectura en esos cortes. `GeneratorBenefits` y `SolarBenefits` dejan de fijar un `max-w-7xl` interno para alinearse con el `main` ya limitado.
@@ -8,7 +11,7 @@
 - **Home**: se elimina la sección *Cómo trabajamos* (`HowWeWorkBrief`: metodología, fases, pasos 01–03). La tarjeta *Sistema energético integrado* en `solutions` enlaza a `/#lineas` en lugar de `/#como-trabajamos` (ancla retirada).
 - **InstitutionalValue**: el párrafo de propuesta de valor pasa de *diseñado para decisiones de negocio y operación* a *disminución de costos y cuidar el planeta*.
 - **Nuestras líneas (generadores)**: en la tarjeta de *Generadores de respaldo*, la descripción pasa a enfatizar *Sistemas de generación de energía eléctrica* (sustituye la formulación de respaldo/continuidad operativa en ese párrafo).
-- **Paneles solares (home, líneas y página dedicada)**: se comunica con claridad la **garantía de producto de 25 años en módulos** (con referencia a fabricante/condiciones) en `BusinessLines` (línea solar), en la sección `Solar` (bloque visual + fila en `solarSystemItems`) y en el `SolarHero` de `/paneles-solares`.
+- **Paneles solares (home, líneas y página dedicada)**: se comunica la vida útil esperada en **producción (25 a 30 años)** y el esquema de garantía (pieza/instalación/producción) en `BusinessLines` (línea solar), en la sección `Solar` (bloque visual + fila en `solarSystemItems`) y en el `SolarHero` de `/paneles-solares` (siempre sujeto a fabricante/condiciones).
 - **Footer**: se elimina el bloque *Cobertura* (Monterrey, área metropolitana y la línea de *Distribución Generac · …*); el pie queda en dos columnas (marca + mapa del sitio).
 - **Home (`heroTrust`)**: la tercera píldora bajo el hero pasa a *“Paneles, Generadores o Híbrido”* (sustituye *Integración a medida*).
 - **Home (Hero + contacto)**: en la ficha lateral, el subtexto bajo oferta pasa a *“Distribuidor de las principales marcas en el mundo”*; el CTA pasa a *“Solicita Cotización”*. Se retira de la sección de contacto el título y la descripción previos (*datos mínimos / canal*); el `LeadForm` añade `numeroImss` condicional a Mejoravit, texto de aviso al pie y mensaje de WhatsApp con afiliación cuando aplica. Documentación `API_CONTRATOS` y pruebas alineadas.

@@ -39,18 +39,18 @@ export function buildWhatsAppUrl(params: {
 
 /** Datos mínimos para enriquecer el mensaje FV hacia WhatsApp (solo cliente, B0). */
 export type SolarInquiry = {
-  kwhBimestral: "0-300" | "300-800" | "800-2000" | "2000-5000" | "5000+";
+  costoBimestralMxn: number;
   segmento: "residencial" | "comercial" | "industrial";
   contextoTarifa: "con-subsidio" | "dac" | "gdm" | "no-se";
 };
 
-const KWH_BIM: Record<SolarInquiry["kwhBimestral"], string> = {
-  "0-300": "hasta 300 kWh (bimestre)",
-  "300-800": "300 a 800 kWh (bimestre)",
-  "800-2000": "800 a 2 000 kWh (bimestre)",
-  "2000-5000": "2 000 a 5 000 kWh (bimestre)",
-  "5000+": "más de 5 000 kWh (bimestre)",
-};
+function formatMxn(amount: number): string {
+  return new Intl.NumberFormat("es-MX", {
+    style: "currency",
+    currency: "MXN",
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
 
 const SOL_SEG: Record<SolarInquiry["segmento"], string> = {
   residencial: "residencial",
@@ -75,9 +75,13 @@ export const WHATSAPP_SFV_QUICK = [
  * Mensaje estructurado para cotizar FV con contexto CFE, sin reemplazar evaluación técnica.
  */
 export function buildSolarInquiryMessage(inquiry: SolarInquiry): string {
+  const pagoBimestral = Number.isFinite(inquiry.costoBimestralMxn)
+    ? Math.max(0, Math.round(inquiry.costoBimestralMxn))
+    : 0;
+
   return [
     "ENERGRUN — Interés en fotovoltaico (asistente en web).",
-    `Consumo aprox. bimestral (kWh, estimado): ${KWH_BIM[inquiry.kwhBimestral]}.`,
+    `Pago aprox. de luz por bimestre (estimado): ${formatMxn(pagoBimestral)}.`,
     `Tipo de inmueble: ${SOL_SEG[inquiry.segmento]}.`,
     `Contexto tarifario: ${SOL_TAR[inquiry.contextoTarifa]}.`,
     "Cifras orientativas: la oferta requiere recibos CFE 12m y criterio de interconexión (medidor bidireccional, DAC, etc.).",

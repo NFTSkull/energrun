@@ -1,5 +1,11 @@
 ## Decisiones
 
+### 2026-04-29 (SolarInquiryPanel: de kWh a costo bimestral)
+- El contexto FV pasa de selector por kWh a control interactivo (slider) por monto de recibo bimestral (MXN), porque el usuario final reconoce mejor su gasto que su consumo. Se actualiza `SolarInquiry`/`buildSolarInquiryMessage`, prueba unitaria y contrato en `docs/API_CONTRATOS.md`.
+
+### 2026-04-29 (SolarHero: rejilla más sutil)
+- Se baja la opacidad y se amplía el `backgroundSize` de la rejilla para que los “cuadrados” no dominen la foto del hero de paneles.
+
 ### 2026-04-27 (espaciado: paneles y generadores)
 - Se replica el ritmo vertical compacto de la home en las secciones exclusivas de `/paneles-solares` y `/generadores` (incl. `Process` solo solar); los héroes de esas rutas bajan solo el padding inferior para reducir la franja entre hero y primer bloque sin tocar el `pt` respecto al header fijo.
 
@@ -26,6 +32,9 @@
 
 ### 2026-04-27 (solar: garantía 25 años en módulos)
 - Se integra en copy y UI (chip discreto, lista técnica y tarjeta de *líneas principales*) la garantía de producto de **25 años** en módulos, con redacción que remite a fabricante e instalación para alinear expectativas y cumplir buenas prácticas de información comercial.
+
+### 2026-04-29 (solar: producción 25 a 30 años + garantías)
+- Se ajusta el mensaje de garantía solar a *25 a 30 años en producción* y se explicita el alcance de garantía (pieza/instalación/producción) en `Solar`, `SolarHero`, `BusinessLines` y `solarSystemItems`, manteniendo la referencia a fabricante/condiciones.
 
 ### 2026-04-27 (footer: sin columna Cobertura)
 - Se retira la tercera columna del `Footer` para no repetir geografía y línea de oferta; el layout pasa a dos columnas en `md+`.

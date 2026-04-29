@@ -78,7 +78,7 @@ export const businessLines: BusinessLine[] = [
       "Sistemas fotovoltaicos para reducir consumo de CFE en residencial, comercio e industria ligera.",
     bullets: [
       "Diseño con consumo real",
-      "Garantía de producto de 25 años en módulos (según fabricante)",
+      "25 a 30 años en producción (según fabricante/condiciones)",
       "Interconexión CFE y puesta en marcha",
       "Monitoreo de producción y desempeño",
     ],
@@ -385,8 +385,8 @@ export const solarSystemItems: { t: string; d: string }[] = [
     d: "Tablero, transferencia y, si aplica, respaldo.",
   },
   {
-    t: "Garantía de módulos",
-    d: "Garantía de producto de 25 años en módulos, conforme a especificaciones del fabricante y términos de la instalación.",
+    t: "Garantía y producción",
+    d: "25 a 30 años en producción, más garantía en pieza e instalación, según fabricante y condiciones del proyecto.",
   },
 ];
 

@@ -29,11 +29,11 @@ export function SolarHero() {
       </div>
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 z-[1] opacity-[0.1]"
+        className="pointer-events-none absolute inset-0 z-[1] opacity-[0.06]"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
+          backgroundSize: "56px 56px",
         }}
       />
       <div className="app-container relative z-10">
@@ -46,20 +46,6 @@ export function SolarHero() {
         <p className="mt-5 max-w-2xl text-[15px] leading-7 text-white/80">
           Te ayudamos a elegir el sistema correcto según tu consumo, tu tipo de
           inmueble y tus objetivos.
-        </p>
-        <p className="mt-4 max-w-2xl">
-          <span className="inline-flex flex-wrap items-center gap-2 rounded-xl border border-white/20 bg-white/[0.07] px-3.5 py-2.5 text-[14px] leading-snug text-white/90 shadow-[0_8px_24px_rgba(0,0,0,0.15)] backdrop-blur-sm">
-            <span
-              className="font-semibold tabular-nums text-[#7DD87A]"
-              aria-hidden
-            >
-              25 años
-            </span>
-            <span className="text-white/85">
-              de garantía de producto en módulos, según fabricante y condiciones
-              de suministro.
-            </span>
-          </span>
         </p>
       </div>
     </section>
