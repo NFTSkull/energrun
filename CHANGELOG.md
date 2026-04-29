@@ -1,5 +1,6 @@
 ## Unreleased
 
+- **FinalCTA (fondo)**: se integra `paneles.png` como fondo sutil en el CTA final (con overlay para legibilidad), manteniendo la rejilla existente.
 - **Proceso (numeración de etapas)**: los badges 01–04 cambian a estilo verde más moderno (volumen suave, borde/ring y mayor legibilidad) para reforzar jerarquía visual.
 - **Proceso (UX/UI)**: rediseño visual completo con cabecera centrada, chips de control (fases/control/resultado), tarjetas de etapa con iconografía y línea de continuidad en desktop; se mantiene el contenido técnico y se mejora escaneabilidad.
 - **Solar (presentación)**: se centra el bloque principal (título/garantía/panel de contexto/lista técnica/CTA) y se retira el texto final de monitoreo/bitácora. El hero de `/paneles-solares` actualiza el copy del titular y cambia el fondo a `energia.png` con encuadre ajustado.

@@ -10,11 +10,28 @@ export function FinalCTA(props: { whatsappHref: string; evaluationHref?: string 
     >
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.07]"
+          className="pointer-events-none absolute inset-0 opacity-[0.22]"
+          style={{
+            backgroundImage: "url(/paneles.png)",
+            backgroundSize: "cover",
+            backgroundPosition: "50% 55%",
+          }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.55]"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(10,18,34,0.75) 0%, rgba(10,18,34,0.62) 52%, rgba(10,18,34,0.75) 100%), linear-gradient(180deg, rgba(10,18,34,0.55) 0%, rgba(10,18,34,0.35) 45%, rgba(10,18,34,0.62) 100%)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
+              "linear-gradient(rgba(255,255,255,0.38) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.38) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
           }}
         />
         <div className="app-container relative grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:items-end lg:gap-16">

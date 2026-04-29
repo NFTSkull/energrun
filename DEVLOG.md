@@ -1,5 +1,8 @@
 ## Decisiones
 
+### 2026-04-29 (FinalCTA: fondo con paneles)
+- Se agrega `paneles.png` como fondo sutil del bloque `FinalCTA`, conservando la rejilla y aplicando overlay para no perder legibilidad del copy/CTAs.
+
 ### 2026-04-29 (Proceso: badges 01–04 en verde)
 - Se actualiza la cápsula numérica de cada etapa a una versión verde y más contemporánea (borde/ring + sombra suave + tipografía más fuerte) para mejorar foco y lectura del flujo.
 
