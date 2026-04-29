@@ -14,7 +14,7 @@ export function SolarHero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[50%_72%] opacity-100"
+          className="object-cover object-[50%_58%] opacity-100"
         />
         <div
           aria-hidden
