@@ -1,5 +1,9 @@
 ## Unreleased
 
+- **Solar (sección `#solar`)**: el botón **Solicitar evaluación técnica** va justo debajo de «Contexto para tu consulta» y queda **centrado** en el contenedor `max-w-2xl`; la rejilla `solarSystemItems` sigue debajo.
+- **Solar / `solarSystemItems`**: en «Diseño según consumo», la descripción menciona **evaluación del consumo** de 12 meses junto con curva, orientación y sombras.
+- **SolarInquiryPanel**: Montos **bimestrales** y equivalente **mensual aprox.** con formato MXN (`$`, miles con coma `es-MX`) junto al deslizador; botones rápidos y texto de rango ya usaban ese formato; el campo “exacto” pasa a mostrar también el monto formateado al salir del foco (al editar, solo dígitos).
+- **Solar (sección Paneles, home)**: el chip bajo el titular combina **25 a 30 años** y *en producción de energía* (sin el párrafo largo de garantías).
 - **FinalCTA (fondo)**: se integra `paneles.png` como fondo sutil en el CTA final (con overlay para legibilidad), manteniendo la rejilla existente.
 - **Proceso (numeración de etapas)**: los badges 01–04 cambian a estilo verde más moderno (volumen suave, borde/ring y mayor legibilidad) para reforzar jerarquía visual.
 - **Proceso (UX/UI)**: rediseño visual completo con cabecera centrada, chips de control (fases/control/resultado), tarjetas de etapa con iconografía y línea de continuidad en desktop; se mantiene el contenido técnico y se mejora escaneabilidad.

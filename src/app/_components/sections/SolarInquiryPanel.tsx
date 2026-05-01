@@ -36,11 +36,24 @@ function formatMxn(amount: number): string {
   }).format(amount);
 }
 
+/** Recibo hogar típico bimestral (2 meses): reparto orientativo mensual ≈ mitad del bimestre */
+function approximateMonthlyFromBimonthly(mx: number): number {
+  return Math.round(mx / 2);
+}
+
+function digitsOnlyMx(value: string): string {
+  return value.replace(/\D/g, "");
+}
+
 export function SolarInquiryPanel() {
   const [inquiry, setInquiry] = useState<SolarInquiry>(DEFAULT_INQUIRY);
   const currentCost = clampCost(inquiry.costoBimestralMxn);
-  const [costInput, setCostInput] = useState<string>(String(currentCost));
-  const [isEditingCost, setIsEditingCost] = useState(false);
+  const monthlyApprox = approximateMonthlyFromBimonthly(currentCost);
+  const [exactCostDraft, setExactCostDraft] = useState("");
+  const [isEditingExactCost, setIsEditingExactCost] = useState(false);
+
+  const exactCostDisplay =
+    isEditingExactCost ? exactCostDraft : formatMxn(currentCost);
 
   const contextualHref = buildWhatsAppUrl({
     phoneNumber: DEFAULT_WHATSAPP,
@@ -74,12 +87,27 @@ export function SolarInquiryPanel() {
             ¿Cuánto pagas de luz por bimestre? (aprox.)
           </label>
           <div className="mt-2 rounded-xl border border-slate-200/90 bg-white px-3.5 py-3 shadow-sm">
-            <div className="flex items-center justify-between gap-3 text-[11px] text-slate-500">
-              <span>Pago menor</span>
-              <span className="rounded-md bg-[#1E4D8C]/10 px-2 py-0.5 text-xs font-semibold text-[#1E4D8C]">
-                {formatMxn(currentCost)}
-              </span>
-              <span>Pago mayor</span>
+            <div className="flex flex-wrap items-end justify-between gap-x-4 gap-y-2 text-[11px] text-slate-500">
+              <span className="font-medium">Pago menor</span>
+              <div className="flex min-w-[min(100%,16rem)] flex-1 justify-center gap-4 px-2 text-center">
+                <div>
+                  <span className="block text-[10px] uppercase tracking-wide text-slate-500">
+                    Bimestre
+                  </span>
+                  <span className="mt-0.5 block whitespace-nowrap text-sm font-semibold tabular-nums text-[#1E4D8C]">
+                    {formatMxn(currentCost)}
+                  </span>
+                </div>
+                <div>
+                  <span className="block text-[10px] uppercase tracking-wide text-slate-500">
+                    Mensual (aprox.)
+                  </span>
+                  <span className="mt-0.5 block whitespace-nowrap text-sm font-semibold tabular-nums text-[#1E4D8C]">
+                    {formatMxn(monthlyApprox)}
+                  </span>
+                </div>
+              </div>
+              <span className="font-medium">Pago mayor</span>
             </div>
             <input
               id="solar-costo"
@@ -91,13 +119,13 @@ export function SolarInquiryPanel() {
               className="mt-3 h-2 w-full cursor-pointer accent-[#1E4D8C]"
               onChange={(e) => {
                 const nextCost = clampCost(Number(e.target.value));
+                setIsEditingExactCost(false);
                 setInquiry((s) => ({
                   ...s,
                   costoBimestralMxn: nextCost,
                 }));
-                if (!isEditingCost) setCostInput(String(nextCost));
               }}
-              aria-valuetext={formatMxn(currentCost)}
+              aria-valuetext={`Bimestre ${formatMxn(currentCost)}, mensual aproximado ${formatMxn(monthlyApprox)}`}
             />
             <div className="mt-3 grid grid-cols-4 gap-1 sm:grid-cols-7">
               {COST_QUICK_VALUES.map((value) => (
@@ -105,8 +133,8 @@ export function SolarInquiryPanel() {
                   key={value}
                   type="button"
                   onClick={() => {
+                    setIsEditingExactCost(false);
                     setInquiry((s) => ({ ...s, costoBimestralMxn: value }));
-                    if (!isEditingCost) setCostInput(String(value));
                   }}
                   className={[
                     "rounded-md border px-1.5 py-1 text-[10px] font-medium transition",
@@ -128,38 +156,38 @@ export function SolarInquiryPanel() {
               </label>
               <input
                 id="solar-costo-input"
-                type="number"
-                min={COST_MIN}
-                max={COST_MAX}
-                step={1}
+                type="text"
                 inputMode="numeric"
-                value={costInput}
-                onFocus={() => setIsEditingCost(true)}
+                autoComplete="off"
+                aria-describedby="solar-costo-rango"
+                value={exactCostDisplay}
+                spellCheck={false}
+                onFocus={() => {
+                  setIsEditingExactCost(true);
+                  setExactCostDraft(String(currentCost));
+                }}
                 onChange={(e) => {
-                  setCostInput(e.target.value);
+                  const nextDigits = digitsOnlyMx(e.target.value);
+                  setExactCostDraft(nextDigits);
                 }}
                 onBlur={() => {
-                  setIsEditingCost(false);
-                  if (!costInput.trim()) {
-                    setCostInput(String(currentCost));
-                    return;
-                  }
-                  const raw = Number(costInput);
-                  if (!Number.isFinite(raw)) {
-                    setCostInput(String(currentCost));
-                    return;
-                  }
+                  const raw =
+                    exactCostDraft.trim() === ""
+                      ? Number.NaN
+                      : Number(digitsOnlyMx(exactCostDraft));
+                  setIsEditingExactCost(false);
+                  setExactCostDraft("");
+                  if (!Number.isFinite(raw)) return;
                   const next = clampCost(raw);
                   setInquiry((s) => ({ ...s, costoBimestralMxn: next }));
-                  setCostInput(String(next));
                 }}
                 onKeyDown={(e) => {
                   if (e.key !== "Enter") return;
                   (e.currentTarget as HTMLInputElement).blur();
                 }}
-                className="mt-1.5 w-full rounded-lg border border-slate-200/90 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm focus:border-[#1E4D8C] focus:outline-none focus:ring-2 focus:ring-[#1E4D8C]/20"
+                className="mt-1.5 w-full rounded-lg border border-slate-200/90 bg-white px-3 py-2.5 font-medium tabular-nums text-sm text-slate-900 shadow-sm focus:border-[#1E4D8C] focus:outline-none focus:ring-2 focus:ring-[#1E4D8C]/20"
               />
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p id="solar-costo-rango" className="mt-1 text-[11px] tabular-nums text-slate-500">
                 Rango sugerido: {formatMxn(COST_MIN)} a {formatMxn(COST_MAX)}.
               </p>
             </div>

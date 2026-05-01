@@ -370,7 +370,7 @@ export type SolarApplicationBlock = {
 export const solarSystemItems: { t: string; d: string }[] = [
   {
     t: "Diseño según consumo",
-    d: "Recibos de 12 meses, curva, orientación y sombras.",
+    d: "Evaluación del consumo de 12 meses, curva, orientación y sombras.",
   },
   {
     t: "Evaluación técnica",

@@ -1,5 +1,18 @@
 ## Decisiones
 
+### 2026-04-30 (Solar: CTA evaluación tras `SolarInquiryPanel`)
+- «Solicitar evaluación técnica» sigue al panel de contexto WhatsApp y se presenta **centrado** en la columna `max-w-2xl`; después vienen las fichas técnicas (`solarSystemItems`) y el resto del bloque solar.
+
+### 2026-04-30 (Solar: copy «Diseño según consumo»)
+- Primera iteración: de “recibos” a **consumo** de 12 meses.
+- Siguiente: el texto aclara que se trata de **evaluación del consumo** de 12 meses (más curva, orientación y sombras).
+
+### 2026-04-30 (SolarInquiry: bimestre + mensual con formato pesos MXN)
+- En el panel «Contexto para tu consulta» se muestran paralelamente **Bimestre** y **Mensual (aprox.)** con `Intl` `es-MX` (símbolo `$` + separador de miles). El campo numérico exacto usa texto formateado al desenfocar para alinear visualmente con badges y sliders; durante la edición se aceptan solo dígitos. El mensual es orientativo (mitad del bimestre; recibo hogar típico de dos meses).
+
+### 2026-04-30 (Solar: chip 25 años + producción de energía)
+- El recuadro bajo el h2 muestra **25 a 30 años** y *en producción de energía* (sin párrafo largo de garantías en ese chip); detalle extendido permanece en otras piezas de copy (`content.ts`, líneas de negocio, hero `/paneles-solares`).
+
 ### 2026-04-29 (FinalCTA: fondo con paneles)
 - Se agrega `paneles.png` como fondo sutil del bloque `FinalCTA`, conservando la rejilla y aplicando overlay para no perder legibilidad del copy/CTAs.
 

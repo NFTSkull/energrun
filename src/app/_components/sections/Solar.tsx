@@ -38,9 +38,8 @@ export function Solar(props: { evaluationHref?: string }) {
               <span className="font-semibold tabular-nums text-[#1E4D8C]">
                 25 a 30 años
               </span>
-              <span>
-                en producción. Garantía en pieza, instalación y producción de
-                energía (según fabricante y condiciones).
+              <span className="font-semibold text-[#1E4D8C]">
+                en producción de energía
               </span>
             </span>
           </p>
@@ -49,9 +48,21 @@ export function Solar(props: { evaluationHref?: string }) {
             <SolarInquiryPanel />
           </div>
 
+          <div
+            className="reveal-t mx-auto mt-6 flex max-w-2xl flex-wrap items-center justify-center gap-3"
+            data-stagger="4"
+          >
+            <a
+              href={evaluationHref}
+              className="inline-flex h-11 w-full items-center justify-center rounded-lg border border-slate-300/90 bg-white px-5 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-[#1E4D8C]/35 hover:text-[#1E4D8C] sm:w-auto"
+            >
+              Solicitar evaluación técnica
+            </a>
+          </div>
+
           <dl
             className="reveal-t mx-auto mt-8 grid max-w-4xl gap-x-8 gap-y-5 border-t border-slate-200/80 pt-6 text-left sm:grid-cols-2"
-            data-stagger="4"
+            data-stagger="5"
           >
               {solarSystemItems.map((it) => (
                 <div key={it.t} className="min-w-0">
@@ -64,18 +75,6 @@ export function Solar(props: { evaluationHref?: string }) {
                 </div>
               ))}
           </dl>
-
-          <div
-            className="reveal-t mt-8 flex flex-wrap items-center justify-center gap-3"
-            data-stagger="5"
-          >
-            <a
-              href={evaluationHref}
-              className="inline-flex h-11 w-full items-center justify-center rounded-lg border border-slate-300/90 bg-white px-5 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-[#1E4D8C]/35 hover:text-[#1E4D8C] sm:w-auto"
-            >
-              Solicitar evaluación técnica
-            </a>
-          </div>
         </div>
 
         {/* 2 · Aplicaciones: tres columnas en desktop, fila horizontal */}
