@@ -13,19 +13,33 @@ const DEFAULT_WHATSAPP =
   process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? WHATSAPP_DEFAULT_E164;
 
 const DEFAULT_INQUIRY: SolarInquiry = {
+  periodoPago: "bimestral",
   costoBimestralMxn: 2500,
+  costoMensualMxn: 1250,
   segmento: "residencial",
   contextoTarifa: "no-se",
 };
 
-const COST_MIN = 200;
-const COST_MAX = 120000;
-const COST_SLIDER_STEP = 50;
-const COST_QUICK_VALUES = [1000, 2500, 5000, 10000, 25000, 50000, 100000] as const;
+const COST_CONFIG = {
+  bimestral: {
+    label: "Bimestre",
+    min: 200,
+    max: 120000,
+    step: 50,
+    quickValues: [1000, 2500, 5000, 10000, 25000, 50000, 100000] as const,
+  },
+  mensual: {
+    label: "Mensual",
+    min: 100,
+    max: 60000,
+    step: 50,
+    quickValues: [500, 1250, 2500, 5000, 12500, 25000, 50000] as const,
+  },
+} as const;
 
-function clampCost(value: number): number {
-  if (!Number.isFinite(value)) return COST_MIN;
-  return Math.min(COST_MAX, Math.max(COST_MIN, Math.round(value)));
+function clampCost(value: number, min: number, max: number): number {
+  if (!Number.isFinite(value)) return min;
+  return Math.min(max, Math.max(min, Math.round(value)));
 }
 
 function formatMxn(amount: number): string {
@@ -36,24 +50,31 @@ function formatMxn(amount: number): string {
   }).format(amount);
 }
 
-/** Recibo hogar típico bimestral (2 meses): reparto orientativo mensual ≈ mitad del bimestre */
-function approximateMonthlyFromBimonthly(mx: number): number {
-  return Math.round(mx / 2);
-}
-
 function digitsOnlyMx(value: string): string {
   return value.replace(/\D/g, "");
 }
 
 export function SolarInquiryPanel() {
   const [inquiry, setInquiry] = useState<SolarInquiry>(DEFAULT_INQUIRY);
-  const currentCost = clampCost(inquiry.costoBimestralMxn);
-  const monthlyApprox = approximateMonthlyFromBimonthly(currentCost);
+  const periodConfig = COST_CONFIG[inquiry.periodoPago];
+  const currentCostRaw =
+    inquiry.periodoPago === "mensual"
+      ? inquiry.costoMensualMxn
+      : inquiry.costoBimestralMxn;
+  const currentCost = clampCost(currentCostRaw, periodConfig.min, periodConfig.max);
   const [exactCostDraft, setExactCostDraft] = useState("");
   const [isEditingExactCost, setIsEditingExactCost] = useState(false);
 
   const exactCostDisplay =
     isEditingExactCost ? exactCostDraft : formatMxn(currentCost);
+
+  function setCurrentCost(nextCost: number) {
+    setInquiry((s) =>
+      s.periodoPago === "mensual"
+        ? { ...s, costoMensualMxn: nextCost }
+        : { ...s, costoBimestralMxn: nextCost },
+    );
+  }
 
   const contextualHref = buildWhatsAppUrl({
     phoneNumber: DEFAULT_WHATSAPP,
@@ -67,16 +88,9 @@ export function SolarInquiryPanel() {
 
   return (
     <div className="rounded-2xl border border-[#1E4D8C]/20 bg-gradient-to-b from-[#1E4D8C]/[0.04] to-slate-50/60 p-5 shadow-sm sm:p-6">
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1E4D8C]">
-        Contexto para tu consulta
-      </p>
-      <h3 className="mt-2 text-lg font-semibold tracking-tight text-slate-900 sm:text-xl">
-        Tres datos orientativos (pago, segmento, tarifa)
+      <h3 className="text-lg font-semibold tracking-tight text-slate-900 sm:text-xl">
+        Tres datos y tendrás una propuesta lista
       </h3>
-      <p className="mt-2 text-sm leading-6 text-slate-600">
-        Afinamos el primer contacto. No es una cotización numérica: el
-        dimensionamiento se confirma con recibos CFE reales.
-      </p>
 
       <div className="mt-5 grid gap-4 sm:grid-cols-2">
         <div className="min-w-0 sm:col-span-2">
@@ -84,8 +98,42 @@ export function SolarInquiryPanel() {
             className="block text-xs font-semibold text-slate-600"
             htmlFor="solar-costo"
           >
-            ¿Cuánto pagas de luz por bimestre? (aprox.)
+            ¿Cuánto pagas de luz? (aprox.)
           </label>
+          <div className="mt-2 inline-flex rounded-lg border border-slate-200/90 bg-white p-1 text-xs font-semibold">
+            <button
+              type="button"
+              onClick={() => {
+                setInquiry((s) => ({ ...s, periodoPago: "bimestral" }));
+                setIsEditingExactCost(false);
+                setExactCostDraft("");
+              }}
+              className={[
+                "rounded-md px-3 py-1.5 transition",
+                inquiry.periodoPago === "bimestral"
+                  ? "bg-[#1E4D8C] text-white"
+                  : "text-slate-600 hover:text-[#1E4D8C]",
+              ].join(" ")}
+            >
+              Bimestre
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setInquiry((s) => ({ ...s, periodoPago: "mensual" }));
+                setIsEditingExactCost(false);
+                setExactCostDraft("");
+              }}
+              className={[
+                "rounded-md px-3 py-1.5 transition",
+                inquiry.periodoPago === "mensual"
+                  ? "bg-[#1E4D8C] text-white"
+                  : "text-slate-600 hover:text-[#1E4D8C]",
+              ].join(" ")}
+            >
+              Mensual
+            </button>
+          </div>
           <div className="mt-2 rounded-xl border border-slate-200/90 bg-white px-3.5 py-3 shadow-sm">
             <div className="flex flex-wrap items-end justify-between gap-x-4 gap-y-2 text-[11px] text-slate-500">
               <span className="font-medium">Pago menor</span>
@@ -95,15 +143,27 @@ export function SolarInquiryPanel() {
                     Bimestre
                   </span>
                   <span className="mt-0.5 block whitespace-nowrap text-sm font-semibold tabular-nums text-[#1E4D8C]">
-                    {formatMxn(currentCost)}
+                    {formatMxn(
+                      clampCost(
+                        inquiry.costoBimestralMxn,
+                        COST_CONFIG.bimestral.min,
+                        COST_CONFIG.bimestral.max,
+                      ),
+                    )}
                   </span>
                 </div>
                 <div>
                   <span className="block text-[10px] uppercase tracking-wide text-slate-500">
-                    Mensual (aprox.)
+                    Mensual
                   </span>
                   <span className="mt-0.5 block whitespace-nowrap text-sm font-semibold tabular-nums text-[#1E4D8C]">
-                    {formatMxn(monthlyApprox)}
+                    {formatMxn(
+                      clampCost(
+                        inquiry.costoMensualMxn,
+                        COST_CONFIG.mensual.min,
+                        COST_CONFIG.mensual.max,
+                      ),
+                    )}
                   </span>
                 </div>
               </div>
@@ -112,29 +172,30 @@ export function SolarInquiryPanel() {
             <input
               id="solar-costo"
               type="range"
-              min={COST_MIN}
-              max={COST_MAX}
-              step={COST_SLIDER_STEP}
+              min={periodConfig.min}
+              max={periodConfig.max}
+              step={periodConfig.step}
               value={currentCost}
               className="mt-3 h-2 w-full cursor-pointer accent-[#1E4D8C]"
               onChange={(e) => {
-                const nextCost = clampCost(Number(e.target.value));
+                const nextCost = clampCost(
+                  Number(e.target.value),
+                  periodConfig.min,
+                  periodConfig.max,
+                );
                 setIsEditingExactCost(false);
-                setInquiry((s) => ({
-                  ...s,
-                  costoBimestralMxn: nextCost,
-                }));
+                setCurrentCost(nextCost);
               }}
-              aria-valuetext={`Bimestre ${formatMxn(currentCost)}, mensual aproximado ${formatMxn(monthlyApprox)}`}
+              aria-valuetext={`${periodConfig.label} ${formatMxn(currentCost)}`}
             />
             <div className="mt-3 grid grid-cols-4 gap-1 sm:grid-cols-7">
-              {COST_QUICK_VALUES.map((value) => (
+              {periodConfig.quickValues.map((value) => (
                 <button
                   key={value}
                   type="button"
                   onClick={() => {
                     setIsEditingExactCost(false);
-                    setInquiry((s) => ({ ...s, costoBimestralMxn: value }));
+                    setCurrentCost(value);
                   }}
                   className={[
                     "rounded-md border px-1.5 py-1 text-[10px] font-medium transition",
@@ -152,14 +213,13 @@ export function SolarInquiryPanel() {
                 className="block text-[11px] font-medium text-slate-600"
                 htmlFor="solar-costo-input"
               >
-                O escríbelo exacto (MXN por bimestre)
+                O escríbelo exacto (MXN por {inquiry.periodoPago === "mensual" ? "mes" : "bimestre"})
               </label>
               <input
                 id="solar-costo-input"
                 type="text"
                 inputMode="numeric"
                 autoComplete="off"
-                aria-describedby="solar-costo-rango"
                 value={exactCostDisplay}
                 spellCheck={false}
                 onFocus={() => {
@@ -178,8 +238,8 @@ export function SolarInquiryPanel() {
                   setIsEditingExactCost(false);
                   setExactCostDraft("");
                   if (!Number.isFinite(raw)) return;
-                  const next = clampCost(raw);
-                  setInquiry((s) => ({ ...s, costoBimestralMxn: next }));
+                  const next = clampCost(raw, periodConfig.min, periodConfig.max);
+                  setCurrentCost(next);
                 }}
                 onKeyDown={(e) => {
                   if (e.key !== "Enter") return;
@@ -187,14 +247,6 @@ export function SolarInquiryPanel() {
                 }}
                 className="mt-1.5 w-full rounded-lg border border-slate-200/90 bg-white px-3 py-2.5 font-medium tabular-nums text-sm text-slate-900 shadow-sm focus:border-[#1E4D8C] focus:outline-none focus:ring-2 focus:ring-[#1E4D8C]/20"
               />
-              <p id="solar-costo-rango" className="mt-1 text-[11px] tabular-nums text-slate-500">
-                Rango sugerido: {formatMxn(COST_MIN)} a {formatMxn(COST_MAX)}.
-              </p>
-            </div>
-            <div className="mt-2 grid grid-cols-5 text-center text-[10px] font-medium text-slate-500">
-              {[COST_MIN, 1000, 5000, 25000, COST_MAX].map((value) => (
-                <span key={value}>{formatMxn(value)}</span>
-              ))}
             </div>
           </div>
         </div>
@@ -218,7 +270,7 @@ export function SolarInquiryPanel() {
           >
             <option value="residencial">Residencial</option>
             <option value="comercial">Comercial / oficina</option>
-            <option value="industrial">Industria / nave</option>
+            <option value="industrial">Industrial</option>
           </select>
         </div>
         <div className="min-w-0 sm:col-span-1">

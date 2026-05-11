@@ -5,7 +5,7 @@ export function SolarHero() {
   return (
     <section
       id="top"
-      className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-x-clip overflow-y-hidden border-b border-slate-200/80 bg-[#0a1628] pt-28 pb-14 text-white md:pt-40 md:pb-20"
+      className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-x-clip overflow-y-hidden border-b border-slate-200/80 bg-[#0a1628] pt-28 pb-10 text-white md:pt-40 md:pb-14"
     >
       <div className="pointer-events-none absolute inset-0 z-0">
         <Image
@@ -46,6 +46,20 @@ export function SolarHero() {
         <p className="mt-5 max-w-2xl text-[15px] leading-7 text-white/80">
           Convierte tu pago de luz en una inversión para tu patrimonio.
         </p>
+        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a
+            href="#solar"
+            className="inline-flex h-11 w-full items-center justify-center rounded-lg bg-[#6CC04A] px-5 text-sm font-semibold text-white shadow-md shadow-[#6CC04A]/25 transition hover:-translate-y-0.5 hover:bg-[#3BAA3F] sm:w-auto"
+          >
+            Cotizar ahora
+          </a>
+          <a
+            href="#contacto"
+            className="inline-flex h-11 w-full items-center justify-center rounded-lg border border-white/30 bg-white/[0.04] px-5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-white/55 hover:bg-white/10 sm:w-auto"
+          >
+            Solicitar evaluación técnica
+          </a>
+        </div>
       </div>
     </section>
   );

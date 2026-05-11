@@ -41,14 +41,30 @@ describe("whatsapp", () => {
 
   it("builds solar inquiry message with pago/segmento/tarifa", () => {
     const m = buildSolarInquiryMessage({
+      periodoPago: "bimestral",
       costoBimestralMxn: 2350,
+      costoMensualMxn: 1175,
       segmento: "comercial",
       contextoTarifa: "gdm",
     });
     expect(m).toContain("$2,350");
+    expect(m).toContain("bimestre");
     expect(m).toContain("comercial");
     expect(m).toContain("GDM");
     expect(m).toContain("12m");
+  });
+
+  it("uses mensual amount when mensual period is selected", () => {
+    const m = buildSolarInquiryMessage({
+      periodoPago: "mensual",
+      costoBimestralMxn: 4800,
+      costoMensualMxn: 2400,
+      segmento: "residencial",
+      contextoTarifa: "con-subsidio",
+    });
+
+    expect(m).toContain("por mes");
+    expect(m).toContain("$2,400");
   });
 });
 

@@ -1,5 +1,27 @@
 ## Decisiones
 
+### 2026-05-11 (SolarInquiryPanel: segmento industrial)
+- En el selector *Tipo de inmueble*, la etiqueta visible pasa a **Industrial**; `SOL_SEG` en WhatsApp se alinea al mismo término.
+
+### 2026-05-11 (Paneles: integración visual hero + cotización)
+- Para que la intención de cotizar sea visible al abrir `/paneles-solares`, el hero incorpora CTAs directos a `#solar` y `#contacto`, se reduce el padding inferior del hero y el `main` sube ligeramente (`-mt`) para disminuir el hueco entre bloques.
+- `Solar` agrega `compactTop` para esta página: el bloque inicial (título + garantía + panel + CTA) se presenta como tarjeta compacta, manteniendo consistencia de copy y sin alterar el flujo general de home.
+
+### 2026-05-11 (SolarInquiryPanel: bimestre/mensual independientes)
+- El control de pago del asistente FV ahora tiene selector de periodo (**Bimestre** / **Mensual**) y cada uno mantiene su valor propio (`costoBimestralMxn` / `costoMensualMxn`) con rangos y accesos rápidos específicos; no se calcula uno desde el otro.
+- `buildSolarInquiryMessage` agrega `periodoPago` y arma la línea de pago usando el monto del periodo activo.
+
+### 2026-05-11 (Solar: garantía en producción de energía)
+- El chip bajo el h2 de paneles en home y el copy alineado en `businessLines` / `solarSystemItems` dicen **25 a 30 años de garantía en producción de energía**, manteniendo el matiz de fabricante/condiciones y el detalle de garantías en pieza e instalación en la ficha técnica.
+
+### 2026-05-11 (Solar: kicker duplicado)
+- En `Solar.tsx` (home) se retira la línea pequeña **Paneles solares** sobre el h2 para evitar redundancia con el titular; `data-stagger` del bloque principal y de *Aplicaciones* pasa a índices consecutivos 0–7.
+
+### 2026-05-11 (SolarInquiryPanel: copy)
+- Se elimina el texto *«Afinamos el primer contacto… recibos CFE reales»* bajo el h3 del panel; el flujo pasa del titular directo a los controles (pago bimestral, segmento, tarifa).
+- Se retira la línea en mayúsculas **Contexto para tu consulta**; el h3 del panel pasa a *Tres datos y tendrás una propuesta lista* (antes *Tres datos orientativos (pago, segmento, tarifa)*).
+- Se quitan el copy *Rango sugerido: …* y la fila de cinco importes ($200 a $120,000) debajo del campo exacto; se elimina `aria-describedby` asociado a ese texto.
+
 ### 2026-04-30 (Solar: CTA evaluación tras `SolarInquiryPanel`)
 - «Solicitar evaluación técnica» sigue al panel de contexto WhatsApp y se presenta **centrado** en la columna `max-w-2xl`; después vienen las fichas técnicas (`solarSystemItems`) y el resto del bloque solar.
 
@@ -11,7 +33,7 @@
 - En el panel «Contexto para tu consulta» se muestran paralelamente **Bimestre** y **Mensual (aprox.)** con `Intl` `es-MX` (símbolo `$` + separador de miles). El campo numérico exacto usa texto formateado al desenfocar para alinear visualmente con badges y sliders; durante la edición se aceptan solo dígitos. El mensual es orientativo (mitad del bimestre; recibo hogar típico de dos meses).
 
 ### 2026-04-30 (Solar: chip 25 años + producción de energía)
-- El recuadro bajo el h2 muestra **25 a 30 años** y *en producción de energía* (sin párrafo largo de garantías en ese chip); detalle extendido permanece en otras piezas de copy (`content.ts`, líneas de negocio, hero `/paneles-solares`).
+- El recuadro bajo el h2 muestra **25 a 30 años** y *en producción de energía* (sin párrafo largo de garantías en ese chip); detalle extendido permanece en otras piezas de copy (`content.ts`, líneas de negocio, hero `/paneles-solares`). *Actualización 2026-05-11:* se incorpora **de garantía** en la primera parte del chip y en copy relacionado (véase entrada del mismo día).
 
 ### 2026-04-29 (FinalCTA: fondo con paneles)
 - Se agrega `paneles.png` como fondo sutil del bloque `FinalCTA`, conservando la rejilla y aplicando overlay para no perder legibilidad del copy/CTAs.

@@ -39,7 +39,9 @@ export function buildWhatsAppUrl(params: {
 
 /** Datos mínimos para enriquecer el mensaje FV hacia WhatsApp (solo cliente, B0). */
 export type SolarInquiry = {
+  periodoPago: "bimestral" | "mensual";
   costoBimestralMxn: number;
+  costoMensualMxn: number;
   segmento: "residencial" | "comercial" | "industrial";
   contextoTarifa: "con-subsidio" | "dac" | "gdm" | "no-se";
 };
@@ -55,7 +57,7 @@ function formatMxn(amount: number): string {
 const SOL_SEG: Record<SolarInquiry["segmento"], string> = {
   residencial: "residencial",
   comercial: "comercial / oficina / comercio",
-  industrial: "industria ligera o nave",
+  industrial: "industrial",
 };
 
 const SOL_TAR: Record<SolarInquiry["contextoTarifa"], string> = {
@@ -63,6 +65,11 @@ const SOL_TAR: Record<SolarInquiry["contextoTarifa"], string> = {
   dac: "DAC o alto consumo (aprox.)",
   gdm: "PDBT / GDM / negocio (aprox.)",
   "no-se": "aún no lo tengo claro / revisar con recibos",
+};
+
+const SOL_PERIODO: Record<SolarInquiry["periodoPago"], string> = {
+  bimestral: "bimestre",
+  mensual: "mes",
 };
 
 /** Enlace “rápido” FV (sin rellenar asistente). Misma capa B0, solo texto más corto. */
@@ -78,10 +85,15 @@ export function buildSolarInquiryMessage(inquiry: SolarInquiry): string {
   const pagoBimestral = Number.isFinite(inquiry.costoBimestralMxn)
     ? Math.max(0, Math.round(inquiry.costoBimestralMxn))
     : 0;
+  const pagoMensual = Number.isFinite(inquiry.costoMensualMxn)
+    ? Math.max(0, Math.round(inquiry.costoMensualMxn))
+    : 0;
+  const pagoSeleccionado =
+    inquiry.periodoPago === "mensual" ? pagoMensual : pagoBimestral;
 
   return [
     "ENERGRUN — Interés en fotovoltaico (asistente en web).",
-    `Pago aprox. de luz por bimestre (estimado): ${formatMxn(pagoBimestral)}.`,
+    `Pago aprox. de luz por ${SOL_PERIODO[inquiry.periodoPago]} (estimado): ${formatMxn(pagoSeleccionado)}.`,
     `Tipo de inmueble: ${SOL_SEG[inquiry.segmento]}.`,
     `Contexto tarifario: ${SOL_TAR[inquiry.contextoTarifa]}.`,
     "Cifras orientativas: la oferta requiere recibos CFE 12m y criterio de interconexión (medidor bidireccional, DAC, etc.).",

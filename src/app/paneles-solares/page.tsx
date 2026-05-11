@@ -31,8 +31,8 @@ export default function PanelesSolaresPage() {
     >
       <Header contactHref="#contacto" />
       <SolarHero />
-      <main className="app-container">
-        <Solar evaluationHref="#contacto" />
+      <main className="app-container relative -mt-6 md:-mt-8">
+        <Solar evaluationHref="#contacto" compactTop />
         <SolarBenefits />
         <SolarHowItWorks />
         <Process />
