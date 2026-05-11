@@ -1,5 +1,6 @@
 ## Unreleased
 
+- **Héroes (home/solar/generadores) — robustez en Windows/escala**: se elimina `overflow-y-hidden` en los wrappers de hero para evitar recortes verticales en monitores con zoom/escala; en `Hero` (home) se usa `min-h-[100svh]` + `min-h-[100dvh]` para cubrir viewport de forma más estable.
 - **SolarInquiryPanel (tipo de inmueble)**: la opción industrial muestra **Industrial** (antes *Industria / nave*); el mensaje de WhatsApp usa la misma etiqueta para `segmento: industrial`.
 - **`/paneles-solares` (UX cotización above the fold)**: el hero agrega CTAs directos (*Cotizar ahora* y *Solicitar evaluación técnica*), reduce `pb` y el `main` se aproxima al hero (`-mt-*`) para que el bloque de cotización aparezca más inmediato al abrir. La sección `Solar` usa variante `compactTop` (tarjeta superior con menos separación) para integrar hero + cotización en un flujo más uniforme.
 - **SolarInquiryPanel (periodo de pago)**: el control de monto se divide en **Bimestre** y **Mensual** con selector explícito; cada periodo conserva su propio valor (independientes), rango, accesos rápidos y captura exacta. El mensaje de WhatsApp usa el periodo activo.

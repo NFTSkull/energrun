@@ -1,5 +1,9 @@
 ## Decisiones
 
+### 2026-05-11 (Héroes: recorte vertical en pantallas Windows)
+- Para evitar que el hero se “corte” en algunos monitores/escala de Windows, se retira `overflow-y-hidden` en `Hero`, `SolarHero` y `GeneratorsHero`.
+- En `Hero` (home) se añade `min-h-[100dvh]` además de `100svh` para que el alto visible del viewport sea más consistente según navegador/SO.
+
 ### 2026-05-11 (SolarInquiryPanel: segmento industrial)
 - En el selector *Tipo de inmueble*, la etiqueta visible pasa a **Industrial**; `SOL_SEG` en WhatsApp se alinea al mismo término.
 

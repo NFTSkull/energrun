@@ -14,7 +14,7 @@ export function Hero(props: Props) {
     <section
       id="top"
       aria-label="ENERGRUN"
-      className="relative left-1/2 right-1/2 -mx-[50vw] w-screen min-h-[100svh] overflow-x-clip overflow-y-hidden"
+      className="relative left-1/2 right-1/2 -mx-[50vw] w-screen min-h-[100svh] min-h-[100dvh] overflow-x-clip"
     >
       <div className="absolute inset-0 z-0">
         <video
@@ -41,7 +41,7 @@ export function Hero(props: Props) {
         }}
       />
 
-      <div className="app-container relative z-10 grid min-h-[100svh] grid-cols-1 items-center gap-10 pb-24 pt-28 sm:pb-24 sm:pt-40 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+      <div className="app-container relative z-10 grid min-h-[100svh] min-h-[100dvh] grid-cols-1 items-center gap-10 pb-24 pt-28 sm:pb-24 sm:pt-40 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
         <div className="max-w-[40rem] 2xl:max-w-[46rem] min-[1920px]:max-w-[48rem]">
           <p className="hero-anim-1 text-[11px] font-semibold uppercase tracking-[0.32em] text-white/60 sm:text-xs">
             ENERGRUN · Monterrey, N.L.
