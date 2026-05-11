@@ -1,5 +1,6 @@
 ## Unreleased
 
+- **Hero (home) — ajuste fuerte para monitores Windows**: se optimiza el héroe para alturas efectivas reducidas (escala/zoom): tipografía fluida (`clamp`), menos `pt/pb/gap`, y reglas `max-height` para compactar el bloque. En alturas bajas se oculta la tarjeta derecha y la flecha inferior para priorizar que el contenido principal se vea completo.
 - **Solar (`#solar`)**: el chip de garantía queda tipográficamente **por debajo del titular** (`text-[0.72em]` respecto al mismo `clamp()` que el h2) para que nunca se perciba más grande que *Paneles solares a la medida…*; padding del chip en `em` para escalar con el título.
 - **SolarInquiryPanel**: menos espacio vertical entre el titular *Tres datos y tendrás una propuesta lista* y la etiqueta *¿Cuánto pagas de luz? (aprox.)* (`mt-5` → `mt-2` en el grid principal).
 - **Solar (`#solar`)**: el h2 *Paneles solares a la medida…* pasa a tamaño más contenido con `clamp()` y **una sola línea** (`whitespace-nowrap`) para lectura uniforme en home y `/paneles-solares`.

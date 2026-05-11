@@ -41,24 +41,24 @@ export function Hero(props: Props) {
         }}
       />
 
-      <div className="app-container relative z-10 grid min-h-[100svh] min-h-[100dvh] grid-cols-1 items-center gap-10 pb-24 pt-28 sm:pb-24 sm:pt-40 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+      <div className="app-container relative z-10 grid min-h-[100svh] min-h-[100dvh] grid-cols-1 items-center gap-8 pb-20 pt-24 sm:pb-20 sm:pt-36 lg:grid-cols-[1.15fr_1fr] lg:gap-14 [@media(max-height:900px)]:gap-6 [@media(max-height:900px)]:pb-14 [@media(max-height:900px)]:pt-20 [@media(max-height:820px)]:pb-10 [@media(max-height:820px)]:pt-16">
         <div className="max-w-[40rem] 2xl:max-w-[46rem] min-[1920px]:max-w-[48rem]">
           <p className="hero-anim-1 text-[11px] font-semibold uppercase tracking-[0.32em] text-white/60 sm:text-xs">
             ENERGRUN · Monterrey, N.L.
           </p>
 
-          <h1 className="hero-anim-1 mt-6 text-balance text-[1.9rem] font-extrabold leading-[1.08] tracking-[-0.02em] text-white sm:text-[2.6rem] md:text-5xl lg:text-[3.25rem] lg:leading-[1.04] [text-shadow:0_2px_40px_rgba(0,0,0,0.45)]">
+          <h1 className="hero-anim-1 mt-5 text-balance text-[clamp(1.85rem,4.35vw,3.2rem)] font-extrabold leading-[1.06] tracking-[-0.02em] text-white [text-shadow:0_2px_40px_rgba(0,0,0,0.45)] [@media(max-height:900px)]:mt-4">
             Especialistas en generación de energía
           </h1>
 
-          <p className="hero-anim-2 mt-6 max-w-[34rem] text-[15px] leading-7 text-white/85 sm:text-lg sm:leading-8 2xl:max-w-[38rem] min-[1920px]:max-w-[40rem]">
+          <p className="hero-anim-2 mt-5 max-w-[34rem] text-[clamp(0.95rem,1.18vw,1.125rem)] leading-[1.75] text-white/85 2xl:max-w-[38rem] min-[1920px]:max-w-[40rem] [@media(max-height:900px)]:mt-4">
             Vendemos e instalamos sistemas fotovoltaicos y generadores de respaldo.
             Diseñamos un proyecto adecuado a tus necesidades: puede ser con
             paneles solares, generadores de respaldo o ambos en el mismo
             proyecto.
           </p>
 
-          <div className="hero-anim-3 mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="hero-anim-3 mt-7 flex flex-col gap-3 sm:flex-row sm:items-center [@media(max-height:900px)]:mt-5">
             <a
               href={evaluationHref}
               className="inline-flex h-12 w-full items-center justify-center rounded-lg bg-[#6CC04A] px-7 text-sm font-semibold text-white shadow-md shadow-[#6CC04A]/25 transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#3BAA3F] sm:w-auto"
@@ -73,7 +73,7 @@ export function Hero(props: Props) {
             </a>
           </div>
 
-          <ul className="hero-anim-4 mt-12 grid grid-cols-1 gap-2.5 sm:grid-cols-3 sm:gap-3">
+          <ul className="hero-anim-4 mt-9 grid grid-cols-1 gap-2.5 sm:grid-cols-3 sm:gap-3 [@media(max-height:900px)]:mt-6">
             {heroTrust.map((b) => (
               <li
                 key={b.t}
@@ -90,7 +90,7 @@ export function Hero(props: Props) {
         </div>
 
         {/* Columna derecha: ficha institucional seca (no repite el hero) */}
-        <div className="hero-anim-5 hidden lg:flex lg:justify-end">
+        <div className="hero-anim-5 hidden lg:flex lg:justify-end [@media(max-height:860px)]:hidden">
           <div className="w-full max-w-sm rounded-2xl border border-white/18 bg-gradient-to-b from-slate-950/60 via-slate-950/48 to-slate-950/52 p-6 shadow-[0_16px_34px_rgba(0,0,0,0.32)] backdrop-blur-sm">
             <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-white/70">
               Ofrecemos:
@@ -129,7 +129,7 @@ export function Hero(props: Props) {
       <a
         href="#soluciones"
         aria-label="Ver soluciones"
-        className="hero-anim-6 group absolute inset-x-0 bottom-6 z-10 mx-auto hidden w-max flex-col items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/55 transition hover:text-white/90 sm:bottom-8 sm:flex"
+        className="hero-anim-6 group absolute inset-x-0 bottom-6 z-10 mx-auto hidden w-max flex-col items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/55 transition hover:text-white/90 sm:bottom-8 sm:flex [@media(max-height:860px)]:hidden"
       >
         <span className="border-b border-white/20 pb-0.5 transition group-hover:border-white/60">
           Ver soluciones

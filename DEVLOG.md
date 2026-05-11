@@ -1,5 +1,9 @@
 ## Decisiones
 
+### 2026-05-11 (Hero home: optimización para altura efectiva baja)
+- Se compacta el layout del hero principal con tipografía fluida (`clamp`), menor separación vertical (`pt/pb/gap`) y reglas `max-height` para escenarios de Windows con escala/zoom.
+- En alturas bajas se ocultan la ficha institucional derecha y el indicador inferior para priorizar que el contenido principal del hero quede visible completo.
+
 ### 2026-05-11 (Solar: chip garantía más compacto)
 - La cápsula *25 a 30 años de garantía · en producción de energía* baja de ~15px base a **11px** (xs en `sm+`), con `px/py` menores y `rounded-xl` para proporción visual acorde.
 
