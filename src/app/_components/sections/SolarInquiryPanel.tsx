@@ -67,6 +67,8 @@ export function SolarInquiryPanel() {
 
   const exactCostDisplay =
     isEditingExactCost ? exactCostDraft : formatMxn(currentCost);
+  const currentPeriodLabel =
+    inquiry.periodoPago === "mensual" ? "Mensual" : "Bimestre";
 
   function setCurrentCost(nextCost: number) {
     setInquiry((s) =>
@@ -140,30 +142,10 @@ export function SolarInquiryPanel() {
               <div className="flex min-w-[min(100%,16rem)] flex-1 justify-center gap-4 px-2 text-center">
                 <div>
                   <span className="block text-[10px] uppercase tracking-wide text-slate-500">
-                    Bimestre
+                    {currentPeriodLabel}
                   </span>
                   <span className="mt-0.5 block whitespace-nowrap text-sm font-semibold tabular-nums text-[#1E4D8C]">
-                    {formatMxn(
-                      clampCost(
-                        inquiry.costoBimestralMxn,
-                        COST_CONFIG.bimestral.min,
-                        COST_CONFIG.bimestral.max,
-                      ),
-                    )}
-                  </span>
-                </div>
-                <div>
-                  <span className="block text-[10px] uppercase tracking-wide text-slate-500">
-                    Mensual
-                  </span>
-                  <span className="mt-0.5 block whitespace-nowrap text-sm font-semibold tabular-nums text-[#1E4D8C]">
-                    {formatMxn(
-                      clampCost(
-                        inquiry.costoMensualMxn,
-                        COST_CONFIG.mensual.min,
-                        COST_CONFIG.mensual.max,
-                      ),
-                    )}
+                    {formatMxn(currentCost)}
                   </span>
                 </div>
               </div>

@@ -12,7 +12,7 @@
 - `Solar` agrega `compactTop` para esta página: el bloque inicial (título + garantía + panel + CTA) se presenta como tarjeta compacta, manteniendo consistencia de copy y sin alterar el flujo general de home.
 
 ### 2026-05-11 (SolarInquiryPanel: bimestre/mensual independientes)
-- El control de pago del asistente FV ahora tiene selector de periodo (**Bimestre** / **Mensual**) y cada uno mantiene su valor propio (`costoBimestralMxn` / `costoMensualMxn`) con rangos y accesos rápidos específicos; no se calcula uno desde el otro.
+- El control de pago del asistente FV ahora tiene selector de periodo (**Bimestre** / **Mensual**) y cada uno mantiene su valor propio (`costoBimestralMxn` / `costoMensualMxn`) con rangos y accesos rápidos específicos; no se calcula uno desde el otro. En la vista de monto solo se renderiza el periodo seleccionado para evitar ruido visual.
 - `buildSolarInquiryMessage` agrega `periodoPago` y arma la línea de pago usando el monto del periodo activo.
 
 ### 2026-05-11 (Solar: garantía en producción de energía)
