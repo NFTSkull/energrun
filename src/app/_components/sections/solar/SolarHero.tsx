@@ -41,7 +41,8 @@ export function SolarHero() {
           Soluciones solares ENERGRUN
         </p>
         <h1 className="mt-4 max-w-3xl text-balance text-3xl font-semibold tracking-tight sm:text-5xl">
-          ¡No pagues más! Genera tu propia energía
+          ¡No pagues más!{" "}
+          <span className="whitespace-nowrap">Genera tu propia energía</span>
         </h1>
         <p className="mt-5 max-w-2xl text-[15px] leading-7 text-white/80">
           Convierte tu pago de luz en una inversión para tu patrimonio.

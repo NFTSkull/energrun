@@ -94,7 +94,7 @@ export function SolarInquiryPanel() {
         Tres datos y tendrás una propuesta lista
       </h3>
 
-      <div className="mt-5 grid gap-4 sm:grid-cols-2">
+      <div className="mt-2 grid gap-4 sm:grid-cols-2">
         <div className="min-w-0 sm:col-span-2">
           <label
             className="block text-xs font-semibold text-slate-600"

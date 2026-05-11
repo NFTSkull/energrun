@@ -1,5 +1,9 @@
 ## Unreleased
 
+- **Solar (`#solar`)**: el chip de garantía queda tipográficamente **por debajo del titular** (`text-[0.72em]` respecto al mismo `clamp()` que el h2) para que nunca se perciba más grande que *Paneles solares a la medida…*; padding del chip en `em` para escalar con el título.
+- **SolarInquiryPanel**: menos espacio vertical entre el titular *Tres datos y tendrás una propuesta lista* y la etiqueta *¿Cuánto pagas de luz? (aprox.)* (`mt-5` → `mt-2` en el grid principal).
+- **Solar (`#solar`)**: el h2 *Paneles solares a la medida…* pasa a tamaño más contenido con `clamp()` y **una sola línea** (`whitespace-nowrap`) para lectura uniforme en home y `/paneles-solares`.
+- **SolarHero (`/paneles-solares`)**: el titular mantiene **Genera tu propia energía** en una sola línea tipográfica (`whitespace-nowrap`) para que no se parta entre *Genera* y el resto del claim.
 - **Héroes (home/solar/generadores) — robustez en Windows/escala**: se elimina `overflow-y-hidden` en los wrappers de hero para evitar recortes verticales en monitores con zoom/escala; en `Hero` (home) se usa `min-h-[100svh]` + `min-h-[100dvh]` para cubrir viewport de forma más estable.
 - **SolarInquiryPanel (tipo de inmueble)**: la opción industrial muestra **Industrial** (antes *Industria / nave*); el mensaje de WhatsApp usa la misma etiqueta para `segmento: industrial`.
 - **`/paneles-solares` (UX cotización above the fold)**: el hero agrega CTAs directos (*Cotizar ahora* y *Solicitar evaluación técnica*), reduce `pb` y el `main` se aproxima al hero (`-mt-*`) para que el bloque de cotización aparezca más inmediato al abrir. La sección `Solar` usa variante `compactTop` (tarjeta superior con menos separación) para integrar hero + cotización en un flujo más uniforme.

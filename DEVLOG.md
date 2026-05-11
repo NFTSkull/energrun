@@ -1,5 +1,20 @@
 ## Decisiones
 
+### 2026-05-11 (Solar: chip garantía más compacto)
+- La cápsula *25 a 30 años de garantía · en producción de energía* baja de ~15px base a **11px** (xs en `sm+`), con `px/py` menores y `rounded-xl` para proporción visual acorde.
+
+### 2026-05-11 (Solar: chip proporcional al titular)
+- Titular y chip comparten un wrapper con el `clamp()` del h2; el chip usa **`text-[0.72em]`** y padding en `em`, así el texto de garantía **no puede verse más grande** que *Paneles solares a la medida…* en ningún ancho.
+
+### 2026-05-11 (SolarInquiryPanel: espacio tras titular)
+- Se reduce el margen superior del grid de controles (`mt-5` → `mt-2`) para acercar *¿Cuánto pagas de luz?* al h3.
+
+### 2026-05-11 (Solar: titular sección paneles en una línea)
+- El h2 *Paneles solares a la medida de lo que realmente consumes* usa tipografía más pequeña vía `clamp()` y `whitespace-nowrap` para mantener el claim en un solo renglón sin el peso visual anterior (`text-3xl`).
+
+### 2026-05-11 (SolarHero: salto de línea en titular)
+- En el h1 de paneles, *Genera tu propia energía* va en un `span` con `whitespace-nowrap` para que la palabra **Genera** no quede aislada en un renglón al hacer wrap.
+
 ### 2026-05-11 (Héroes: recorte vertical en pantallas Windows)
 - Para evitar que el hero se “corte” en algunos monitores/escala de Windows, se retira `overflow-y-hidden` en `Hero`, `SolarHero` y `GeneratorsHero`.
 - En `Hero` (home) se añade `min-h-[100dvh]` además de `100svh` para que el alto visible del viewport sea más consistente según navegador/SO.

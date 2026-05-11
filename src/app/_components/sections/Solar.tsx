@@ -23,25 +23,24 @@ export function Solar(props: { evaluationHref?: string; compactTop?: boolean }) 
       <div className="mx-auto w-full max-w-6xl">
         {/* 1 · Bloque principal: copy, criterio de sistema, CTAs */}
         <div className={`text-center ${topBlockClassName}`.trim()}>
-          <h2
-            className="reveal-t mx-auto max-w-3xl text-balance text-3xl font-semibold tracking-tight text-slate-900 sm:text-[2.15rem]"
-            data-stagger="0"
-          >
-            Paneles solares a la medida de lo que realmente consumes
-          </h2>
-          <p
-            className="reveal-t mx-auto mt-4 max-w-3xl"
-            data-stagger="1"
-          >
-            <span className="mx-auto inline-flex max-w-full flex-wrap items-baseline justify-center gap-x-2 gap-y-1 rounded-2xl border border-[#1E4D8C]/18 bg-gradient-to-br from-[#1E4D8C]/[0.06] to-[#3FA9F5]/[0.05] px-4 py-3 text-[15px] leading-snug text-slate-700 shadow-sm">
-              <span className="font-semibold tabular-nums text-[#1E4D8C]">
-                25 a 30 años de garantía
+          <div className="mx-auto w-full min-w-0 max-w-3xl text-center text-[clamp(0.7rem,2.85vw,1.125rem)] tracking-tight text-slate-900 sm:text-[clamp(0.8125rem,2.2vw,1.25rem)] md:text-[clamp(0.875rem,1.65vw,1.375rem)]">
+            <h2
+              className="reveal-t font-semibold leading-snug whitespace-nowrap"
+              data-stagger="0"
+            >
+              Paneles solares a la medida de lo que realmente consumes
+            </h2>
+            <p className="reveal-t mx-auto mt-3 max-w-3xl" data-stagger="1">
+              <span className="mx-auto inline-flex max-w-full flex-wrap items-baseline justify-center gap-x-1.5 gap-y-0.5 rounded-xl border border-[#1E4D8C]/18 bg-gradient-to-br from-[#1E4D8C]/[0.06] to-[#3FA9F5]/[0.05] px-[0.65em] py-[0.38em] text-[0.72em] font-normal leading-snug text-slate-700 shadow-sm">
+                <span className="font-semibold tabular-nums text-[#1E4D8C]">
+                  25 a 30 años de garantía
+                </span>
+                <span className="font-semibold text-[#1E4D8C]">
+                  en producción de energía
+                </span>
               </span>
-              <span className="font-semibold text-[#1E4D8C]">
-                en producción de energía
-              </span>
-            </span>
-          </p>
+            </p>
+          </div>
 
           <div className="reveal-t mx-auto mt-6 max-w-2xl text-left" data-stagger="2">
             <SolarInquiryPanel />
