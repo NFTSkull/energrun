@@ -1,5 +1,6 @@
 ## Unreleased
 
+- **Página `/generadores` — asistente “Cotiza tu generador a la medida”**: se integra un flujo interactivo de 3 pasos (`GeneratorQuickQuote`) entre el hero y el catálogo: selección por tipo de proyecto, cargas con cantidades (+/-), y datos rápidos (combustible, instalación y nivel de respaldo). El resultado se muestra en tarjeta sticky con recomendación inicial en kW, perfil sugerido y disclaimer técnico, usando nueva lógica en `src/lib/generatorSizing.ts`.
 - **Hero (home) — ajuste fuerte para monitores Windows**: se optimiza el héroe para alturas efectivas reducidas (escala/zoom): tipografía fluida (`clamp`), menos `pt/pb/gap`, y reglas `max-height` para compactar el bloque. En alturas bajas se oculta la tarjeta derecha y la flecha inferior para priorizar que el contenido principal se vea completo.
 - **Solar (`#solar`)**: el chip de garantía queda tipográficamente **por debajo del titular** (`text-[0.72em]` respecto al mismo `clamp()` que el h2) para que nunca se perciba más grande que *Paneles solares a la medida…*; padding del chip en `em` para escalar con el título.
 - **SolarInquiryPanel**: menos espacio vertical entre el titular *Tres datos y tendrás una propuesta lista* y la etiqueta *¿Cuánto pagas de luz? (aprox.)* (`mt-5` → `mt-2` en el grid principal).

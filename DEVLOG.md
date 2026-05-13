@@ -1,5 +1,11 @@
 ## Decisiones
 
+### 2026-05-13 (Generadores: cotizador rápido interactivo)
+- Se crea `GeneratorQuickQuote` y se inserta en `/generadores` justo después del hero y antes del catálogo, para cubrir la intención de “recomendación inicial en menos de 1 minuto” sin formulario largo ni tabla técnica inicial.
+- El flujo se define en 3 pasos (tipo de proyecto, cargas con cantidad, datos rápidos) y el resultado se presenta en tarjeta sticky (desktop) / secuencial (mobile), con un CTA principal “Calcular recomendación”.
+- Se centraliza la lógica de dimensionamiento en `src/lib/generatorSizing.ts` con catálogo de cargas base (running/startup watts), mapeo por categoría, factores de respaldo y recomendación por rango de potencia para evitar lógica dispersa en UI.
+- Se agregan pruebas en `generatorSizing.test.ts` y `GeneratorQuickQuote.test.tsx` para validar dataset, cálculo base, escalamiento industrial y comportamiento UI mínimo del flujo.
+
 ### 2026-05-11 (Hero home: optimización para altura efectiva baja)
 - Se compacta el layout del hero principal con tipografía fluida (`clamp`), menor separación vertical (`pt/pb/gap`) y reglas `max-height` para escenarios de Windows con escala/zoom.
 - En alturas bajas se ocultan la ficha institucional derecha y el indicador inferior para priorizar que el contenido principal del hero quede visible completo.
