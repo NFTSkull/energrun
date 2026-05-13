@@ -1,5 +1,11 @@
 ## Decisiones
 
+### 2026-05-13 (GeneratorQuickQuote: claridad de recomendación + CTA)
+- Se agrega `getGeneratorRecommendation(projectType, suggestedKw)` en `generatorSizing` para mapear potencia estimada a equipo/línea comercial concreta (Guardian 10/14/18/22/24-26, Protector/Liquid Cooled, Commercial Series, industrial dedicado y caso móvil para obra).
+- En la tarjeta de resultado de `GeneratorQuickQuote` se separan visualmente: capacidad estimada, bloque “Generador recomendado” (título + badge + explicación), resumen técnico rápido y disclaimer.
+- Se incorpora CTA `Enviar selección por WhatsApp` con mensaje estructurado que incluye cargas seleccionadas, capacidad estimada, línea recomendada y datos rápidos capturados, para acelerar el seguimiento comercial sin formulario largo.
+- Se actualizan pruebas de `generatorSizing` y del componente para cubrir recomendación explícita y presencia del enlace de WhatsApp.
+
 ### 2026-05-13 (Generadores: cotizador rápido interactivo)
 - Se crea `GeneratorQuickQuote` y se inserta en `/generadores` justo después del hero y antes del catálogo, para cubrir la intención de “recomendación inicial en menos de 1 minuto” sin formulario largo ni tabla técnica inicial.
 - El flujo se define en 3 pasos (tipo de proyecto, cargas con cantidad, datos rápidos) y el resultado se presenta en tarjeta sticky (desktop) / secuencial (mobile), con un CTA principal “Calcular recomendación”.

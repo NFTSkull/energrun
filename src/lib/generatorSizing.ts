@@ -45,6 +45,12 @@ export type GeneratorRecommendation = {
   fuelLabel: string;
 };
 
+export type GeneratorLineRecommendation = {
+  title: string;
+  badge: string;
+  description: string;
+};
+
 export const generatorLoads: GeneratorLoad[] = [
   {
     id: "led",
@@ -359,6 +365,90 @@ export function getProjectLoadItems(
   projectType: GeneratorProjectType,
 ): GeneratorProjectLoadItem[] {
   return generatorProjectLoadItems[projectType];
+}
+
+export function getGeneratorRecommendation(
+  projectType: GeneratorProjectType,
+  suggestedKw: number,
+): GeneratorLineRecommendation {
+  if (projectType === "obra") {
+    return {
+      title: "Generadores móviles 30–522 kW",
+      badge: "Proyecto temporal / renta",
+      description:
+        "Ideal para obra, renta, operación temporal o proyectos en campo que requieren energía portátil.",
+    };
+  }
+
+  if (suggestedKw <= 10) {
+    return {
+      title: "Guardian Air Cooled 10 kW",
+      badge: "Residencial / cargas esenciales",
+      description:
+        "Ideal para respaldar cargas esenciales como refrigerador, iluminación, internet, cámaras y equipos básicos.",
+    };
+  }
+
+  if (suggestedKw <= 14) {
+    return {
+      title: "Guardian Air Cooled 14 kW",
+      badge: "Residencial medio",
+      description:
+        "Recomendado para casas con mayor número de cargas críticas o pequeños negocios con consumo moderado.",
+    };
+  }
+
+  if (suggestedKw <= 18) {
+    return {
+      title: "Guardian Air Cooled 18 kW",
+      badge: "Residencial alto / comercio ligero",
+      description:
+        "Buena opción para casas con aire acondicionado, refrigeración, bombas o comercios ligeros.",
+    };
+  }
+
+  if (suggestedKw <= 22) {
+    return {
+      title: "Guardian Air Cooled 22 kW",
+      badge: "Alta demanda residencial",
+      description:
+        "Recomendado para casas grandes o negocios que necesitan respaldar varias cargas importantes al mismo tiempo.",
+    };
+  }
+
+  if (suggestedKw <= 26) {
+    return {
+      title: "Guardian Air Cooled 24–26 kW",
+      badge: "Residencial premium / comercial ligero",
+      description:
+        "Para proyectos con mayor demanda, múltiples equipos y necesidad de respaldo más amplio.",
+    };
+  }
+
+  if (suggestedKw <= 80) {
+    return {
+      title: "Protector Series / Liquid Cooled",
+      badge: "Comercial / alta demanda",
+      description:
+        "Recomendado para propiedades, comercios o instalaciones con mayor demanda energética y operación más exigente.",
+    };
+  }
+
+  if (suggestedKw <= 150) {
+    return {
+      title: "Commercial Series",
+      badge: "Comercial alto",
+      description:
+        "Para negocios con operación crítica, alta demanda y necesidad de continuidad energética robusta.",
+    };
+  }
+
+  return {
+    title: "Proyecto industrial a dimensionar",
+    badge: "Requiere levantamiento técnico",
+    description:
+      "La demanda estimada supera rangos comerciales estándar. Se requiere revisión técnica, lista de cargas y validación en sitio.",
+  };
 }
 
 export function calculateGeneratorRecommendation(

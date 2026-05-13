@@ -3,9 +3,14 @@
 import { useMemo, useRef, useState } from "react";
 import { RevealGroup } from "@/app/_components/RevealGroup";
 import {
+  WHATSAPP_DEFAULT_E164,
+  buildWhatsAppUrl,
+} from "@/lib/whatsapp";
+import {
   calculateGeneratorRecommendation,
   formatPower,
   generatorProjectCards,
+  getGeneratorRecommendation,
   getProjectLoadItems,
   type GeneratorBackupLevel,
   type GeneratorFuelType,
@@ -34,6 +39,16 @@ const BACKUP_OPTIONS: Array<{ id: GeneratorBackupLevel; label: string }> = [
   { id: "area-completa", label: "Área completa" },
   { id: "continua", label: "Operación continua" },
 ];
+
+const PROJECT_LABELS: Record<GeneratorProjectType, string> = {
+  casa: "Casa",
+  negocio: "Negocio",
+  industria: "Industria ligera",
+  obra: "Obra / renta temporal",
+};
+
+const DEFAULT_WHATSAPP =
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? WHATSAPP_DEFAULT_E164;
 
 function formatWatts(value: number): string {
   if (value >= 1000) {
@@ -76,6 +91,57 @@ export function GeneratorQuickQuote() {
   );
 
   const hasAnySelected = selectedLoads.some((item) => item.quantity > 0);
+  const lineRecommendation = recommendation
+    ? getGeneratorRecommendation(projectType, recommendation.estimatedKw)
+    : null;
+
+  const whatsappHref = useMemo(() => {
+    if (!recommendation || !lineRecommendation) return null;
+
+    const selectedSummary = loadItems
+      .map((item) => ({
+        label: item.label,
+        quantity: quantities[item.loadId] ?? 0,
+      }))
+      .filter((item) => item.quantity > 0)
+      .map((item) => `${item.label} x${item.quantity}`)
+      .join(", ");
+
+    const fuelLabel = FUEL_OPTIONS.find((item) => item.id === fuelType)?.label ?? "Por definir";
+    const backupLabel =
+      BACKUP_OPTIONS.find((item) => item.id === backupLevel)?.label ?? "Por definir";
+    const installationLabel =
+      INSTALLATION_OPTIONS.find((item) => item.id === installationType)?.label ?? "Por definir";
+
+    const message = [
+      "ENERGRUN — Cotización rápida de generador (web).",
+      `Tipo de proyecto: ${PROJECT_LABELS[projectType]}.`,
+      `Cargas seleccionadas: ${selectedSummary || "Sin detalle"}.`,
+      `Capacidad estimada: ${formatPower(recommendation.estimatedKw)}.`,
+      `Generador recomendado: ${lineRecommendation.title}.`,
+      `Perfil sugerido: ${lineRecommendation.badge}.`,
+      `Combustible disponible: ${fuelLabel}.`,
+      `Instalación: ${installationLabel}.`,
+      `Nivel de respaldo: ${backupLabel}.`,
+      "Esta cotización es inicial y requiere validación técnica final.",
+      "Solicito asesoría y propuesta formal para mi caso.",
+      "Zona: Monterrey y área metropolitana.",
+    ].join("\n");
+
+    return buildWhatsAppUrl({
+      phoneNumber: DEFAULT_WHATSAPP,
+      message,
+    });
+  }, [
+    backupLevel,
+    fuelType,
+    installationType,
+    lineRecommendation,
+    loadItems,
+    projectType,
+    quantities,
+    recommendation,
+  ]);
 
   function setLoadQuantity(loadId: string, nextQuantity: number) {
     setQuantities((current) => ({
@@ -333,19 +399,31 @@ export function GeneratorQuickQuote() {
               </div>
             ) : (
               <>
-                <p className="mt-4 text-sm text-slate-600">
-                  Capacidad sugerida para tu selección:
+                <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  Capacidad estimada
                 </p>
                 <p className="mt-1 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
                   {formatPower(recommendation.estimatedKw)}
                 </p>
 
+                <div className="mt-4 rounded-xl border border-[#1E4D8C]/20 bg-[#1E4D8C]/[0.05] p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#1E4D8C]">
+                    Generador recomendado
+                  </p>
+                  <p className="mt-1 text-base font-semibold text-slate-900">
+                    {lineRecommendation?.title}
+                  </p>
+                  <p className="mt-2 inline-flex rounded-full border border-[#1E4D8C]/20 bg-white px-2.5 py-1 text-[11px] font-semibold text-[#1E4D8C]">
+                    {lineRecommendation?.badge}
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-slate-700">
+                    {lineRecommendation?.description}
+                  </p>
+                </div>
+
                 <div className="mt-4 rounded-xl border border-slate-200/90 bg-slate-50/70 p-4">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                    Perfil sugerido
-                  </p>
-                  <p className="mt-1 text-sm font-semibold text-slate-900">
-                    {recommendation.recommendedTier}
+                    Resumen técnico rápido
                   </p>
                   <div className="mt-3 grid gap-2 text-xs text-slate-600">
                     <p>
@@ -386,6 +464,17 @@ export function GeneratorQuickQuote() {
                     </p>
                   </div>
                 </div>
+
+                {whatsappHref ? (
+                  <a
+                    href={whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-lg bg-[#1E4D8C] px-5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#17407a]"
+                  >
+                    Enviar selección por WhatsApp
+                  </a>
+                ) : null}
               </>
             )}
 

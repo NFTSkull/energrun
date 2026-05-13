@@ -1,6 +1,7 @@
 import {
   calculateGeneratorRecommendation,
   generatorLoads,
+  getGeneratorRecommendation,
   getProjectLoadItems,
 } from "@/lib/generatorSizing";
 
@@ -78,5 +79,17 @@ describe("generatorSizing", () => {
     });
 
     expect(recommendation).toBeNull();
+  });
+
+  it("mapea capacidad baja a Guardian Air Cooled 10 kW", () => {
+    const line = getGeneratorRecommendation("casa", 8.5);
+    expect(line.title).toBe("Guardian Air Cooled 10 kW");
+    expect(line.badge).toMatch(/Residencial/i);
+  });
+
+  it("prioriza recomendación móvil para obra temporal", () => {
+    const line = getGeneratorRecommendation("obra", 12);
+    expect(line.title).toBe("Generadores móviles 30–522 kW");
+    expect(line.badge).toMatch(/renta/i);
   });
 });

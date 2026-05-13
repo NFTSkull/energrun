@@ -48,9 +48,14 @@ describe("GeneratorQuickQuote", () => {
     await user.click(screen.getByRole("button", { name: /Aumentar Refrigerador/i }));
     await user.click(screen.getByRole("button", { name: /Calcular recomendación/i }));
 
-    expect(screen.getByText(/Capacidad sugerida para tu selección/i)).toBeInTheDocument();
+    expect(screen.getByText(/Capacidad estimada/i)).toBeInTheDocument();
     expect(screen.getByText("3.0 kW")).toBeInTheDocument();
-    expect(screen.getByText(/Residencial esencial/i)).toBeInTheDocument();
+    expect(screen.getByText(/Guardian Air Cooled 10 kW/i)).toBeInTheDocument();
+    expect(screen.getByText(/Generador recomendado/i)).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /Enviar selección por WhatsApp/i })).toHaveAttribute(
+      "href",
+      expect.stringContaining("wa.me"),
+    );
   });
 
   it("cambia las cargas visibles según tipo de proyecto", async () => {
