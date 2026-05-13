@@ -1,5 +1,9 @@
 ## Decisiones
 
+### 2026-05-13 (Catálogo generadores: imagen liquid actualizada)
+- En `content.ts`, el bloque **Equipos liquid cooled y comerciales** cambia la ruta de imagen de `/liquid.png` a `/liquid-nuevo.png` para usar el nuevo recurso visual entregado.
+- Se ajusta `publicStaticAssets.test.ts` para validar la existencia de `liquid-nuevo.png` y evitar regresiones/404 por assets.
+
 ### 2026-05-13 (GeneratorQuickQuote: claridad de recomendación + CTA)
 - Se agrega `getGeneratorRecommendation(projectType, suggestedKw)` en `generatorSizing` para mapear potencia estimada a equipo/línea comercial concreta (Guardian 10/14/18/22/24-26, Protector/Liquid Cooled, Commercial Series, industrial dedicado y caso móvil para obra).
 - En la tarjeta de resultado de `GeneratorQuickQuote` se separan visualmente: capacidad estimada, bloque “Generador recomendado” (título + badge + explicación), resumen técnico rápido y disclaimer.

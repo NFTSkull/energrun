@@ -13,7 +13,7 @@ const REQUIRED_IN_PUBLIC = [
   "generadores.png",
   "residencial.png",
   "hogares.png",
-  "liquid.png",
+  "liquid-nuevo.png",
   "industriales.png",
   "moviles.png",
   "complemetarios.png",

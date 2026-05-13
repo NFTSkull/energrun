@@ -277,7 +277,7 @@ export const generatorBlocks: GeneratorBlock[] = [
       "Preparados para operación comercial continua",
     ],
     image: {
-      src: "/liquid.png",
+      src: "/liquid-nuevo.png",
       alt: "Generac · equipos liquid cooled y comerciales",
     },
   },
