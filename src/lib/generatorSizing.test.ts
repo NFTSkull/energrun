@@ -36,9 +36,10 @@ describe("generatorSizing", () => {
       fuelType: "gas-lp",
       installationType: "monofasica",
       backupLevel: "criticas",
+      startScenario: "bajo",
       selectedLoads: [
         { loadId: "fridge", quantity: 1 },
-        { loadId: "led", quantity: 1 },
+        { loadId: "lighting", quantity: 1 },
       ],
     });
 
@@ -55,6 +56,7 @@ describe("generatorSizing", () => {
       fuelType: "diesel",
       installationType: "trifasica",
       backupLevel: "continua",
+      startScenario: "alto",
       selectedLoads: [
         { loadId: "full-operation", quantity: 1 },
         { loadId: "main-panel", quantity: 1 },
@@ -63,10 +65,11 @@ describe("generatorSizing", () => {
     });
 
     expect(recommendation).not.toBeNull();
-    expect(recommendation?.estimatedKw).toBe(116);
+    expect(recommendation?.estimatedKw).toBe(132);
     expect(recommendation?.recommendedTier).toMatch(/Industria ligera/i);
     expect(recommendation?.fuelLabel).toBe("Diésel");
     expect(recommendation?.suggestedInstallation).toBe("Trifásica");
+    expect(recommendation?.simultaneousStarts).toBe(3);
   });
 
   it("regresa null cuando no hay cargas seleccionadas", () => {
@@ -75,6 +78,7 @@ describe("generatorSizing", () => {
       fuelType: "gas-natural",
       installationType: "no-se",
       backupLevel: "area-completa",
+      startScenario: "medio",
       selectedLoads: [],
     });
 

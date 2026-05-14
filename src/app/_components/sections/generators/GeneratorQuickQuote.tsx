@@ -16,6 +16,7 @@ import {
   type GeneratorFuelType,
   type GeneratorInstallationType,
   type GeneratorProjectType,
+  type GeneratorStartScenario,
 } from "@/lib/generatorSizing";
 
 const FUEL_OPTIONS: Array<{ id: GeneratorFuelType; label: string }> = [
@@ -38,6 +39,12 @@ const BACKUP_OPTIONS: Array<{ id: GeneratorBackupLevel; label: string }> = [
   { id: "criticas", label: "Solo cargas críticas" },
   { id: "area-completa", label: "Área completa" },
   { id: "continua", label: "Operación continua" },
+];
+
+const START_OPTIONS: Array<{ id: GeneratorStartScenario; label: string; hint: string }> = [
+  { id: "bajo", label: "Arranque bajo", hint: "Normalmente arranca 1 equipo a la vez" },
+  { id: "medio", label: "Arranque medio", hint: "Pueden arrancar 2 equipos juntos" },
+  { id: "alto", label: "Arranque alto", hint: "Pueden arrancar 3 equipos juntos" },
 ];
 
 const PROJECT_LABELS: Record<GeneratorProjectType, string> = {
@@ -63,6 +70,7 @@ export function GeneratorQuickQuote() {
   const [installationType, setInstallationType] =
     useState<GeneratorInstallationType>("no-se");
   const [backupLevel, setBackupLevel] = useState<GeneratorBackupLevel>("criticas");
+  const [startScenario, setStartScenario] = useState<GeneratorStartScenario>("medio");
   const [quantities, setQuantities] = useState<Record<string, number>>({});
   const [hasCalculated, setHasCalculated] = useState(false);
   const resultRef = useRef<HTMLDivElement | null>(null);
@@ -85,9 +93,10 @@ export function GeneratorQuickQuote() {
         fuelType,
         installationType,
         backupLevel,
+        startScenario,
         selectedLoads,
       }),
-    [backupLevel, fuelType, installationType, projectType, selectedLoads],
+    [backupLevel, fuelType, installationType, projectType, selectedLoads, startScenario],
   );
 
   const hasAnySelected = selectedLoads.some((item) => item.quantity > 0);
@@ -112,6 +121,8 @@ export function GeneratorQuickQuote() {
       BACKUP_OPTIONS.find((item) => item.id === backupLevel)?.label ?? "Por definir";
     const installationLabel =
       INSTALLATION_OPTIONS.find((item) => item.id === installationType)?.label ?? "Por definir";
+    const startLabel =
+      START_OPTIONS.find((item) => item.id === startScenario)?.label ?? "Arranque medio";
 
     const message = [
       "ENERGRUN — Cotización rápida de generador (web).",
@@ -122,6 +133,7 @@ export function GeneratorQuickQuote() {
       `Perfil sugerido: ${lineRecommendation.badge}.`,
       `Combustible disponible: ${fuelLabel}.`,
       `Instalación: ${installationLabel}.`,
+      `Escenario de arranque: ${startLabel}.`,
       `Nivel de respaldo: ${backupLabel}.`,
       "Esta cotización es inicial y requiere validación técnica final.",
       "Solicito asesoría y propuesta formal para mi caso.",
@@ -141,6 +153,7 @@ export function GeneratorQuickQuote() {
     projectType,
     quantities,
     recommendation,
+    startScenario,
   ]);
 
   function setLoadQuantity(loadId: string, nextQuantity: number) {
@@ -371,6 +384,36 @@ export function GeneratorQuickQuote() {
             </div>
           </div>
 
+          <div className="mt-7">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#1E4D8C]">
+              Paso 4
+            </p>
+            <h3 className="mt-2 text-lg font-semibold text-slate-900">
+              Escenario de arranque
+            </h3>
+            <p className="mt-1 text-xs text-slate-500">
+              ¿Cuántos equipos podrían arrancar casi al mismo tiempo?
+            </p>
+            <div className="mt-3 grid gap-2">
+              {START_OPTIONS.map((option) => (
+                <button
+                  key={option.id}
+                  type="button"
+                  onClick={() => setStartScenario(option.id)}
+                  className={[
+                    "rounded-xl border p-3 text-left transition",
+                    startScenario === option.id
+                      ? "border-[#1E4D8C]/45 bg-[#1E4D8C]/[0.06]"
+                      : "border-slate-200/90 bg-white hover:border-[#1E4D8C]/25",
+                  ].join(" ")}
+                >
+                  <p className="text-sm font-semibold text-slate-900">{option.label}</p>
+                  <p className="mt-1 text-xs text-slate-600">{option.hint}</p>
+                </button>
+              ))}
+            </div>
+          </div>
+
           <button
             type="button"
             onClick={onCalculate}
@@ -410,6 +453,9 @@ export function GeneratorQuickQuote() {
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#1E4D8C]">
                     Generador recomendado
                   </p>
+                  <p className="mt-2 text-sm font-medium text-slate-700">
+                    Con lo que seleccionaste, el generador recomendado inicialmente es:
+                  </p>
                   <p className="mt-1 text-base font-semibold text-slate-900">
                     {lineRecommendation?.title}
                   </p>
@@ -439,9 +485,15 @@ export function GeneratorQuickQuote() {
                       </span>
                     </p>
                     <p>
-                      Pico de arranque:{" "}
+                      Arranque simultáneo considerado:{" "}
                       <span className="font-semibold text-slate-800">
-                        {formatWatts(recommendation.surgeWatts)}
+                        {recommendation.simultaneousStarts} equipo(s)
+                      </span>
+                    </p>
+                    <p>
+                      Pico de arranque estimado:{" "}
+                      <span className="font-semibold text-slate-800">
+                        {formatWatts(recommendation.concurrentStartWatts)}
                       </span>
                     </p>
                     <p>

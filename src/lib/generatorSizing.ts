@@ -1,18 +1,27 @@
-export type GeneratorProjectType = "casa" | "negocio" | "industria" | "obra";
-export type GeneratorFuelType = "gas-lp" | "gas-natural" | "diesel" | "no-se";
-export type GeneratorInstallationType = "monofasica" | "trifasica" | "no-se";
-export type GeneratorBackupLevel = "criticas" | "area-completa" | "continua";
+export type ProjectType = "casa" | "negocio" | "industria" | "obra";
+export type FuelType = "gas-lp" | "gas-natural" | "diesel" | "no-se";
+export type InstallationType = "monofasica" | "trifasica" | "no-se";
+export type BackupLevel = "criticas" | "area-completa" | "continua";
+export type StartScenario = "bajo" | "medio" | "alto";
 
-export type GeneratorLoad = {
+export type GeneratorProjectType = ProjectType;
+export type GeneratorFuelType = FuelType;
+export type GeneratorInstallationType = InstallationType;
+export type GeneratorBackupLevel = BackupLevel;
+export type GeneratorStartScenario = StartScenario;
+
+export type LoadItem = {
   id: string;
   name: string;
   runningWatts: number;
   startingWatts: number;
-  categories: GeneratorProjectType[];
+  categories: ProjectType[];
 };
 
+export type GeneratorLoad = LoadItem;
+
 export type GeneratorProjectCard = {
-  id: GeneratorProjectType;
+  id: ProjectType;
   title: string;
   description: string;
   iconPath: string;
@@ -24,10 +33,11 @@ export type GeneratorProjectLoadItem = {
 };
 
 export type GeneratorSelectionInput = {
-  projectType: GeneratorProjectType;
-  fuelType: GeneratorFuelType;
-  installationType: GeneratorInstallationType;
-  backupLevel: GeneratorBackupLevel;
+  projectType: ProjectType;
+  fuelType: FuelType;
+  installationType: InstallationType;
+  backupLevel: BackupLevel;
+  startScenario: StartScenario;
   selectedLoads: Array<{
     loadId: string;
     quantity: number;
@@ -38,9 +48,10 @@ export type GeneratorRecommendation = {
   estimatedKw: number;
   recommendedTier: string;
   runningWatts: number;
-  surgeWatts: number;
+  concurrentStartWatts: number;
   designWatts: number;
   loadsCount: number;
+  simultaneousStarts: number;
   suggestedInstallation: "Monofásica" | "Trifásica";
   fuelLabel: string;
 };
@@ -53,14 +64,14 @@ export type GeneratorLineRecommendation = {
 
 export const generatorLoads: GeneratorLoad[] = [
   {
-    id: "led",
+    id: "lighting",
     name: "Iluminación",
     runningWatts: 300,
     startingWatts: 0,
     categories: ["casa", "negocio", "industria", "obra"],
   },
   {
-    id: "phone-internet",
+    id: "internet-cameras",
     name: "Internet / cámaras",
     runningWatts: 150,
     startingWatts: 0,
@@ -74,7 +85,7 @@ export const generatorLoads: GeneratorLoad[] = [
     categories: ["negocio"],
   },
   {
-    id: "computer",
+    id: "computers",
     name: "Computadoras",
     runningWatts: 800,
     startingWatts: 0,
@@ -262,15 +273,15 @@ export const generatorProjectCards: GeneratorProjectCard[] = [
 ];
 
 export const generatorProjectLoadItems: Record<
-  GeneratorProjectType,
+  ProjectType,
   GeneratorProjectLoadItem[]
 > = {
   casa: [
     { loadId: "fridge", label: "Refrigerador" },
     { loadId: "ac", label: "Aire acondicionado" },
-    { loadId: "led", label: "Iluminación" },
+    { loadId: "lighting", label: "Iluminación" },
     { loadId: "water-pump", label: "Bomba de agua" },
-    { loadId: "phone-internet", label: "Internet / cámaras" },
+    { loadId: "internet-cameras", label: "Internet / cámaras" },
     { loadId: "washer", label: "Lavadora" },
     { loadId: "microwave", label: "Microondas" },
     { loadId: "security", label: "Sistema de seguridad" },
@@ -280,8 +291,8 @@ export const generatorProjectLoadItems: Record<
   negocio: [
     { loadId: "pos", label: "Punto de venta" },
     { loadId: "commercial-fridge", label: "Refrigeración" },
-    { loadId: "led", label: "Iluminación" },
-    { loadId: "computer", label: "Computadoras" },
+    { loadId: "lighting", label: "Iluminación" },
+    { loadId: "computers", label: "Computadoras" },
     { loadId: "security", label: "Cámaras / seguridad" },
     { loadId: "ac", label: "Aire acondicionado" },
     { loadId: "microwave", label: "Microondas / cafetería" },
@@ -295,7 +306,7 @@ export const generatorProjectLoadItems: Record<
     { loadId: "partial-production", label: "Producción parcial" },
     { loadId: "full-operation", label: "Operación completa" },
     { loadId: "security", label: "Cámaras / seguridad" },
-    { loadId: "computer", label: "Oficina administrativa" },
+    { loadId: "computers", label: "Oficina administrativa" },
   ],
   obra: [
     { loadId: "tools", label: "Herramientas eléctricas" },
@@ -316,23 +327,35 @@ const fuelLabels: Record<GeneratorFuelType, string> = {
   "no-se": "Por definir",
 };
 
-const backupFactor: Record<GeneratorBackupLevel, number> = {
+const backupFactor: Record<BackupLevel, number> = {
   criticas: 1.15,
   "area-completa": 1.25,
   continua: 1.35,
 };
 
-const projectFactor: Record<GeneratorProjectType, number> = {
+const projectFactor: Record<ProjectType, number> = {
   casa: 1.03,
   negocio: 1.07,
   industria: 1.12,
   obra: 1.1,
 };
 
-const installationFactor: Record<GeneratorInstallationType, number> = {
+const installationFactor: Record<InstallationType, number> = {
   monofasica: 1,
   trifasica: 1.02,
   "no-se": 1.05,
+};
+
+const startScenarioCount: Record<StartScenario, number> = {
+  bajo: 1,
+  medio: 2,
+  alto: 3,
+};
+
+const startScenarioFactor: Record<StartScenario, number> = {
+  bajo: 1,
+  medio: 1.07,
+  alto: 1.14,
 };
 
 function roundUpHalf(value: number): number {
@@ -353,7 +376,7 @@ function getTierByKw(kw: number): string {
 }
 
 function getSuggestedInstallation(
-  installationType: GeneratorInstallationType,
+  installationType: InstallationType,
   estimatedKw: number,
 ): "Monofásica" | "Trifásica" {
   if (installationType === "trifasica") return "Trifásica";
@@ -362,13 +385,13 @@ function getSuggestedInstallation(
 }
 
 export function getProjectLoadItems(
-  projectType: GeneratorProjectType,
+  projectType: ProjectType,
 ): GeneratorProjectLoadItem[] {
   return generatorProjectLoadItems[projectType];
 }
 
 export function getGeneratorRecommendation(
-  projectType: GeneratorProjectType,
+  projectType: ProjectType,
   suggestedKw: number,
 ): GeneratorLineRecommendation {
   if (projectType === "obra") {
@@ -458,23 +481,33 @@ export function calculateGeneratorRecommendation(
   if (validLoads.length === 0) return null;
 
   let runningWatts = 0;
-  let surgeWatts = 0;
+  const startupDeltas: number[] = [];
 
   for (const selected of validLoads) {
     const load = generatorLoads.find((item) => item.id === selected.loadId);
     if (!load) continue;
     if (!load.categories.includes(input.projectType)) continue;
     runningWatts += load.runningWatts * selected.quantity;
-    surgeWatts = Math.max(surgeWatts, Math.max(load.startingWatts - load.runningWatts, 0));
+    const startupDelta = Math.max(load.startingWatts - load.runningWatts, 0);
+    for (let i = 0; i < selected.quantity; i += 1) {
+      startupDeltas.push(startupDelta);
+    }
   }
 
   if (runningWatts <= 0) return null;
 
+  const simultaneousStarts = startScenarioCount[input.startScenario];
+  const concurrentStartWatts = startupDeltas
+    .sort((a, b) => b - a)
+    .slice(0, simultaneousStarts)
+    .reduce((acc, value) => acc + value, 0);
+
   const designWatts =
-    (runningWatts + surgeWatts) *
+    (runningWatts + concurrentStartWatts) *
     backupFactor[input.backupLevel] *
     projectFactor[input.projectType] *
-    installationFactor[input.installationType];
+    installationFactor[input.installationType] *
+    startScenarioFactor[input.startScenario];
 
   const estimatedKw = roundUpHalf(designWatts / 1000);
 
@@ -482,9 +515,10 @@ export function calculateGeneratorRecommendation(
     estimatedKw,
     recommendedTier: getTierByKw(estimatedKw),
     runningWatts: Math.round(runningWatts),
-    surgeWatts: Math.round(surgeWatts),
+    concurrentStartWatts: Math.round(concurrentStartWatts),
     designWatts: Math.round(designWatts),
     loadsCount: validLoads.reduce((acc, item) => acc + item.quantity, 0),
+    simultaneousStarts,
     suggestedInstallation: getSuggestedInstallation(input.installationType, estimatedKw),
     fuelLabel: fuelLabels[input.fuelType],
   };

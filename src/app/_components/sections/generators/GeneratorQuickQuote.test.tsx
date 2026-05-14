@@ -50,8 +50,13 @@ describe("GeneratorQuickQuote", () => {
 
     expect(screen.getByText(/Capacidad estimada/i)).toBeInTheDocument();
     expect(screen.getByText("3.0 kW")).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /Con lo que seleccionaste, el generador recomendado inicialmente es/i,
+      ),
+    ).toBeInTheDocument();
     expect(screen.getByText(/Guardian Air Cooled 10 kW/i)).toBeInTheDocument();
-    expect(screen.getByText(/Generador recomendado/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Generador recomendado/i).length).toBeGreaterThan(0);
     expect(screen.getByRole("link", { name: /Enviar selección por WhatsApp/i })).toHaveAttribute(
       "href",
       expect.stringContaining("wa.me"),
@@ -66,5 +71,11 @@ describe("GeneratorQuickQuote", () => {
 
     expect(screen.getByText("Punto de venta")).toBeInTheDocument();
     expect(screen.queryByText("Concentrador de oxígeno")).not.toBeInTheDocument();
+  });
+
+  it("incluye paso 4 para arranques simultáneos", () => {
+    render(<GeneratorQuickQuote />);
+    expect(screen.getByText(/Paso 4/i)).toBeInTheDocument();
+    expect(screen.getByText(/Escenario de arranque/i)).toBeInTheDocument();
   });
 });

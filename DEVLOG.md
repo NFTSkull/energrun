@@ -1,5 +1,11 @@
 ## Decisiones
 
+### 2026-05-14 (GeneratorQuickQuote: motor más inteligente sin complejidad UX)
+- Se migra el modelo de cargas a la estructura `ProjectType`/`LoadItem` solicitada y se conserva la interacción visual simple por tarjetas/chips (sin tabla técnica).
+- `calculateGeneratorRecommendation` ahora incorpora escenario de arranque simultáneo (`bajo/medio/alto`) para contemplar 1/2/3 equipos arrancando en paralelo, sumado a factores de respaldo, tipo de proyecto y fase/instalación.
+- El flujo del cotizador pasa a 4 pasos en UI: proyecto, cargas, datos rápidos y escenario de arranque; el resultado mantiene copy amigable y prioriza recomendación explícita sobre números.
+- Se refuerza el mensaje principal de salida con la frase “Con lo que seleccionaste, el generador recomendado inicialmente es…”, y el CTA de WhatsApp incluye en el resumen el escenario de arranque seleccionado.
+
 ### 2026-05-13 (Catálogo generadores: imagen liquid actualizada)
 - En `content.ts`, el bloque **Equipos liquid cooled y comerciales** cambia la ruta de imagen de `/liquid.png` a `/liquid-nuevo.png` para usar el nuevo recurso visual entregado.
 - Se ajusta `publicStaticAssets.test.ts` para validar la existencia de `liquid-nuevo.png` y evitar regresiones/404 por assets.
