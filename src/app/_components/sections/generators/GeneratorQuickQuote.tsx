@@ -157,9 +157,12 @@ export function GeneratorQuickQuote() {
   ]);
 
   function setLoadQuantity(loadId: string, nextQuantity: number) {
+    const normalized = Number.isFinite(nextQuantity)
+      ? Math.max(0, Math.floor(nextQuantity))
+      : 0;
     setQuantities((current) => ({
       ...current,
-      [loadId]: Math.max(0, Math.min(12, nextQuantity)),
+      [loadId]: normalized,
     }));
   }
 

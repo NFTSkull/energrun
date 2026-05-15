@@ -1,5 +1,8 @@
 ## Decisiones
 
+### 2026-05-14 (GeneratorQuickQuote: cantidades ilimitadas por carga)
+- Se retira el tope de 12 unidades en el selector `+/-` del paso 2; todas las cargas (incluida iluminación) aceptan cantidad entera sin máximo para reflejar escenarios con muchos puntos de luz o equipos repetidos.
+
 ### 2026-05-14 (GeneratorQuickQuote: motor más inteligente sin complejidad UX)
 - Se migra el modelo de cargas a la estructura `ProjectType`/`LoadItem` solicitada y se conserva la interacción visual simple por tarjetas/chips (sin tabla técnica).
 - `calculateGeneratorRecommendation` ahora incorpora escenario de arranque simultáneo (`bajo/medio/alto`) para contemplar 1/2/3 equipos arrancando en paralelo, sumado a factores de respaldo, tipo de proyecto y fase/instalación.

@@ -1,5 +1,6 @@
 ## Unreleased
 
+- **`GeneratorQuickQuote` (`/generadores`) — cantidades sin tope**: se elimina el límite de 12 unidades por carga; iluminación y el resto de equipos permiten incrementar cantidad sin máximo en el cotizador.
 - **`GeneratorQuickQuote` (`/generadores`) — flujo inteligente en 4 pasos**: el cotizador ahora contempla arranques simultáneos (`bajo/medio/alto`) además de consumo continuo, tipo de proyecto, combustible, fase y nivel de respaldo para una recomendación inicial más realista sin volver la UX técnica.
 - **`generatorSizing` — cálculo reforzado de arranque**: el motor de sizing usa suma de consumo + pico por arranque concurrente de 1/2/3 equipos (según escenario), con factores de respaldo/proyecto/fase para estimar kW y línea recomendada con mejor contexto operativo.
 - **`GeneratorQuickQuote` — recomendación más explícita**: en resultado se muestra el mensaje “Con lo que seleccionaste, el generador recomendado inicialmente es…” junto al modelo/línea, explicación corta y CTA de WhatsApp con resumen del escenario capturado.

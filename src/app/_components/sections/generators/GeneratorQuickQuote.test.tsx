@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { GeneratorQuickQuote } from "@/app/_components/sections/generators/GeneratorQuickQuote";
 
@@ -77,5 +77,22 @@ describe("GeneratorQuickQuote", () => {
     render(<GeneratorQuickQuote />);
     expect(screen.getByText(/Paso 4/i)).toBeInTheDocument();
     expect(screen.getByText(/Escenario de arranque/i)).toBeInTheDocument();
+  });
+
+  it("permite cantidades mayores a 12 en iluminación", async () => {
+    const user = userEvent.setup();
+    render(<GeneratorQuickQuote />);
+
+    const increaseLighting = screen.getByRole("button", {
+      name: /Aumentar Iluminación/i,
+    });
+
+    for (let i = 0; i < 15; i += 1) {
+      await user.click(increaseLighting);
+    }
+
+    const lightingCard = increaseLighting.closest("article");
+    expect(lightingCard).not.toBeNull();
+    expect(within(lightingCard as HTMLElement).getByText("15")).toBeInTheDocument();
   });
 });
