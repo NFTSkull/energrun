@@ -89,7 +89,7 @@ export function GeneratorsCatalog(props: { whatsappHref: string; evaluationHref?
           className="reveal-t mt-1.5 text-balance text-3xl font-semibold tracking-tight text-slate-900 sm:text-[2.15rem]"
           data-stagger="1"
         >
-          Respaldo para cada escala
+          Generadores para hogar, negocio e industria
         </h2>
         <p
           className="reveal-t mt-2 max-w-2xl text-sm leading-6 text-slate-600"

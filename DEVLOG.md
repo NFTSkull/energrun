@@ -1,5 +1,8 @@
 ## Decisiones
 
+### 2026-05-18 (Catálogo generadores: titular del catálogo)
+- Se sustituye *Respaldo para cada escala* por **Generadores para hogar, negocio e industria** en `GeneratorsCatalog` para un mensaje más claro y acorde al catálogo (residencial, comercial e industrial).
+
 ### 2026-05-18 (Catálogo generadores: compacidad visual del encabezado)
 - Se compacta el bloque introductorio de `GeneratorsCatalog` reduciendo padding de sección, márgenes del título/párrafo y separación hacia la primera ficha (`01 / 05`); se retira la línea de acento que ampliaba el hueco visual.
 - La primera tarjeta usa padding superior menor y el `main` de `/generadores` aplica `-mt` leve para acercar catálogo al hero.
