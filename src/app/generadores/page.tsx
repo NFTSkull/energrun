@@ -6,7 +6,6 @@ import { GeneratorsCatalog } from "@/app/_components/sections/GeneratorsCatalog"
 import { ContactSection } from "@/app/_components/sections/shared/ContactSection";
 import { GeneratorBenefits } from "@/app/_components/sections/generators/GeneratorBenefits";
 import { GeneratorsHero } from "@/app/_components/sections/generators/GeneratorsHero";
-import { GeneratorQuickQuote } from "@/app/_components/sections/generators/GeneratorQuickQuote";
 import { GeneratorSelection } from "@/app/_components/sections/generators/GeneratorSelection";
 import {
   buildWhatsAppMessage,
@@ -31,7 +30,6 @@ export default function GeneradoresPage() {
       <Header contactHref="#contacto" />
       <GeneratorsHero />
       <main className="app-container">
-        <GeneratorQuickQuote />
         <GeneratorsCatalog whatsappHref={whatsappHref} evaluationHref="#contacto" />
         <GeneratorBenefits />
         <GeneratorSelection />

@@ -1,5 +1,9 @@
 ## Decisiones
 
+### 2026-05-18 (Generadores: retiro de cotización rápida)
+- Se elimina por completo la sección “Cotización rápida” / `GeneratorQuickQuote` de `/generadores`, junto con `generatorSizing` y sus pruebas, al no requerirse el flujo de estimación inicial en la página.
+- El `main` queda con catálogo, beneficios, selección y contacto; el dimensionamiento queda en la sección de contacto y CTAs existentes.
+
 ### 2026-05-14 (GeneratorQuickQuote: cantidades ilimitadas por carga)
 - Se retira el tope de 12 unidades en el selector `+/-` del paso 2; todas las cargas (incluida iluminación) aceptan cantidad entera sin máximo para reflejar escenarios con muchos puntos de luz o equipos repetidos.
 
