@@ -1,5 +1,10 @@
 ## Decisiones
 
+### 2026-05-18 (Catálogo generadores: compacidad visual del encabezado)
+- Se compacta el bloque introductorio de `GeneratorsCatalog` reduciendo padding de sección, márgenes del título/párrafo y separación hacia la primera ficha (`01 / 05`); se retira la línea de acento que ampliaba el hueco visual.
+- La primera tarjeta usa padding superior menor y el `main` de `/generadores` aplica `-mt` leve para acercar catálogo al hero.
+- Objetivo: evitar “hueco” percibido entre intro y contenido, mejorando continuidad visual y percepción institucional sin alterar contenido técnico ni estructura del catálogo.
+
 ### 2026-05-18 (Generadores: retiro de cotización rápida)
 - Se elimina por completo la sección “Cotización rápida” / `GeneratorQuickQuote` de `/generadores`, junto con `generatorSizing` y sus pruebas, al no requerirse el flujo de estimación inicial en la página.
 - El `main` queda con catálogo, beneficios, selección y contacto; el dimensionamiento queda en la sección de contacto y CTAs existentes.

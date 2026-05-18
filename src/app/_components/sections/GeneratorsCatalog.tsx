@@ -75,9 +75,10 @@ export function GeneratorsCatalog(props: { whatsappHref: string; evaluationHref?
   return (
     <section
       id="generadores"
-      className="border-b border-slate-200/80 bg-gradient-to-b from-slate-50/40 to-white py-12 md:py-16"
+      className="border-b border-slate-200/80 bg-gradient-to-b from-slate-50/40 to-white pt-6 pb-10 md:pt-8 md:pb-14"
     >
-      <RevealGroup as="div" className="max-w-3xl">
+      <header className="max-w-3xl">
+        <RevealGroup as="div" className="max-w-3xl">
         <p
           className="reveal-t text-xs font-semibold uppercase tracking-[0.22em] text-slate-500"
           data-stagger="0"
@@ -85,26 +86,22 @@ export function GeneratorsCatalog(props: { whatsappHref: string; evaluationHref?
           Catálogo Generac
         </p>
         <h2
-          className="reveal-t mt-3 text-balance text-3xl font-semibold tracking-tight text-slate-900 sm:text-[2.15rem]"
+          className="reveal-t mt-1.5 text-balance text-3xl font-semibold tracking-tight text-slate-900 sm:text-[2.15rem]"
           data-stagger="1"
         >
           Respaldo para cada escala
         </h2>
         <p
-          className="reveal-t mt-4 text-sm leading-7 text-slate-600 sm:mt-3"
+          className="reveal-t mt-2 max-w-2xl text-sm leading-6 text-slate-600"
           data-stagger="2"
         >
           Equipos seleccionados por lista de cargas, combustible disponible y
           nivel de continuidad requerido.
         </p>
-        <div
-          className="reveal-t mt-6 h-px w-16 bg-gradient-to-r from-[#1E4D8C]/25 to-transparent"
-          data-stagger="3"
-          aria-hidden
-        />
-      </RevealGroup>
+        </RevealGroup>
+      </header>
 
-      <div className="mt-12 space-y-8 md:mt-16 md:space-y-10">
+      <div className="mt-4 space-y-8 md:mt-5 md:space-y-10">
         {generatorBlocks.map((block, i) => {
           const reverse = i % 2 === 1;
           const n = String(i + 1).padStart(2, "0");
@@ -112,7 +109,8 @@ export function GeneratorsCatalog(props: { whatsappHref: string; evaluationHref?
           const textCol = (
             <div
               className={[
-                "flex flex-col justify-center p-6 sm:p-8 lg:p-10",
+                "flex flex-col justify-center sm:px-8 lg:px-10",
+                i === 0 ? "px-6 pt-5 pb-6 sm:pt-6 sm:pb-8 lg:pt-7" : "p-6 sm:py-8 lg:py-10",
                 reverse ? "md:order-2" : "",
               ]
                 .filter(Boolean)
@@ -134,7 +132,7 @@ export function GeneratorsCatalog(props: { whatsappHref: string; evaluationHref?
               </div>
 
               <h3
-                className="gen-reveal-stagger mt-5 text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.65rem]"
+                className="gen-reveal-stagger mt-4 text-2xl font-semibold tracking-tight text-slate-900 sm:text-[1.65rem]"
                 data-step="1"
               >
                 {block.title}

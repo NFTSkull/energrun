@@ -1,5 +1,6 @@
 ## Unreleased
 
+- **Catálogo Generadores (`/generadores`) — encabezado más compacto**: se reduce el espacio vertical entre el bloque `Catálogo Generac / Respaldo para cada escala` y la primera ficha (`01 / 05`): menos padding de sección, separación intro→ficha (`mt-4`/`md:mt-5`), sin línea de acento intermedia, copy más denso y primera tarjeta con padding superior ajustado; el `main` de `/generadores` se acerca ligeramente al hero.
 - **Página `/generadores` — retiro de “Cotización rápida”**: se elimina el asistente interactivo `GeneratorQuickQuote` (flujo de 4 pasos, recomendación inicial y CTA asociado) y la lógica de dimensionamiento en `generatorSizing`; la página pasa del hero directo al catálogo.
 - **`GeneratorQuickQuote` (`/generadores`) — cantidades sin tope**: se elimina el límite de 12 unidades por carga; iluminación y el resto de equipos permiten incrementar cantidad sin máximo en el cotizador.
 - **`GeneratorQuickQuote` (`/generadores`) — flujo inteligente en 4 pasos**: el cotizador ahora contempla arranques simultáneos (`bajo/medio/alto`) además de consumo continuo, tipo de proyecto, combustible, fase y nivel de respaldo para una recomendación inicial más realista sin volver la UX técnica.
